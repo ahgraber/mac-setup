@@ -1,0 +1,10 @@
+# cache/  # do not include submodule cache in .gitignore
+!**.gitkeep
+
+# OS Junk
+.DS_Store
+Thumbs.db
+settings.json
+.vscode
+
+.pytest_cache

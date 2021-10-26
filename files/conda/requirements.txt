@@ -1,0 +1,13 @@
+dataprep
+jupytext
+jupyterlab-git
+aquirdturtle_collapsible_headings
+
+
+# for Azure pip
+twine
+keyring
+artifacts-keyring
+
+# # install ds_utils
+# -r ds_utils-requirements.txt

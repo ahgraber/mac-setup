@@ -1,0 +1,93 @@
+---
+homebrew_install_path: /usr/local/homebrew
+homebrew_installed_packages:
+  - asimov
+  - autoconf
+  - automake
+  # - aws-iam-authenticator
+  # - awscli
+  - azure-cli
+  - bfg
+  - coreutils
+  - curl
+  - direnv
+  - erlang
+  - fzf
+  - gcc
+  - git
+  - gnu-time
+  - gpg
+  - graphviz
+  # - heroku
+  - htop
+  - jq
+  - kubectx
+  - kubernetes-cli
+  - kubernetes-helm
+  - libtool
+  - libxslt
+  - libyaml
+  - mas
+  - msodbcsql17
+  - mysql
+  - npm
+  - openssl
+  - packer
+  - pkg-config
+  - postgresql
+  - r
+  - rbenv
+  - readline
+  - redis
+  - ruby-build
+  - sqlite3
+  - ssh-copy-id
+  - sshfs
+  - terraform
+  - tmux
+  - tree
+  - unar
+  - unixodbc
+  - unzip
+  - vim
+  # - watchman
+  # - weaveworks/tap/eksctl
+  - xz
+  - yarn
+  - zlib
+  # - zsh
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - appcleaner
+  - azure-data-studio
+  - bartender
+  # - bettertouchtool
+  - bfs
+  - bitwarden
+  - docker
+  # - git-credential-manager-core
+  - grandperspective
+  - iterm2
+  - lulu
+  - mambaforge
+  - microsoft-azure-storage-explorer
+  # - microsoft-office
+  - microsoft-remote-desktop
+  - osxfuse
+  - oversight
+  - postman
+  - rectangle
+  - rstudio
+  - spotify
+  # - sublime-text
+  - the-unarchiver
+  - virtualbox
+  - visual-studio-code
+  - vlc
+
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/versions
+  - microsoft/git
+  - tavianator/tap

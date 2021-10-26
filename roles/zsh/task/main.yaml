@@ -1,0 +1,43 @@
+---
+  - name: Get the path to ZSH
+    become: false
+    local_action: command which zsh
+    register: zsh_path
+
+  - name: "Ensure homebrew zsh is in allowed shells"
+    lineinfile:
+      path: /etc/shells
+      line: "{{ zsh_path.stdout }}"
+    become: true
+
+  - name: Set ZSH as the default shell
+    shell: chsh -s $(which zsh) {{ lookup('env', 'USER') }}
+    become: true
+
+
+### clone from zshconfig?
+  - name: "Install Default Ruby"
+    shell: |
+      rbenv init
+      rbenv install $(rbenv install --list | grep -v - | tail -1)
+      rbenv global $(rbenv install --list | grep -v - | tail -1)
+
+      gem install bundler
+      gem install colorls
+      rbenv rehash
+      rehash
+
+  ### copy dotfiles
+  - name: Hard link dotfiles
+    file:
+      src: ./files/dotfiles/{{ item.src }}
+      dest: {{ item.dest }}
+      state: hard
+      owner: "{{ lookup('env', 'USER') }}"
+      force: no
+    loop:
+      - { src: aliases, dest: /Users/{{ lookup('env', 'USER') }}/.aliases }
+      - { src: gitattributes_global, dest: /Users/{{ lookup('env', 'USER') }}/.gitattributes_global }
+      - { src: gitconfig, dest: /Users/{{ lookup('env', 'USER') }}/.gitconfig }
+      - { src: env.zsh, dest: /Users/{{ lookup('env', 'USER') }}/env.zsh }
+      - { src: zshrc, dest: /Users/{{ lookup('env', 'USER') }}/.zshrc }

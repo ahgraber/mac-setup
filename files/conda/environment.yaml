@@ -1,0 +1,108 @@
+name: default
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  ### package managers
+  # - conda
+  # - mamba
+  - mamba_gator # Web UI for managing conda environments
+  - pip
+  ### Python
+  - python==3.8
+  ### blas
+  # - conda-forge::blas=*=mkl
+  # - conda-forge::blas=*=openblas
+  # - nomkl
+  ### core deps
+  - cython
+  - distributed
+  - joblib
+  - more-itertools
+  - numba
+  - numexpr
+  - setuptools
+  - xarray
+  ### data & ml
+  - category_encoders
+  - cloudpickle
+  - conda-forge::faker==8.*
+  - dill
+  - imbalanced-learn
+  - jenkspy
+  - lightgbm
+  - missingno
+  - numpy==1.20
+  - openpyxl
+  - pandas
+  # - pandas-datareader
+  # - pandas-profiling  # replaced with `dataprep`
+  - pytables
+  - scikit-learn
+  - scipy
+  - shap
+  - statsmodels
+  - sympy
+  - xgboost
+  - xlrd
+  ### jupyter
+  - ipykernel
+  - ipython
+  - jupyter
+  - jupyter_contrib_nbextensions
+  - jupyter_nbextensions_configurator
+  - jupyterlab
+  - nbdime
+  ### plotting
+  - ipympl
+  - ipywidgets
+  - matplotlib-base
+  - plotnine # ggplot style
+  - plotly
+  - seaborn
+  - widgetsnbextension
+  ### utils
+  - attrs
+  - black
+  - click
+  - cookiecutter
+  - colorama
+  - flake8
+  - flake8-bugbear
+  - flake8-builtins
+  - flake8-colors
+  - flake8-comprehensions
+  - ipdb
+  - isort
+  - markdown
+  - numpydoc
+  # - nodejs
+  - pep8
+  - pep8-naming
+  - pycodestyle
+  - pylint
+  - pytest
+  - python-dotenv
+  - pyyaml
+  - sphinx
+  - tqdm
+  - yaml
+  ### sql
+  - h5py
+  - hdf5
+  - pyodbc
+  - pyarrow
+  - snowflake-connector-python
+  - snowflake-sqlalchemy
+  - sqlalchemy
+  - sqlite
+  ### dataprep deps
+  - async-timeout
+  - multidict
+  - yarl
+# ### pip
+#   - pip:
+#     - dataprep==0.3.*
+#     - jupytext
+#     - jupyterlab-git
+#     - aquirdturtle_collapsible_headings

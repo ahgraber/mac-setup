@@ -1,0 +1,10 @@
+---
+roles:
+  - name: geerlingguy.dock
+  - name: geerlingguy.dotfiles
+  - name: geerlingguy.homebrew
+  - name: geerlingguy.mas
+  - name: elliotweiser.osx-command-line-tools
+
+collections:
+  - name: community.general

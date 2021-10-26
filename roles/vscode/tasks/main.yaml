@@ -1,0 +1,25 @@
+---
+  - name: Copy VSCode configuration
+    copy:
+      src: ./files/vscode/settings.json
+      dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/settings.json
+      owner: "{{ lookup('env', 'USER') }}"
+      force: no
+
+  - name: Copy VSCode keybinding
+    copy:
+      src: ./files/vscode/vscode-keybindings.json
+      dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/keybindings.json
+      owner: "{{ lookup('env', 'USER') }}"
+      force: no
+
+  - name: Install VSCode extensions
+    shell: code --install-extension {{ item }}
+    with_items: "{{ vscode_extensions }}"
+
+  - name: Copy iTerm profile
+    copy:
+      src: ./files/iterm/Dynamic.json
+      dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/iTerm2/DynamicProfiles/Profiles.json
+      owner: "{{ lookup('env', 'USER') }}"
+      force: no

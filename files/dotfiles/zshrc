@@ -1,0 +1,216 @@
+# If not in tmux, start tmux.
+if [[ -z ${TMUX+X}${ZSH_SCRIPT+X}${ZSH_EXECUTION_STRING+X} ]]; then
+  exec tmux
+fi
+
+export ZSH=$HOME/.zshcfg
+
+# Set ZSH_CACHE_DIR to the path where cache files should be created
+# or else we will use the default cache/
+if [[ -z "$ZSH_CACHE_DIR" ]]; then
+  ZSH_CACHE_DIR="$ZSH/cache"
+fi
+
+# Make sure $ZSH_CACHE_DIR is writable, otherwise use a directory in $HOME
+if [[ ! -w "$ZSH_CACHE_DIR" ]]; then
+  ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zshcfg"
+fi
+export ZFS_CACHE_DIR
+
+# Create completions dir and add to $fpath
+mkdir -p "$ZSH_CACHE_DIR/completions"
+(( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
+
+# Create functions dir and add to $fpath
+mkdir -p "$ZSH_CACHE_DIR/completions"
+(( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
+
+# Install plugins
+function zcompile-many() {
+  local f
+  for f; do zcompile -R -- "$f".zwc "$f"; done
+}
+
+# compile to wordcode missing plugins.
+zcompile-many $ZSH_CACHE_DIR/zsh-syntax-highlighting/{zsh-syntax-highlighting.zsh,highlighters/*/*.zsh}
+zcompile-many $ZSH_CACHE_DIR/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
+zcompile-many $ZSH_CACHE_DIR/zsh-completions/{src/**/*.zsh}
+zcompile-many $ZSH_CACHE_DIR/ohmyzsh/{oh-my-zsh.zsh,plugins/**/*.zsh}
+make -C $ZSH_CACHE_DIR/powerlevel10k pkg
+
+
+# Activate Powerlevel10k Instant Prompt.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# add a function path
+fpath=($ZSH/functions $ZSH/completions $fpath)
+
+# Enable the "new" completion system (compsys).
+autoload -Uz compinit && compinit
+# autoload -U +X bashcompinit && bashcompinit
+[[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || zcompile-many ~/.zcompdump
+unfunction zcompile-many
+
+# Initializing Zsh & Plugins --
+# After this point console I/O is unavailable until Zsh is fully initialized.
+# Everything that requires user interaction or can perform network I/O must be done above.
+# Everything else is best done below.
+
+### set OMZ options for lib
+ENABLE_CORRECTION="true"
+CASE_SENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+### plugins
+source $ZSH_CACHE_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_CACHE_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_CACHE_DIR/zsh-completions/zsh-completions.zsh
+### settings from OMZ
+source $ZSH_CACHE_DIR/ohmyzsh/lib/clipboard.zsh
+source $ZSH_CACHE_DIR/ohmyzsh/lib/compfix.sh
+# source $ZSH_CACHE_DIR/ohmyzsh/lib/completion.zsh
+# source $ZSH_CACHE_DIR/ohmyzsh/lib/correction.zsh
+# source $ZSH_CACHE_DIR/ohmyzsh/lib/history.zsh
+### custom settings
+source $ZSH_CONFIG/lib/autosuggest.zsh
+source $ZSH_CONFIG/lib/completion.zsh
+source $ZSH_CONFIG/lib/correction.zsh
+source $ZSH_CONFIG/lib/history.zsh
+source $ZSH_CONFIG/lib/fzf.zsh
+source $ZSH_CONFIG/lib/options.zsh
+### theme
+source $ZSH_CACHE_DIR/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.p10k.zsh
+
+# additional OMZ plugins
+source $ZSH_CACHE_DIR/ohmyzsh/plugins
+
+
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/colored-man-pages  # enable colored man pages
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/colorize           # multilanguage syntax highlighting
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/direnv             # enable direnv
+
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/docker             # docker completions
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+# source $ZSH_CACHE_DIR/ohmyzsh/plugins/docker-compose     # docker-compose completions ++
+
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/helm               # helm completions
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/kubectl            # kubectl completions + aliases
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/terraform          # terraform completions
+
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/python
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/python             # python functionality
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/npm                # npm completions & functionality
+# source $ZSH_CACHE_DIR/ohmyzsh/plugins/rails              # rails completions & functionality
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/rbenv              # rbenv completions & functionality
+# source $ZSH_CACHE_DIR/ohmyzsh/plugins/ruby               # ruby aliases
+# source $ZSH_CACHE_DIR/ohmyzsh/plugins/rvm                # rvm completions & functionality
+
+source $ZSH_CACHE_DIR/ohmyzsh/plugins/safe-paste         # prevent pasted code from running
+
+# install trapd00r/LS_COLORS
+[[ -f $HOME/.local/share/lscolors.sh ]] && sh $ZSH_CACHE_DIR/ls_colors/install.sh
+source $HOME/.local/share/lscolors.sh
+
+###########################################################
+###                 path configuration                  ###
+###########################################################
+
+# Standard PATH:
+# export PATH="/usr/bin:/bin:/usr/sbin:/usr/local/bin"
+
+# Extend PATH for Z4H
+export PATH=$HOME/bin:$PATH
+
+# Prepend Homebrew's executable directory
+# Set architecture-specific brew share path.
+arch_name="$(uname -m)"
+if [ "${arch_name}" = "x86_64" ]; then
+    share_path="/usr/local/share"
+elif [ "${arch_name}" = "arm64" ]; then
+    share_path="/opt/homebrew/share"
+else
+    echo "Unknown architecture: ${arch_name}"
+fi
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# Add rbenv to path
+export PATH=$HOME/.rbenv/shims:$PATH
+
+# Export environment variables.
+export GPG_TTY=$TTY
+
+# Source additional local files if they exist.
+# source ~/.env.zsh
+# source ~/.aliases
+# source ~/.fonts/*.sh
+[[ -f ~/.env.zsh ]] && source ~/.env.zsh
+[[ -f ~/.aliases ]] && source ~/.aliases
+[[ -d ~/.fonts ]] && source ~/.fonts/*.sh
+
+##########################################################
+###           additional path configuration             ###
+###########################################################
+# Other Homebrew packages
+# export PATH="/usr/local/opt/gcc/bin:$PATH"
+# export PATH="/usr/local/opt/arm-gcc-bin@8/bin:$PATH"
+# export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
+# export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+# export PATH="/usr/local/opt/cmake/bin:$PATH"
+# export PATH="/usr/local/opt/boost-python3/bin:$PATH"
+# export PATH="/usr/local/opt/boost/bin:$PATH"
+# export PATH="/usr/local/opt/sqlite/bin:$PATH"
+# export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+# # use brew-installed llvm?
+# export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/llvm/lib"
+# export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+###########################################################
+###                 zsh configuration                   ###
+###########################################################
+# set your language environment
+export LANG=en_US.UTF-8
+# export ARCHFLAGS="-arch x86_64"
+
+
+###########################################################
+###                 User configuration                  ###
+###########################################################
+
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+else
+  export EDITOR='code'
+fi
+
+# >>> conda initialize >>>
+# _CONDAPATH="opt/anaconda3"
+_CONDAPATH_="miniconda3"
+# _CONDAPATH="miniforge3"
+# _CONDAPATH="mambaforge"
+
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$("/Users/${USERNAME}/${_CONDAPATH_}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/${USERNAME}/${_CONDAPATH_}/etc/profile.d/conda.sh" ]; then
+        . "/Users/${USERNAME}/${_CONDAPATH_}/etc/profile.d/conda.sh"  # commented out by conda initialize
+        # CONDA_CHANGEPS1=false conda activate base
+    else
+        export PATH="/Users/${USERNAME}/${_CONDAPATH_}/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
