@@ -65,6 +65,7 @@ homebrew_cask_apps:
   # - bettertouchtool
   - bfs
   - bitwarden
+  - blockblock
   - docker
   # - git-credential-manager-core
   - grandperspective
