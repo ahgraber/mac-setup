@@ -7,11 +7,14 @@ homebrew_installed_packages:
   # - aws-iam-authenticator
   # - awscli
   - azure-cli
+  - bat
+  - bat-extras
   - bfg
   - coreutils
   - curl
   - direnv
-  - erlang
+  # - erlang
+  - exa
   - fzf
   - gcc
   - git
@@ -36,16 +39,16 @@ homebrew_installed_packages:
   - pkg-config
   - postgresql
   - r
-  - rbenv
+  # - rbenv
   - readline
   - redis
-  - ruby-build
+  # - ruby-build
   - sqlite3
   - ssh-copy-id
   - sshfs
   - terraform
   - tmux
-  - tree
+  # - tree
   - unar
   - unixodbc
   - unzip

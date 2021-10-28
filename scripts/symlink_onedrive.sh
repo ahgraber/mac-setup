@@ -25,8 +25,8 @@ if [[ -d "$HOME/$ONEDRIVE_DIR" ]]; then
         echo "Overwriting current '.old' directories"
       fi
     fi
-    sudo mv $HOME/Desktop $HOME/Desktop.old
-    sudo mv $HOME/Documents $HOME/Documents.old
+    sudo mv $HOME/Desktop $HOME/.Desktop.old
+    sudo mv $HOME/Documents $HOME/.Documents.old
     echo "Symlinking OneDrive folders"
     sudo ln -fs "$ONEDRIVE_DIR"/Desktop
     sudo ln -fs "$ONEDRIVE_DIR"/Documents
