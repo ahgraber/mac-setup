@@ -7,13 +7,6 @@
     - vars/vscode_env.yaml
 
   tasks:
-    - name: install Rosetta
-      shell: |
-        # install x86 compatibility layer
-        if [[ "$(arch)" = "arm64" ]]; then
-          softwareupdate --install-rosetta --agree-to-license
-        fi
-
     - name: install homebrew
       include_role:
         name: geerlingguy.homebrew

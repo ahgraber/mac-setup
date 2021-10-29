@@ -14,30 +14,53 @@
     shell: chsh -s $(which zsh) {{ lookup('env', 'USER') }}
     become: true
 
+  # - name: "Install Default Ruby"
+  #   shell: |
+  #     rbenv init
+  #     rbenv install $(rbenv install --list | grep -v - | tail -1)
+  #     rbenv global $(rbenv install --list | grep -v - | tail -1)
 
-### clone from zshconfig?
-  - name: "Install Default Ruby"
-    shell: |
-      rbenv init
-      rbenv install $(rbenv install --list | grep -v - | tail -1)
-      rbenv global $(rbenv install --list | grep -v - | tail -1)
+  #     gem install bundler
+  #     gem install colorls
+  #     rbenv rehash
+  #     rehash
 
-      gem install bundler
-      gem install colorls
-      rbenv rehash
-      rehash
+  # clone from zshconfig
+  - name: Clone zshconfig repo
+    git:
+      repo: https://github.com/ahgraber/zshconfig.git
+      dest: /home/{{ lookup('env', 'USER') }}/.zshconfig
+      clone: yes
+      # version: main
+      # accept_hostkey: yes
+      # key_file: /home/{{ lookup('env', 'USER') }}/.ssh/id_rsa
+    # become: yes
+    # become_user: {{ lookup('env', 'USER') }}
 
-  ### copy dotfiles
-  - name: Hard link dotfiles
-    file:
-      src: ./files/dotfiles/{{ item.src }}
+
+  # copy dotfiles, making backups if they exist
+  - name: Back up dotfiles
+    copy:
+      src: /Users/{{ lookup('env', 'USER') }}/{{ item.src }}
       dest: {{ item.dest }}
-      state: hard
       owner: "{{ lookup('env', 'USER') }}"
-      force: no
+      backup: yes
     loop:
       - { src: aliases, dest: /Users/{{ lookup('env', 'USER') }}/.aliases }
       - { src: gitattributes_global, dest: /Users/{{ lookup('env', 'USER') }}/.gitattributes_global }
       - { src: gitconfig, dest: /Users/{{ lookup('env', 'USER') }}/.gitconfig }
-      - { src: env.zsh, dest: /Users/{{ lookup('env', 'USER') }}/env.zsh }
+      - { src: zshrc, dest: /Users/{{ lookup('env', 'USER') }}/.zshrc }
+
+  # replace dotfile copies with symlinks
+  - name: Symlink dotfiles
+    file:
+      src: ./files/dotfiles/{{ item.src }}
+      dest: {{ item.dest }}
+      state: link
+      owner: "{{ lookup('env', 'USER') }}"
+      force: yes
+    loop:
+      - { src: aliases, dest: /Users/{{ lookup('env', 'USER') }}/.aliases }
+      - { src: gitattributes_global, dest: /Users/{{ lookup('env', 'USER') }}/.gitattributes_global }
+      - { src: gitconfig, dest: /Users/{{ lookup('env', 'USER') }}/.gitconfig }
       - { src: zshrc, dest: /Users/{{ lookup('env', 'USER') }}/.zshrc }

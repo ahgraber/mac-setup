@@ -34,20 +34,15 @@ sh ./01-install_ansible.sh
 3. Run:
 
    ```sh
-   bash ./setup.sh
-   ```
-
-   or install piecemeal:
-
-   ```sh
    # install prerequisites
    # xcode command line tools
    # python pip
    # ansible
+   # fonts
    bash ./scripts/prerequisites.sh
 
    # install with ansible
-   # applications & packages w/ homebrew
+   # homebrew applications & packages
    # dock customization
    # vscode customization
    # zsh customization
@@ -57,12 +52,11 @@ sh ./01-install_ansible.sh
    bash ./scripts/symlink_onedrive.sh
    bash ./scripts/git_dir.sh
 
+   # macOS customization
    sudo bash ./scripts/osx_settings.sh
    ```
 
 ## Manual followup
-
-* [ ] Update iTerm2 default profile or set Dynamic as default: _Preferences > Profiles_
 
 * [ ] Set git config
 
@@ -76,9 +70,13 @@ sh ./01-install_ansible.sh
 
   ```sh
   # example -- back up existing .zshrc and hard link
-  mv ~/.zshrc ~/.zshrc.bak
-  ln ~/ansible-mac-setup/files/dotfiles/zshrc .zshrc
+  mv ~/.zshrc ~/.zshrc.$(date +%Y.%m.%d)
+  ln -s ~/ansible-mac-setup/files/dotfiles/zshrc .zshrc
   ```
+
+* [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
+
+* [ ] Update iTerm2 default profile or set Dynamic as default: _Preferences > Profiles_
 
 ## Testing
 
