@@ -10,9 +10,9 @@ DEST_DIR=${DEST_DIR:-$HOME}
 
 echo "Cloning into ${DEST_DIR}"
 mkdir -p ${DEST_DIR}
-git clone https://github.com/ahgraber/ansible-mac-setup.git
+git clone https://github.com/ahgraber/mac-setup.git
 
-cd ${DEST_DIR}/ansible-mac-setup/
+cd ${DEST_DIR}/mac-setup/
 
 # install prerequisites
 # xcode command line tools

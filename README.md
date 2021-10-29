@@ -86,3 +86,7 @@ sh ./01-install_ansible.sh
 # run to create VM in shell interactive mode
 /bin/zsh -i -c "$(curl -fsSL https://raw.githubusercontent.com/myspaghetti/macos-virtualbox/master/macos-guest-virtualbox.sh)"
 ```
+
+## References
+
+https://iterm2colorschemes.com/
