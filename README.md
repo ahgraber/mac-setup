@@ -5,7 +5,7 @@
 The following script will autoinstall the default configuration:
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/ansible-mac-setup/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
 ```
 
 ## Prerequisites
@@ -21,7 +21,7 @@ sh ./01-install_ansible.sh
 1. Clone repo:
 
    ```sh
-   git clone https://github.com/ahgraber/ansible-mac-setup.git
+   git clone https://github.com/ahgraber/mac-setup.git
    ```
 
 2. Configuration:
@@ -89,4 +89,4 @@ sh ./01-install_ansible.sh
 
 ## References
 
-https://iterm2colorschemes.com/
+* https://iterm2colorschemes.com/
