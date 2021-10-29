@@ -2,6 +2,8 @@
 
 ## Quickstart
 
+The following script will autoinstall the default configuration:
+
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/ansible-mac-setup/HEAD/install.sh)"
 ```
