@@ -10,11 +10,12 @@ The following script will autoinstall the default configuration:
 
 ## Prerequisites
 
-1. Run installation script to install xcode CLI, pip, and ansible
-
-```sh
-sh ./01-install_ansible.sh
-```
+* `./scripts/prerequisites.sh` will install prereqs during boostrap:
+  * xcode cli
+  * rosetta2 (if Apple silicon)
+  * pip
+  * Ansible
+  * Homebrew
 
 ## Manual installation & configuration
 
@@ -24,7 +25,7 @@ sh ./01-install_ansible.sh
    git clone https://github.com/ahgraber/mac-setup.git
    ```
 
-2. Configuration:
+2. Customize configuration:
    * [dock_vars](./vars/dock_vars.yaml) removes / retains / sets position for Dock applications
    * [homebrew_vars](./vars/homebrew_vars.yaml) installs applications & packages
      * `Casks` are applications and are updated through the application
@@ -35,10 +36,6 @@ sh ./01-install_ansible.sh
 
    ```sh
    # install prerequisites
-   # xcode command line tools
-   # python pip
-   # ansible
-   # fonts
    bash ./scripts/prerequisites.sh
 
    # install with ansible
@@ -76,7 +73,8 @@ sh ./01-install_ansible.sh
 
 * [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
 
-* [ ] Update iTerm2 default profile or set Dynamic as default: _Preferences > Profiles_
+* [ ] Import & Update iTerm2 default profile or set Dynamic as default: _Preferences > Profiles_
+* [ ] Import & Update Terminal default profile
 
 ## Testing
 
