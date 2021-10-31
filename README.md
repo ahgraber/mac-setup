@@ -81,6 +81,22 @@ The following script will autoinstall the default configuration:
 [Use VirtualBox](https://github.com/myspaghetti/macos-virtualbox) to set up a MacOS virtual machine guest OS for testing.
 
 ```sh
+set -- $(locale LC_MESSAGES)
+yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
+
+# install prerequisites?
+prerequisites='y'
+if [[ "$prerequisites" =~ $yesexpr ]]; then
+  brew install \
+    coreutils \
+    dmg2img \
+    gzip \
+    tesseract \
+    unzip \
+    wget \
+    virtualbox
+fi
+
 # run to create VM in shell interactive mode
 /bin/zsh -i -c "$(curl -fsSL https://raw.githubusercontent.com/myspaghetti/macos-virtualbox/master/macos-guest-virtualbox.sh)"
 ```

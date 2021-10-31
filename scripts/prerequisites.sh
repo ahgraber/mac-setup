@@ -23,8 +23,10 @@ rm get-pip.py
 
 echo "Installing Ansible"
 if ! command -v ansible >/dev/null; then
-  echo "Installing ansible via pip..."
-  pip install --user --upgrade ansible
+  # echo "Installing ansible via pip..."
+  # pip install --user --upgrade ansible
+  echo "Installing ansible via Homebrew..."
+  brew install ansible
 else
   echo "Ansible already installed.  Skipping."
 fi

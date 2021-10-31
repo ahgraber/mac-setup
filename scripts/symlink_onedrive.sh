@@ -6,7 +6,6 @@ onedrive_dir="$(/bin/ls $HOME | grep OneDrive)"
 if [[ -d "$HOME/$onedrive_dir" ]]; then
   read -p "Symlink OneDrive folders (yes/no)? [y] " user_select
   user_select=${user_select:-"y"}
-  # echo "user_select: $user_select"
 
   if [[ "$user_select" =~ $noexpr ]]; then
     echo "Retaining separate folders for user home ($HOME) and OneDrive"; exit
@@ -16,7 +15,6 @@ if [[ -d "$HOME/$onedrive_dir" ]]; then
       echo "WARNING: '.old' directories already exist"
       read -p "Continue and overwrite (yes/no)? [y] " overwrite
       overwrite=${overwrite:-"y"}
-      # echo "overwrite: $overwrite"
 
       if [[ "$overwrite" =~ $noexpr ]]; then
         echo "Exiting"

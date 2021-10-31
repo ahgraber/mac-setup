@@ -17,6 +17,7 @@ homebrew_installed_packages:
   - git
   # - git-credential-manager-core
   - graphviz
+  - gzip
   - htop
   - jq
   - kubernetes-cli
@@ -44,6 +45,7 @@ homebrew_installed_packages:
   - unixodbc
   - unzip
   - vim
+  - wget
   - xz
   - yarn
   - zlib
