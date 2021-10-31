@@ -8,7 +8,8 @@ if [[ -d "$HOME/$onedrive_dir" ]]; then
   user_select=${user_select:-"y"}
 
   if [[ "$user_select" =~ $noexpr ]]; then
-    echo "Retaining separate folders for user home ($HOME) and OneDrive"; exit
+    echo "Retaining separate folders for user home ($HOME) and OneDrive"
+    exit 0
   elif [[ "$user_select" =~ $yesexpr ]]; then
     echo "Backing up current desktop ($HOME/Desktop) and documents ($HOME/Documents) folders"
     if [[ -d $HOME/Desktop.old ]] || [[ -d $HOME/Documents.old ]]; then

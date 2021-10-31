@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Ensure Apple's command line tools are installed
-if ! command -v cc >/dev/null; then
+if [[ $(command -v cc) ]]; then
+  echo "Xcode already installed. Skipping."
+else
   echo "Installing xcode ..."
   xcode-select --install
   sudo xcodebuild -license
-else
-  echo "Xcode already installed. Skipping."
+
 fi
 
 # install x86 compatibility layer
@@ -22,23 +23,23 @@ python get-pip.py --user
 rm get-pip.py
 
 echo "Installing Ansible"
-if ! command -v ansible >/dev/null; then
+if [[ $(command -v ansible ]]; then
+  echo "Ansible already installed.  Skipping."
+else
   # echo "Installing ansible via pip..."
   # pip install --user --upgrade ansible
   echo "Installing ansible via Homebrew..."
   brew install ansible
-else
-  echo "Ansible already installed.  Skipping."
 fi
 echo "Installing/Updating Ansible requirements..."
 ansible-galaxy install -r requirements.yml
 
 # Ensure Homebrew (mac package manager) is installed
-if ! command -v brew >/dev/null; then
+if [[ $(command -v brew) ]]; then
+echo "Homebrew already installed. Skipping."
+else
   echo "Installing Homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
-else
-  echo "Homebrew already installed. Skipping."
 fi
 
 echo "Success! Prerequisites installed."

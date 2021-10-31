@@ -21,7 +21,7 @@ cd ${dest_dir}/mac-setup/
 # python pip
 # ansible
 echo "Installing prerequisites..."
-. ./scripts/prerequisites.sh
+bash ./scripts/prerequisites.sh
 
 # install with ansible
 # applications & packages w/ homebrew
@@ -29,10 +29,10 @@ echo "Installing prerequisites..."
 # vscode customization
 # zsh customization
 echo "Executing Ansible playbook..."
-ansible-playbook playbook.yml -i inventory --ask-sudo-pass -vvvv
+ansible-playbook playbook.yaml -i inventory --ask-sudo-pass -vvvv
 
 # home folder mgmt
-. ./scripts/symlink_onedrive.sh
-. ./scripts/git_dir.sh
+bash ./scripts/symlink_onedrive.sh
+bash ./scripts/git_dir.sh
 
-sudo . ./scripts/macos_settings.sh
+sudo bash ./scripts/macos_settings.sh
