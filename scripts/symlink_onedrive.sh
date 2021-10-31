@@ -2,33 +2,33 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
-ONEDRIVE_DIR="$(/bin/ls ~ | grep OneDrive)"
-if [[ -d "$HOME/$ONEDRIVE_DIR" ]]; then
-  read -p "Symlink OneDrive folders (yes/no)? [y] " USER_SELECT
-  USER_SELECT=${USER_SELECT:-"y"}
-  # echo "USER_SELECT: $USER_SELECT"
+onedrive_dir="$(/bin/ls $HOME | grep OneDrive)"
+if [[ -d "$HOME/$onedrive_dir" ]]; then
+  read -p "Symlink OneDrive folders (yes/no)? [y] " user_select
+  user_select=${user_select:-"y"}
+  # echo "user_select: $user_select"
 
-  if [[ "$USER_SELECT" =~ $noexpr ]]; then
+  if [[ "$user_select" =~ $noexpr ]]; then
     echo "Retaining separate folders for user home ($HOME) and OneDrive"; exit
-  elif [[ "$USER_SELECT" =~ $yesexpr ]]; then
+  elif [[ "$user_select" =~ $yesexpr ]]; then
     echo "Backing up current desktop ($HOME/Desktop) and documents ($HOME/Documents) folders"
     if [[ -d $HOME/Desktop.old ]] || [[ -d $HOME/Documents.old ]]; then
       echo "WARNING: '.old' directories already exist"
-      read -p "Continue and overwrite (yes/no)? [y] " OVERWRITE
-      OVERWRITE=${OVERWRITE:-"y"}
-      # echo "OVERWRITE: $OVERWRITE"
+      read -p "Continue and overwrite (yes/no)? [y] " overwrite
+      overwrite=${overwrite:-"y"}
+      # echo "overwrite: $overwrite"
 
-      if [[ "$OVERWRITE" =~ $noexpr ]]; then
+      if [[ "$overwrite" =~ $noexpr ]]; then
         echo "Exiting"
         exit 0
-      elif [[ "$USER_SELECT" =~ $yesexpr ]]; then
+      elif [[ "$user_select" =~ $yesexpr ]]; then
         echo "Overwriting current '.old' directories"
       fi
     fi
     sudo mv $HOME/Desktop $HOME/.Desktop.old
     sudo mv $HOME/Documents $HOME/.Documents.old
     echo "Symlinking OneDrive folders"
-    sudo ln -fs "$ONEDRIVE_DIR"/Desktop
-    sudo ln -fs "$ONEDRIVE_DIR"/Documents
+    sudo ln -fs "$onedrive_dir"/Desktop
+    sudo ln -fs "$onedrive_dir"/Documents
   fi
 fi

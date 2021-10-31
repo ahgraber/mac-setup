@@ -1,34 +1,36 @@
 #!/bin/bash
 
-read -p "Clone to home directory (y/n)? [y]" USE_HOME
-case USE_HOME in
-  n | N) read -p "Please enter destination directory: " DEST_DIR
+read -p "Clone to home directory (y/n)? [y]" use_home
+case use_home in
+  n | N) read -p "Please enter destination directory: " dest_dir
   ;;
 esac
 # default to home dir
-DEST_DIR=${DEST_DIR:-$HOME}
+dest_dir=${dest_dir:-$HOME}
 
-echo "Cloning into ${DEST_DIR}"
-mkdir -p ${DEST_DIR}
+echo "Cloning into ${dest_dir}"
+mkdir -p ${dest_dir}
 git clone https://github.com/ahgraber/mac-setup.git
 
-cd ${DEST_DIR}/mac-setup/
+cd ${dest_dir}/mac-setup/
 
 # install prerequisites
 # xcode command line tools
 # python pip
 # ansible
-bash ./scripts/prerequisites.sh
+echo "Installing prerequisites..."
+. ./scripts/prerequisites.sh
 
 # install with ansible
 # applications & packages w/ homebrew
 # dock customization
 # vscode customization
 # zsh customization
+echo "Executing Ansible playbook..."
 ansible-playbook playbook.yml -i inventory --ask-sudo-pass -vvvv
 
 # home folder mgmt
-bash ./scripts/symlink_onedrive.sh
-bash ./scripts/git_dir.sh
+. ./scripts/symlink_onedrive.sh
+. ./scripts/git_dir.sh
 
-sudo bash ./scripts/osx_settings.sh
+sudo . ./scripts/macos_settings.sh

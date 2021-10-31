@@ -2,9 +2,15 @@
 !**.gitkeep
 
 # OS Junk
+._*
 .DS_Store
+.Spotlight-V100
+.Trashes
+.vscode
+Desktop.ini
 Thumbs.db
 settings.json
-.vscode
 
+
+*.pyc
 .pytest_cache

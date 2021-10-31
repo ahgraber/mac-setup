@@ -50,7 +50,7 @@ The following script will autoinstall the default configuration:
    bash ./scripts/git_dir.sh
 
    # macOS customization
-   sudo bash ./scripts/osx_settings.sh
+   sudo bash ./scripts/macos_settings.sh
    ```
 
 ## Manual followup
