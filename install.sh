@@ -1,10 +1,12 @@
 #!/bin/bash
+set -- $(locale LC_MESSAGES)
+yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
 read -p "Clone to home directory (y/n)? [y]" use_home
-case use_home in
-  n | N) read -p "Please enter destination directory: " dest_dir
-  ;;
-esac
+use_home=${use_home:-"y"}
+if [[ "$use_home" =~ $noexpr ]]; then
+  read -p "Please enter destination directory: " dest_dir
+fi
 # default to home dir
 dest_dir=${dest_dir:-$HOME}
 
