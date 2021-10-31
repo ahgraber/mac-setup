@@ -94,7 +94,8 @@ if [[ "$prerequisites" =~ $yesexpr ]]; then
     tesseract \
     unzip \
     wget \
-    virtualbox
+    virtualbox \
+    virtualbox-extension-pack
 fi
 
 # run to create VM in shell interactive mode

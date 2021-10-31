@@ -76,7 +76,8 @@ homebrew_cask_apps:
   - spotify
   # - sublime-text
   - the-unarchiver
-  - virtualbox
+  # - virtualbox
+  # - virtualbox-extension-pack
   - visual-studio-code
   - vlc
 
