@@ -8,9 +8,8 @@ git_select=${git_select:-"y"}
 
 if [[ "$git_select" =~ $noexpr ]]; then
   echo "Skipping git folder setup."
-  echo "WARNING: if Desktop and Documents are cloud synced (iCloud, OneDrive), "
+  echo "WARNING: if Desktop and Documents are cloud synced (iCloud, OneDrive, etc.), "
   echo "saving git repositories in ~/Desktop or ~/Documents may risk sync conflicts!"
-  exit 0
 elif [[ "$git_select" =~ $yesexpr ]]; then
   read -p "Please enter directory name for git repositories folder (to be located in $HOME): " git_dir
   git_dir=${git_dir:-"_GitProjects"}
