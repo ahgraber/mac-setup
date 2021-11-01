@@ -2,6 +2,13 @@
 
 # ref: https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
+echo "Applying macOS settings..."
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+
 # Warn that some commands will not be run if the script is not run as root.
 if [[ $EUID -ne 0 ]]; then
   RUN_AS_ROOT=false
@@ -11,6 +18,7 @@ else
   # Update existing `sudo` timestamp until `.osx` has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 fi
+
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -96,13 +104,13 @@ if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a lidwake 1; fi
 if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a autorestart 1; fi
 
 # Sleep the display after 15 minutes
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a displaysleep 15; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a displaysleep 5; fi
 
 # Disable machine sleep while charging
 if [[ "$RUN_AS_ROOT" = true ]]; then pmset -c sleep 0; fi
 
 # Set machine sleep to 5 minutes on battery
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -b sleep 5; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then pmset -b sleep 15; fi
 
 # Set standby delay to 24 hours (default is 1 hour)
 if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a standbydelay 86400; fi
@@ -132,7 +140,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -361,15 +369,13 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 # Spotlight                                                                   #
 ###############################################################################
 
-if [[ "$RUN_AS_ROOT" = true ]]; then
-  # Disable Spotlight indexing for any volume that gets mounted and has not yet
-  # been indexed before.
-  # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-  sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
-  # Restart spotlight
-  killall mds > /dev/null 2>&1
-fi
+# DNE in Catalina ++?
+# if [[ "$RUN_AS_ROOT" = true ]]; then
+#   # Disable Spotlight indexing for any volume that gets mounted and has not yet
+#   # been indexed before.
+#   # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
+#   defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# fi
 
 defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 1;"name" = "APPLICATIONS";}' \
@@ -409,6 +415,8 @@ if [[ "$RUN_AS_ROOT" = true ]]; then mdutil -E / > /dev/null; fi
 # defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Material Darker theme by default in Terminal.app
+curr_dir=$(pwd)
+echo "Running from dir: $curr_dir"
 osascript <<EOD
 
 tell application "Terminal"
@@ -424,7 +432,7 @@ tell application "Terminal"
   (* Open the custom theme so that it gets added to the list
       of available terminal themes (note: this will open two
       additional terminal windows). *)
-  do shell script "open './files/terminal/" & themeName & ".terminal'"
+  do shell script "open '$curr_dir/files/terminal/" & themeName & ".terminal'"
 
   (* Wait a little bit to ensure that the custom theme is added. *)
   delay 1
@@ -466,7 +474,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
 # Install the Material Darker theme for iTerm
-open "./files/iterm/materialdarker.itermcolors"
+open "$curr_dir/files/iterm/materialdarker.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
