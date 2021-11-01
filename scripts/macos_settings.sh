@@ -8,7 +8,6 @@ echo "Applying macOS settings..."
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
-
 # Warn that some commands will not be run if the script is not run as root.
 if [[ $EUID -ne 0 ]]; then
   RUN_AS_ROOT=false
@@ -23,6 +22,26 @@ fi
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
+
+# # Set highlight color to green
+# defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+
+# Set sidebar icon size to medium
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+
+# Always show scrollbars
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# Possible values: `WhenScrolling`, `Automatic` and `Always`
+
+# # Disable the over-the-top focus ring animation
+# defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
+
+# Disable smooth scrolling
+# (Uncomment if you’re on an older Mac that messes up the animation)
+#defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
+
+# Increase window resize speed for Cocoa applications
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -92,44 +111,44 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 ###############################################################################
 
 # Restart automatically if the computer freezes
-# if [[ "$RUN_AS_ROOT" = true ]]; then systemsetup -setrestartfreeze on; fi
+# if [[ "$RUN_AS_ROOT" = true ]]; then sudo systemsetup -setrestartfreeze on; fi
 
 # Disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Enable lid wakeup
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a lidwake 1; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a lidwake 1; fi
 
 # Restart automatically on power loss
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a autorestart 1; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a autorestart 1; fi
 
 # Sleep the display after 15 minutes
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a displaysleep 5; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a displaysleep 5; fi
 
 # Disable machine sleep while charging
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -c sleep 0; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -c sleep 0; fi
 
 # Set machine sleep to 5 minutes on battery
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -b sleep 15; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -b sleep 15; fi
 
 # Set standby delay to 24 hours (default is 1 hour)
-if [[ "$RUN_AS_ROOT" = true ]]; then pmset -a standbydelay 86400; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a standbydelay 86400; fi
 
 # Never go into computer sleep mode
-if [[ "$RUN_AS_ROOT" = true ]]; then systemsetup -setcomputersleep Off > /dev/null; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo systemsetup -setcomputersleep Off > /dev/null; fi
 
 # # Hibernation mode
 # # 0: Disable hibernation (speeds up entering sleep mode)
 # # 3: Copy RAM to disk so the system state can still be restored in case of a
 # #    power failure.
-# if [[ "$RUN_AS_ROOT" = true ]]; then  pmset -a hibernatemode 0; fi
+# if [[ "$RUN_AS_ROOT" = true ]]; then sudo  pmset -a hibernatemode 0; fi
 
 # # Remove the sleep image file to save disk space
-# if [[ "$RUN_AS_ROOT" = true ]]; then rm /private/var/vm/sleepimage; fi
+# if [[ "$RUN_AS_ROOT" = true ]]; then sudo rm /private/var/vm/sleepimage; fi
 # # Create a zero-byte file instead…
-# if [[ "$RUN_AS_ROOT" = true ]]; then touch /private/var/vm/sleepimage; fi
+# if [[ "$RUN_AS_ROOT" = true ]]; then sudo touch /private/var/vm/sleepimage; fi
 # # …and make sure it can’t be rewritten
-# if [[ "$RUN_AS_ROOT" = true ]]; then chflags uchg /private/var/vm/sleepimage; fi
+# if [[ "$RUN_AS_ROOT" = true ]]; then sudo chflags uchg /private/var/vm/sleepimage; fi
 
 ###############################################################################
 # Screen                                                                      #
@@ -153,7 +172,7 @@ defaults write com.apple.screencapture disable-shadow -bool true
 defaults write NSGlobalDomain AppleFontSmoothing -int 1
 
 # Enable HiDPI display modes (requires restart)
-if [[ "$RUN_AS_ROOT" = true ]]; then defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true; fi
 
 ###############################################################################
 # Finder                                                                      #
@@ -229,7 +248,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
 # # Show the /Volumes folder
-# if [[ "$RUN_AS_ROOT" = true ]]; then chflags nohidden /Volumes; fi
+# if [[ "$RUN_AS_ROOT" = true ]]; then sudo chflags nohidden /Volumes; fi
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -370,7 +389,7 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 ###############################################################################
 
 # DNE in Catalina ++?
-# if [[ "$RUN_AS_ROOT" = true ]]; then
+# if [[ "$RUN_AS_ROOT" = true ]]; then sudo
 #   # Disable Spotlight indexing for any volume that gets mounted and has not yet
 #   # been indexed before.
 #   # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
@@ -403,9 +422,9 @@ defaults write com.apple.spotlight orderedItems -array \
 # Load new settings before rebuilding the index
 killall mds > /dev/null 2>&1
 # Make sure indexing is enabled for the main volume
-if [[ "$RUN_AS_ROOT" = true ]]; then mdutil -i on / > /dev/null; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo mdutil -i on / > /dev/null; fi
 # Rebuild the index from scratch
-if [[ "$RUN_AS_ROOT" = true ]]; then mdutil -E / > /dev/null; fi
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo mdutil -E / > /dev/null; fi
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #

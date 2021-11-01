@@ -91,7 +91,8 @@ fi
 
 Use `Vagrant` to manage images that are run in `VirtualBox`
 
-* [vagrant image](https://github.com/ramsey/macos-vagrant-box)
+<!-- * [vagrant image](https://github.com/ramsey/macos-vagrant-box) -->
+* [vagrant image](https://app.vagrantup.com/nick-invision/boxes/macos-bigsur-base)
 * [macinbox](https://github.com/bacongravy/macinbox)
 
 1. Install prerequisites
@@ -114,20 +115,26 @@ Use `Vagrant` to manage images that are run in `VirtualBox`
 
    ```sh
    # download image
-   vagrant box add ramsey/macos-catalina
+   # vagrant box add ramsey/macos-catalina
+   vagrant box add amarcireau/macos
+   # vagrant box add nick-invision/macos-bigsur-base
 
    # initialize Vagrantfile
-   vagrant init ramsey/macos-catalina
+   # vagrant init ramsey/macos-catalina
+   vagrant init amarcireau/macos
+   # vagrant init nick-invision/macos-bigsur-base
    ```
 
-3. Enable GUI in VirtualBox by uncommenting the following lines in Vagrantfile
+3. Enable GUI in VirtualBox by uncommenting/adding the following lines in Vagrantfile
 
    > ```sh
    > # enable gui in vagrantfile
    > config.vm.provider "virtualbox" do |vb|
    >   # Display the VirtualBox GUI when booting the machine
    >   vb.gui = true
-   >   ...
+   >   # Configure cpu and memory resources
+   >   vb.cpus = "2"
+   >   vb.memory = "6144"
    > end
    > ```
 
@@ -135,6 +142,7 @@ Use `Vagrant` to manage images that are run in `VirtualBox`
 
    ```sh
    vagrant up --provider=virtualbox
+   # user/pass: vagrant
    ```
 
 ## References
