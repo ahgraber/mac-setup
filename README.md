@@ -5,6 +5,15 @@
 The following script will autoinstall the default configuration:
 
 ```sh
+# Ensure Apple's command line tools are installed
+if [[ $(command -v cc) ]]; then
+  echo "Xcode already installed. Skipping."
+else
+  echo "Installing xcode ..."
+  xcode-select --install
+  sudo xcodebuild -license
+fi
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
 ```
 
@@ -78,29 +87,55 @@ The following script will autoinstall the default configuration:
 
 ## Testing
 
-[Use VirtualBox](https://github.com/myspaghetti/macos-virtualbox) to set up a MacOS virtual machine guest OS for testing.
+### macOS via VirtualBox
 
-```sh
-set -- $(locale LC_MESSAGES)
-yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
+Use `Vagrant` to manage images that are run in `VirtualBox`
 
-# install prerequisites?
-prerequisites='y'
-if [[ "$prerequisites" =~ $yesexpr ]]; then
-  brew install \
-    coreutils \
-    dmg2img \
-    gzip \
-    tesseract \
-    unzip \
-    wget \
-    virtualbox \
-    virtualbox-extension-pack
-fi
+* [vagrant image](https://github.com/ramsey/macos-vagrant-box)
+* [macinbox](https://github.com/bacongravy/macinbox)
 
-# run to create VM in shell interactive mode
-/bin/zsh -i -c "$(curl -fsSL https://raw.githubusercontent.com/myspaghetti/macos-virtualbox/master/macos-guest-virtualbox.sh)"
-```
+1. Install prerequisites
+
+   ```sh
+   set -- $(locale LC_MESSAGES)
+   yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
+
+   # install prerequisites?
+   prerequisites='y'
+   if [[ "$prerequisites" =~ $yesexpr ]]; then
+     brew install \
+       vagrant \
+       virtualbox \
+       virtualbox-extension-pack
+   fi
+   ```
+
+2. Get vagrant box image
+
+   ```sh
+   # download image
+   vagrant box add ramsey/macos-catalina
+
+   # initialize Vagrantfile
+   vagrant init ramsey/macos-catalina
+   ```
+
+3. Enable GUI in VirtualBox by uncommenting the following lines in Vagrantfile
+
+   > ```sh
+   > # enable gui in vagrantfile
+   > config.vm.provider "virtualbox" do |vb|
+   >   # Display the VirtualBox GUI when booting the machine
+   >   vb.gui = true
+   >   ...
+   > end
+   > ```
+
+4. Launch in virtualbox
+
+   ```sh
+   vagrant up --provider=virtualbox
+   ```
 
 ## References
 

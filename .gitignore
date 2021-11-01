@@ -11,6 +11,10 @@ Desktop.ini
 Thumbs.db
 settings.json
 
-
+# python
 *.pyc
 .pytest_cache
+
+# vagrant
+*.vagrant
+Vagrantfile
