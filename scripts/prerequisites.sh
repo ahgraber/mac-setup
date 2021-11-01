@@ -45,6 +45,6 @@ else
   brew install ansible
 fi
 echo "Installing/Updating Ansible requirements..."
-ansible-galaxy install -r requirements.yml
+ansible-galaxy install -r requirements.yaml
 
 echo "Success! Prerequisites installed."
