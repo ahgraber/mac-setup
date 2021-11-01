@@ -9,11 +9,11 @@
   tasks:
     - name: install homebrew
       include_role:
-        name: geerlingguy.homebrew
+        name: geerlingguy.mac.homebrew
 
     - name: fix dock
       include_role:
-        name: geerlingguy.dock
+        name: geerlingguy.mac.dock
 
     - name: conda setup
       include_role:
