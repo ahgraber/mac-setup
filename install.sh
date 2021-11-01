@@ -11,7 +11,7 @@ fi
 dest_dir=${dest_dir:-$HOME}
 
 # if dest_dir already contains .git file, assume we've already installed there once
-if [[ -f "$dest_dir/mac-setup/.git" ]]; then
+if [[ -d "$dest_dir/mac-setup/.git" ]]; then
   echo "Updating..."
   git stash && git checkout main && git pull --rebase origin && git stash pop
 else
