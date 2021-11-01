@@ -20,7 +20,7 @@ if [[ $(command -v brew) ]]; then
 echo "Homebrew already installed. Skipping."
 else
   echo "Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # # Install Ansible via python
@@ -38,7 +38,7 @@ fi
 # fi
 
 echo "Installing Ansible"
-if [[ $(command -v ansible ]]; then
+if [[ $(command -v ansible) ]]; then
   echo "Ansible already installed.  Skipping."
 else
   echo "Installing ansible via Homebrew..."
