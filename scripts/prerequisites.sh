@@ -29,12 +29,15 @@ fi
 # brew analytics off
 # brew cleanup
 
-# Install Ansible via python
-echo "Installing pip to base python"
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py --user
-rm get-pip.py
+# Install/update python pip
+# echo "Installing pip to base python"
+# curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+# python3 get-pip.py --user
+# rm get-pip.py
+echo "Updating pip"
+python3 -m pip install --upgrade pip
 
+# Install Ansible
 echo "Installing Ansible"
 if [[ $(command -v ansible ]]; then
   echo "Ansible already installed.  Skipping."
