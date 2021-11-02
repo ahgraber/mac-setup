@@ -26,6 +26,7 @@ homebrew_installed_packages:
   - libtool
   - libxslt
   - libyaml
+  - mambaforge
   - mas
   # - msodbcsql17
   # - mssql-tools

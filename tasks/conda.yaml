@@ -4,11 +4,11 @@
     register: conda_exists
     ignore_errors: yes
 
-  - name: "Install conda"
-    shell: |
-      curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
-      bash Mambaforge-$(uname)-$(uname -m).sh -b -f
-    when: conda_exists.rc != 0
+  # - name: "Install conda"
+  #   shell: |
+  #     curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
+  #     bash Mambaforge-$(uname)-$(uname -m).sh -f
+  #   when: conda_exists.rc != 0
 
   # - name: Copy default environment.yaml
   #   copy:
@@ -26,7 +26,7 @@
 
   - name: "Install Default Python"
     shell: |
-      conda init
+      conda init "$(basename "${SHELL}")"
       conda create --name default
       conda activate default
       mamba env update -f ./files/conda/environment.yaml
