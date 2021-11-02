@@ -13,13 +13,14 @@ dest_dir=${dest_dir:-$HOME}
 # if dest_dir already contains .git file, assume we've already installed there once
 if [[ -d "$dest_dir/mac-setup/.git" ]]; then
   echo "Updating..."
+  cd $dest_dir/mac-setup/
   git stash && git checkout main && git pull --rebase origin && git stash pop
 else
   echo "Cloning into ${dest_dir}"
   mkdir -p ${dest_dir}
   git clone https://github.com/ahgraber/mac-setup.git
+  cd ${dest_dir}/mac-setup/
 fi
-cd ${dest_dir}/mac-setup/
 
 # install prerequisites
 # xcode command line tools
