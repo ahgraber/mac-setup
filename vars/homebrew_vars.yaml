@@ -3,7 +3,7 @@
 homebrew_installed_packages:
   - autoconf
   - automake
-  - azdata-cli
+  # - azdata-cli
   - azure-cli
   - bat
   - bat-extras
