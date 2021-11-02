@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Ensure Apple's command line tools are installed
-if [[ $(command -v cc) ]]; then
-  echo "Xcode already installed. Skipping."
-else
-  echo "Installing xcode ..."
-  xcode-select --install
-  sudo xcodebuild -license
-fi
-
 # install x86 compatibility layer
 if [[ "$(arch)" = "arm64" ]]; then
   echo "Installing Rosetta2 combatibility layer"
