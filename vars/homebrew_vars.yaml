@@ -1,34 +1,34 @@
 ---
 # homebrew_install_path: /usr/local/homebrew
 homebrew_installed_packages:
-  # - autoconf
-  # - automake
-  # # - azdata-cli
-  # - azure-cli
-  # - bat
-  # - bat-extras
-  # - bfg
-  # - coreutils
-  # - curl
-  # - direnv
-  # - docker
-  # - exa
-  # # - fzf
-  # - gcc
-  # - git
-  # # - git-credential-manager-core
-  # - graphviz
-  # - gzip
-  # - htop
-  # - jq
-  # - kubernetes-cli
-  # - kubernetes-helm
-  # - libtool
-  # - libxslt
-  # - libyaml
-  # - mas
-  - microsoft/mssql-release/msodbcsql17
-  - mssql-tools
+  - autoconf
+  - automake
+  # - azdata-cli
+  - azure-cli
+  - bat
+  - bat-extras
+  - bfg
+  - coreutils
+  - curl
+  - direnv
+  - docker
+  - exa
+  # - fzf
+  - gcc
+  - git
+  # - git-credential-manager-core
+  - graphviz
+  - gzip
+  - htop
+  - jq
+  - kubernetes-cli
+  - kubernetes-helm
+  - libtool
+  - libxslt
+  - libyaml
+  - mas
+  # - msodbcsql17
+  # - mssql-tools
   - mysql
   - npm
   - openssl
@@ -93,5 +93,5 @@ homebrew_taps:
   #   url: 'https://github.com/microsoft/homebrew-azdata-cli-release'
   # - name: microsoft/git
   #   url: 'https://github.com/microsoft/homebrew-git'
-  - name: microsoft/mssql-release
-    url: 'https://github.com/Microsoft/homebrew-mssql-release'
+  # - name: microsoft/mssql-release
+  #   url: 'https://github.com/Microsoft/homebrew-mssql-release'

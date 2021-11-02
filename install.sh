@@ -2,25 +2,22 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
-read -p "Clone to home directory? (y/n)? [y] " use_home
-use_home=${use_home:-"y"}
-if [[ "$use_home" =~ $noexpr ]]; then
-  read -p "Please enter destination directory: " dest_dir
-fi
-# default to home dir
-dest_dir=${dest_dir:-$HOME}
-
 # if dest_dir already contains .git file, assume we've already installed there once
-if [[ -d "$dest_dir/mac-setup/.git" ]]; then
-  echo "Updating..."
-  cd $dest_dir/mac-setup/
-  git stash && git checkout main && git pull --rebase origin && git stash pop
+if [[ -d "$HOME/mac-setup/.git" ]]; then
+  read -p "Update from source? (y/n)? [y] " git_select
+  git_select=${git_select:-"y"}
+  if [[ "$git_select" =~ $yesexpr ]]; then
+    echo "Updating...  Will attempt to reapply any local changes after..."
+    cd $HOME/mac-setup/
+    git stash && git checkout main && git pull --rebase origin && git stash pop
+  fi
 else
-  echo "Cloning into ${dest_dir}"
-  mkdir -p ${dest_dir}
+  echo "Cloning into $HOME/mac-setup"
+  cd $HOME
   git clone https://github.com/ahgraber/mac-setup.git
-  cd ${dest_dir}/mac-setup/
 fi
+
+cd $HOME/mac-setup/
 
 # install prerequisites (rosetta2, python pip, ansible)
 echo "Installing prerequisites..."
