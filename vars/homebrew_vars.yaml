@@ -3,6 +3,7 @@ homebrew_install_path: /usr/local/homebrew
 homebrew_installed_packages:
   - autoconf
   - automake
+  - azdata-cli
   - azure-cli
   - bat
   - bat-extras
@@ -25,8 +26,9 @@ homebrew_installed_packages:
   - libtool
   - libxslt
   - libyaml
-  - mas
+  # - mas
   - msodbcsql17
+  - mssql-tools
   - mysql
   - npm
   - openssl
@@ -87,5 +89,9 @@ homebrew_cask_apps:
 homebrew_taps:
   - homebrew/cask
   - homebrew/cask-versions
-  - microsoft/git
-  - microsoft/mssql-release
+  - name: microsoft/azdata-cli-release
+    url: 'https://github.com/microsoft/homebrew-azdata-cli-release'
+  - name: microsoft/git
+    url: 'https://github.com/microsoft/homebrew-git'
+  - name: microsoft/mssql-release
+    url: 'https://github.com/Microsoft/homebrew-mssql-release'

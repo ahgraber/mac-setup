@@ -85,6 +85,13 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Maximize on title bar doubleclick
+defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize"
+defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
+
+# Disable dictation
+defaults write com.apple.HIToolbox AppleDictationAutoEnable -int 1
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
@@ -289,9 +296,22 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock showhidden -bool true
 
 # Add a Applications, Documents, Downloads folders to dock
-defaults write com.apple.dock persistent-apps -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Applications/'; '_CFURLStringType' = 15;}; 'file-label' = Applications; tile-type='directory-tile';}"
-defaults write com.apple.dock persistent-apps -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Documents/'; '_CFURLStringType' = 15;}; 'file-label' = Documents; tile-type='directory-tile';}"
-defaults write com.apple.dock persistent-apps -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Downloads/'; '_CFURLStringType' = 15;}; 'file-label' = Downloads; tile-type='directory-tile';}"
+defaults write com.apple.dock persistent-others -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Applications/'; '_CFURLStringType' = 15;}; 'file-label' = Applications; tile-type='directory-tile';}"
+defaults write com.apple.dock persistent-others -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Documents/'; '_CFURLStringType' = 15;}; 'file-label' = Documents; tile-type='directory-tile';}"
+defaults write com.apple.dock persistent-others -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Downloads/'; '_CFURLStringType' = 15;}; 'file-label' = Downloads; tile-type='directory-tile';}"
+
+# Disable automatic rearrange of Spaces
+defaults write com.apple.dock mru-spaces -bool false
+
+# when switching applications, switch to respective space
+defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool true
+
+# group windows by application in mission control
+defaults write com.apple.dock expose-group-apps -bool true
+
+# monitors are using different spaces
+# false = yes, true = no
+defaults write com.apple.spaces spans-displays -bool false
 
 # # Hot corners
 # # Possible values:
