@@ -15,41 +15,36 @@ if [[ "$(arch)" = "arm64" ]]; then
   softwareupdate --install-rosetta --agree-to-license
 fi
 
-# Ensure Homebrew (mac package manager) is installed
-if [[ $(command -v brew) ]]; then
-echo "Homebrew already installed. Updating..."
-brew update-reset
-else
-  echo "Installing Homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  # add to path for session
-  PATH="/usr/local/bin:/opt/homebrew:/usr/$PATH"
-  # echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"' >> ${shell_profile}}
-fi
-brew analytics off
-brew cleanup
-
-# # Install Ansible via python
-# echo "Installing pip to base python"
-# curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-# python3 get-pip.py --user
-# rm get-pip.py
-
-# echo "Installing Ansible"
-# if [[ $(command -v ansible ]]; then
-#   echo "Ansible already installed.  Skipping."
+# # Ensure Homebrew (mac package manager) is installed
+# if [[ $(command -v brew) ]]; then
+# echo "Homebrew already installed. Updating..."
+# brew update-reset
 # else
-#   echo "Installing ansible via pip..."
-#   pip install --user --upgrade ansible
+#   echo "Installing Homebrew..."
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#   # add to path for session
+#   PATH="/usr/local/bin:/opt/homebrew:/usr/$PATH"
+#   # echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"' >> ${shell_profile}}
 # fi
+# brew analytics off
+# brew cleanup
+
+# Install Ansible via python
+echo "Installing pip to base python"
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py --user
+rm get-pip.py
 
 echo "Installing Ansible"
-if [[ $(command -v ansible) ]]; then
+if [[ $(command -v ansible ]]; then
   echo "Ansible already installed.  Skipping."
 else
-  echo "Installing ansible via Homebrew..."
-  brew install ansible
+  echo "Installing ansible..."
+  # brew install ansible
+  pip3 install --user --upgrade ansible
+
 fi
+
 echo "Installing/Updating Ansible requirements..."
 ansible-galaxy install -r requirements.yaml
 

@@ -36,6 +36,8 @@ bash ./scripts/prerequisites.sh
 # zsh customization
 echo "Executing Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory -v # --become --ask-become-pass
+brew analytics off
+brew cleanup
 
 # home folder mgmt
 bash ./scripts/symlink_onedrive.sh
