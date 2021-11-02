@@ -3,19 +3,31 @@ dockitems_to_remove:
   - Calendar
   - Contacts
   - FaceTime
-  - iTunes
-  - iBooks
-  # - Launchpad
+  # - iTunes
+  # - iBooks
+  - Launchpad
   - Mail
   - Maps
   - Messages
+  - Music
+  - News
   - Notes
   - Photos
+  - Podcasts
   - Reminders
   # - Safari
-  - System Preferences
+  # - System Preferences
+  - TV
 
-# dockitems_to_persist:
+dockitems_to_persist:
+  - name: iTerm
+    path: "/Applications/iTerm.app"
+  - name: Terminal
+    path: "/Applications/Utilities/Terminal.app"
+  - name: Visual Studio Code
+    path: "/Applications/Utilities/Visual Studio Code.app"
+  - name: Azure Data Studio
+    path: "/Applications/Utilities/Azure Data Studio.app"
 #   - name: Google Chrome
 #     path: "/Applications/Google Chrome.app"
 #     pos: 1

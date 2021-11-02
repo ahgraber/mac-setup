@@ -1,23 +1,23 @@
 ---
-  - name: Copy default environment.yaml
-    copy:
-      src: ./files/conda/environment.yaml
-      dest: /Users/{{ lookup('env', 'USER') }}/environment.yaml
-      owner: "{{ lookup('env', 'USER') }}"
-      force: no
+  # - name: Copy default environment.yaml
+  #   copy:
+  #     src: ./files/conda/environment.yaml
+  #     dest: /Users/{{ lookup('env', 'USER') }}/environment.yaml
+  #     owner: "{{ lookup('env', 'USER') }}"
+  #     force: no
 
-  - name: Copy supplemental requirements.txt
-    copy:
-      src: ./files/conda/requirements.txt
-      dest: /Users/{{ lookup('env', 'USER') }}/requirements.txt
-      owner: "{{ lookup('env', 'USER') }}"
-      force: no
+  # - name: Copy supplemental requirements.txt
+  #   copy:
+  #     src: ./files/conda/requirements.txt
+  #     dest: /Users/{{ lookup('env', 'USER') }}/requirements.txt
+  #     owner: "{{ lookup('env', 'USER') }}"
+  #     force: no
 
   - name: "Install Default Python"
     shell: |
       conda init
       conda create --name default
       conda activate default
-      mamba env update -f $HOME/environment.yaml
-      pip install -r $HOME/requirement.txt
+      mamba env update -f ./files/conda/environment.yaml
+      pip install -r ./files/conda/requirement.txt
       conda deactivate

@@ -23,6 +23,9 @@ fi
 # General UI/UX                                                               #
 ###############################################################################
 
+# Enable the 'reduce transparency' option. Save GPU cycles.
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
 # # Set highlight color to green
 # defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
@@ -285,8 +288,10 @@ defaults write com.apple.dock autohide -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
-# Enable the 'reduce transparency' option. Save GPU cycles.
-defaults write com.apple.universalaccess reduceTransparency -bool true
+# Add a Applications, Documents, Downloads folders to dock
+defaults write com.apple.dock persistent-apps -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Applications/'; '_CFURLStringType' = 15;}; 'file-label' = Applications; tile-type='directory-tile';}"
+defaults write com.apple.dock persistent-apps -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Documents/'; '_CFURLStringType' = 15;}; 'file-label' = Documents; tile-type='directory-tile';}"
+defaults write com.apple.dock persistent-apps -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Downloads/'; '_CFURLStringType' = 15;}; 'file-label' = Downloads; tile-type='directory-tile';}"
 
 # # Hot corners
 # # Possible values:
