@@ -39,12 +39,12 @@ python3 -m pip install --upgrade pip
 
 # Install Ansible
 echo "Installing Ansible"
-if [[ $(command -v ansible ]]; then
+if [[ $(command -v ansible) ]]; then
   echo "Ansible already installed.  Skipping."
 else
   echo "Installing ansible..."
   # brew install ansible
-  pip3 install --user --upgrade ansible
+  python3 -m pip install --user --upgrade ansible
 
 fi
 
