@@ -22,6 +22,9 @@ brew update-reset
 else
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # add to path for session
+  PATH="/usr/local/bin:/opt/homebrew:/usr/$PATH"
+  # echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"' >> ${shell_profile}}
 fi
 brew analytics off
 brew cleanup
