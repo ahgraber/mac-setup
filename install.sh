@@ -34,7 +34,7 @@ bash ./scripts/prerequisites.sh
 # vscode customization
 # zsh customization
 echo "Executing Ansible playbook..."
-ansible-playbook playbook.yaml -i inventory --become --ask-become-pass -v
+ansible-playbook playbook.yaml -i inventory -v # --become --ask-become-pass
 
 # home folder mgmt
 bash ./scripts/symlink_onedrive.sh
