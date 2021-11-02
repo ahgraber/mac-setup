@@ -31,7 +31,7 @@ bash ./scripts/prerequisites.sh
 
 # install with ansible
 echo "Executing Ansible playbook..."
-ansible-playbook playbook.yaml -i inventory -v # --become --ask-become-pass
+ansible-playbook playbook.yaml -i inventory --ask-become-pass -v
 
 # cleanup
 brew analytics off
