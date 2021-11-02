@@ -17,11 +17,14 @@ fi
 
 # Ensure Homebrew (mac package manager) is installed
 if [[ $(command -v brew) ]]; then
-echo "Homebrew already installed. Skipping."
+echo "Homebrew already installed. Updating..."
+brew update-reset
 else
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+brew analytics off
+brew cleanup
 
 # # Install Ansible via python
 # echo "Installing pip to base python"

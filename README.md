@@ -125,18 +125,40 @@ Use `Vagrant` to manage images that are run in `VirtualBox`
    # vagrant init nick-invision/macos-bigsur-base
    ```
 
-3. Enable GUI in VirtualBox by uncommenting/adding the following lines in Vagrantfile
+3. Configure Vagrantfile
 
-   > ```sh
-   > # enable gui in vagrantfile
-   > config.vm.provider "virtualbox" do |vb|
-   >   # Display the VirtualBox GUI when booting the machine
-   >   vb.gui = true
-   >   # Configure cpu and memory resources
-   >   vb.cpus = "2"
-   >   vb.memory = "6144"
-   > end
-   > ```
+   ```sh
+   cat > Vagrantfile <<EOF
+   ENV["VAGRANT_EXPERIMENTAL"] = "typed_triggers"
+
+   Vagrant.configure("2") do |config|
+     config.vm.box = "amarcireau/macos"
+     config.vm.box_version = "11.3.1"
+     config.vm.synced_folder ".", "/vagrant", disabled: true
+     config.vm.provider "virtualbox" do |vb|
+       vb.check_guest_additions = false
+       # Display the VirtualBox GUI when booting the machine
+       vb.gui = true
+       # Configure cpu and memory resources
+       vb.cpus = "2"
+       vb.memory = "6144"
+     end
+     config.trigger.after :"VagrantPlugins::ProviderVirtualBox::Action::Import", type: :action do |t|
+       t.ruby do |env, machine|
+         FileUtils.cp(
+           machine.box.directory.join("include").join("macOS.nvram").to_s,
+           machine.provider.driver.execute_command(["showvminfo", machine.id, "--machinereadable"]).
+             split(/\n/).
+             map {|line| line.partition(/=/)}.
+             select {|partition| partition.first == "BIOS NVRAM File"}.
+             last.
+             last[1..-2]
+         )
+       end
+     end
+   end
+   EOF
+   ```
 
 4. Launch in virtualbox
 
