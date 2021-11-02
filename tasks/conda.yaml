@@ -6,7 +6,8 @@
 
   - name: "Install conda"
     shell: |
-      bash -c "$(curl -fsSL https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh)"
+      curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
+      bash Mambaforge-$(uname)-$(uname -m).sh -b -f
     when: conda_exists.rc != 0
 
   # - name: Copy default environment.yaml
