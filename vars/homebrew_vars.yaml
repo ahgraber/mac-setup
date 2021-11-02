@@ -26,7 +26,7 @@ homebrew_installed_packages:
   - libtool
   - libxslt
   - libyaml
-  # - mas
+  - mas
   - msodbcsql17
   - mssql-tools
   - mysql
