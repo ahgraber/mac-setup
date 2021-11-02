@@ -41,4 +41,5 @@ ansible-playbook playbook.yaml -i inventory -v # --become --ask-become-pass
 bash ./scripts/symlink_onedrive.sh
 bash ./scripts/git_dir.sh
 
+echo "Fixing macOS default settings..."
 sudo bash ./scripts/macos_settings.sh
