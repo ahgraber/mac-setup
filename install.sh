@@ -2,8 +2,8 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
-# set path
-zsh -c "$(typeset -U PATH; PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH")
+# set path - this might end up being a mess, but the final zshenv should resolve
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 read -p "Clone to home directory? (y/n)? [y] " use_home
 use_home=${use_home:-"y"}
