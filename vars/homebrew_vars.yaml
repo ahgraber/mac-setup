@@ -83,7 +83,7 @@ homebrew_cask_apps:
   - vlc
 
 homebrew_taps:
-  - caskroom/cask
-  - caskroom/versions
+  - homebrew/cask
+  - homebrew/cask-versions
   - microsoft/git
   - microsoft/mssql-release
