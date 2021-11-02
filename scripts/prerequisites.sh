@@ -39,6 +39,6 @@ else
 fi
 
 echo "Installing/Updating Ansible requirements..."
-ansible-galaxy install -r requirements.yaml
+ansible-galaxy install -c -r requirements.yaml
 
 echo "Success! Prerequisites installed."
