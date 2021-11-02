@@ -1,4 +1,15 @@
 ---
+  - name: "Check if conda installed"
+    shell: command -v conda >/dev/null 2>&1
+    register: conda_exists
+    ignore_errors: yes
+
+  - name: "Install conda"
+    shell: |
+      curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
+      bash Mambaforge-$(uname)-$(uname -m).sh
+    when: conda_exists.rc != 0
+
   # - name: Copy default environment.yaml
   #   copy:
   #     src: ./files/conda/environment.yaml
@@ -12,17 +23,6 @@
   #     dest: /Users/{{ lookup('env', 'USER') }}/requirements.txt
   #     owner: "{{ lookup('env', 'USER') }}"
   #     force: no
-
-  - name: "Check if conda installed"
-    shell: command -v conda >/dev/null 2>&1
-    register: conda_exists
-    ignore_errors: yes
-
-  - name: "Install conda"
-    shell: |
-      curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
-      bash Mambaforge-$(uname)-$(uname -m).sh
-    when: conda_exists.rc != 0
 
   - name: "Install Default Python"
     shell: |

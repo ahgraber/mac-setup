@@ -68,7 +68,6 @@ homebrew_cask_apps:
   - grandperspective
   - iterm2
   - lulu
-  # - mambaforge
   - microsoft-azure-storage-explorer
   # - microsoft-office
   - microsoft-remote-desktop
