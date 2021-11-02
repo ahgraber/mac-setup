@@ -45,10 +45,9 @@ else
   echo "Installing ansible..."
   # brew install ansible
   python3 -m pip install --user --upgrade ansible
-
 fi
 
 echo "Installing/Updating Ansible requirements..."
-/usr/bin/python3/ansible-galaxy install -r requirements.yaml
+ansible-galaxy install -r requirements.yaml
 
 echo "Success! Prerequisites installed."
