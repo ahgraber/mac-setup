@@ -35,7 +35,7 @@ fi
 # python3 get-pip.py --user
 # rm get-pip.py
 echo "Updating pip"
-python3 -m pip install --upgrade pip
+python3 -m pip install --user --upgrade pip
 
 # Install Ansible
 echo "Installing Ansible"
