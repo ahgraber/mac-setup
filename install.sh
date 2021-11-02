@@ -30,12 +30,10 @@ echo "Installing prerequisites..."
 bash ./scripts/prerequisites.sh
 
 # install with ansible
-# applications & packages w/ homebrew
-# dock customization
-# vscode customization
-# zsh customization
 echo "Executing Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory -v # --become --ask-become-pass
+
+# cleanup
 brew analytics off
 brew cleanup
 
@@ -43,5 +41,5 @@ brew cleanup
 bash ./scripts/symlink_onedrive.sh
 bash ./scripts/git_dir.sh
 
-echo "Fixing macOS default settings..."
-sudo bash ./scripts/macos_settings.sh
+# echo "Fixing macOS default settings..."
+# sudo bash ./scripts/macos_settings.sh

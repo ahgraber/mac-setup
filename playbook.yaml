@@ -2,27 +2,34 @@
 - hosts: localhost
 
   vars_files:
-    - vars/dock_vars.yaml
+    - config.yaml
     - vars/homebrew_vars.yaml
-    - vars/vscode_env.yaml
+    - vars/dock_vars.yaml
+    - vars/terminal_vars.yaml
+
+  roles:
+    - role: elliotweiser.osx-command-line-tools
+
+    - role: geerlingguy.mac.homebrew
+      tags: ['env', 'homebrew']
+
+    - role: geerlingguy.mac.dock
+      when: configure_dock
+      tags: ['dock']
 
   tasks:
-    - name: install homebrew
-      include_role:
-        name: geerlingguy.mac.homebrew
+    - import_tasks: tasks/conda.yaml
+      when: configure_conda
+      tags: ['env', 'conda']
 
-    - name: fix dock
-      include_role:
-        name: geerlingguy.mac.dock
+    - import_tasks: tasks/terminals.yaml
+      when: configure_terminals
+      tags: ['env', 'conda']
 
-    - name: conda setup
-      include_role:
-        name: conda
+    - import_tasks: tasks/zsh.yaml
+      when: configure_zsh
+      tags: ['env', 'zsh']
 
-    - name: vscode setup
-      include_role:
-        name: vscode
-
-    - name: zsh setup
-      include_role:
-        name: zsh
+    - import_tasks: tasks/macos.yaml
+      when: configure_macos
+      tags: ['macos']

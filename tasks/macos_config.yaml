@@ -1,0 +1,4 @@
+---
+- name: Run macos configuration
+  command: "bash ./scripts/macos_settings.sh --no-restart"
+  become: true

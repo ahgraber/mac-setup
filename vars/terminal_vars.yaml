@@ -1,3 +1,4 @@
+configure_terminals: true
 vscode_extensions:
   - bencoleman.armview
   - DavidAnson.vscode-markdownlint

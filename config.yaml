@@ -1,0 +1,6 @@
+configure_homebrew: true
+configure_dock: true
+configure_conda: true
+configure_terminals: true
+configure_zsh: true
+configure_macos: true

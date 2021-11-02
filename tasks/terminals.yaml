@@ -23,3 +23,24 @@
       dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/iTerm2/DynamicProfiles/Profiles.json
       owner: "{{ lookup('env', 'USER') }}"
       force: no
+
+  # Custom Terminal theme.
+  - name: Get current Terminal profile.
+    command: defaults read com.apple.terminal 'Default Window Settings'
+    register: terminal_theme
+    changed_when: false
+    check_mode: false
+
+  - name: Ensure custom Terminal profile is added.
+    command: open .files/terminal/MaterialDarker.terminal
+    changed_when: false
+    when: "'MaterialDarker' not in terminal_theme.stdout"
+
+  # TODO: This doesn't work in Yosemite. Consider a different solution?
+  - name: Ensure custom Terminal profile is set as default.
+    command: "{{ item }}"
+    with_items:
+      - defaults write com.apple.terminal 'Default Window Settings' -string MaterialDarker
+      - defaults write com.apple.terminal 'Startup Window Settings' -string MaterialDarker
+    changed_when: false
+    when: "'MaterialDarker' not in terminal_theme.stdout"
