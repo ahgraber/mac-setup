@@ -3,7 +3,7 @@ set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
 echo "If your ~/Documents are cloud-synced, recommend keeping version-control directories separate."
-read -p "Separate git repositories from Documents? (y/n)? [y]" git_select
+read -p "Separate git repositories from Documents? (y/n)? [y] " git_select
 git_select=${git_select:-"y"}
 
 if [[ "$git_select" =~ $noexpr ]]; then

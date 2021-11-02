@@ -39,7 +39,7 @@ homebrew_dirs=(
 )
 sudo -v
 RUN_AS_ROOT=true
-while RUN_AS_ROOT; do
+while $RUN_AS_ROOT; do
   for dir in ${homebrew_dirs[@]}; do
     sudo chown $(whoami) dir
     sudo chmod u+w $(whoami) dir

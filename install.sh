@@ -2,7 +2,7 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
-read -p "Clone to home directory? (y/n)? [y]" use_home
+read -p "Clone to home directory? (y/n)? [y] " use_home
 use_home=${use_home:-"y"}
 if [[ "$use_home" =~ $noexpr ]]; then
   read -p "Please enter destination directory: " dest_dir
@@ -34,7 +34,7 @@ bash ./scripts/prerequisites.sh
 # vscode customization
 # zsh customization
 echo "Executing Ansible playbook..."
-ansible-playbook playbook.yaml -i inventory --become --ask-become-pass -vvvv
+ansible-playbook playbook.yaml -i inventory --become --ask-become-pass -v
 
 # home folder mgmt
 bash ./scripts/symlink_onedrive.sh
