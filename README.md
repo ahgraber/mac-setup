@@ -15,7 +15,8 @@ else
 fi
 
 typeset -U path
-export path=(/usr/local/bin /usr/bin/python3 /usr/bin /bin /usr/sbin /sbin $path)
+pythons=($HOME/Library/Python/3.7/bin $HOME/Library/Python/3.8/bin $HOME/Library/Python/3.9/bin)
+export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
 ```
 
