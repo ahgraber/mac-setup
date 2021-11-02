@@ -14,6 +14,8 @@ else
   sudo xcodebuild -license
 fi
 
+typeset -U path
+export path=(/usr/local/bin /usr/bin/python3 /usr/bin /bin /usr/sbin /sbin $path)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
 ```
 
