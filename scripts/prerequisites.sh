@@ -22,30 +22,7 @@ else
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-# echo "Ensuring Homebrew has proper permissions..."
-# homebrew_dirs=(
-#   /usr/local/Cellar
-#   /usr/local/Frameworks
-#   /usr/local/Homebrew
-#   /usr/local/bin
-#   /usr/local/etc
-#   /usr/local/include
-#   /usr/local/lib
-#   /usr/local/opt
-#   /usr/local/sbin
-#   /usr/local/share
-#   /usr/local/share/zsh
-#   /usr/local/share/zsh/site-functions
-# )
-# sudo -v
-# RUN_AS_ROOT=true
-# while $RUN_AS_ROOT; do
-#   for dir in ${homebrew_dirs[@]}; do
-#     sudo chown $(whoami) $dir
-#     sudo chmod u+w $(whoami) $dir
-#   done
-#   RUN_AS_ROOT=false
-# done
+
 # # Install Ansible via python
 # echo "Installing pip to base python"
 # curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
