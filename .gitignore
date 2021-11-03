@@ -18,5 +18,6 @@ settings.json
 .pytest_cache
 
 # vagrant
+*.profraw
 *.vagrant
 Vagrantfile

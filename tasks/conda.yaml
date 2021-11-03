@@ -27,7 +27,12 @@
 
   - name: "Initialize conda"
     shell: conda init zsh
-    when: conda_exists.rc != 0
+    # when: conda_exists.rc != 0
+
+  - name: "Check if default env exists"
+    shell: command -v $(conda env list | grep default) >/dev/null 2>&1
+    register: default_env_exists
+    ignore_errors: yes
 
   - name: "Install Default Python"
     shell: |
@@ -36,4 +41,4 @@
       mamba env update -f ./files/conda/environment.yaml
       pip install -r ./files/conda/requirement.txt
       conda deactivate
-    when: conda_exists.rc != 0
+    when: default_env_exists.rc != 0
