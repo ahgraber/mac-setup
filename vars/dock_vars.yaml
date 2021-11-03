@@ -23,7 +23,7 @@ dockitems_persist:
   - name: iTerm
     path: "/Applications/iTerm.app"
   - name: Terminal
-    path: "/Applications/Utilities/Terminal.app"
+    path: "/System/Applications/Utilities/Terminal.app"
   - name: Visual Studio Code
     path: "/Applications/Utilities/Visual Studio Code.app"
   - name: Azure Data Studio
