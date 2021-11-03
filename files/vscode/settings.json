@@ -1,0 +1,58 @@
+{
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Material Night Eighties",
+  "git.confirmSync": false,
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontSize": 13,
+  "jupyter.interactiveWindowMode": "perFile",
+  "kite.showWelcomeNotificationOnStartup": false,
+  "files.eol": "\n",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "python.languageServer": "Pylance",
+  "python.formatting.autopep8Args": [
+    "--max-line-length",
+    "120",
+    "--experimental"
+  ],
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["max-line-length = 119"],
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "editor.rulers": [79, 119],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "prettier.printWidth": 120,
+  "prettier.semi": false,
+  "jupyter.sendSelectionToInteractiveWindow": true,
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
+    "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
+  },
+
+  // "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": ""
+    }
+  ],
+  "redhat.telemetry.enabled": false,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+"editor.formatOnType": false,
+"prettier.configPath": ".prettierrc",
+}

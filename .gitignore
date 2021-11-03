@@ -1,7 +1,6 @@
 # cache/  # do not include submodule cache in .gitignore
 collections/
 roles/
-!**.gitkeep
 
 # OS Junk
 ._*
@@ -21,3 +20,6 @@ settings.json
 *.profraw
 *.vagrant
 Vagrantfile
+
+!files/vscode/settings.json
+!**.gitkeep
