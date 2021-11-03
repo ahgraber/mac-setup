@@ -33,6 +33,15 @@
   shell: code --install-extension {{ item }}
   with_items: "{{ vscode_extensions }}"
 
+- name: Ensure iTerm dynamicprofiles directory exists.
+  file:
+    path: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/iTerm2/DynamicProfiles"
+    owner: "{{ lookup('env', 'USER') }}"
+    # group: "{{ homebrew_group }}"
+    state: directory
+    mode: 0755
+  become: true
+
 - name: Copy iTerm profile
   copy:
     src: files/iterm/Dynamic.json
@@ -52,7 +61,6 @@
   changed_when: false
   when: "'MaterialDarker' not in terminal_theme.stdout"
 
-# TODO: This doesn't work in Yosemite. Consider a different solution?
 - name: Ensure custom Terminal profile is set as default.
   command: "{{ item }}"
   with_items:
