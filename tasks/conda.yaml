@@ -26,7 +26,7 @@
 
   - name: "Install Default Python"
     shell: |
-      conda init "$(basename "${SHELL}")"
+      conda init /bin/zsh
       conda create --name default
       conda activate default
       mamba env update -f ./files/conda/environment.yaml

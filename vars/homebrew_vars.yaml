@@ -57,36 +57,36 @@
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  # - appcleaner
-  # - azure-data-studio
-  # - bartender
-  # # - bettertouchtool
-  # - bitwarden
-  # - blockblock
-  # - eloston-chromium
-  # - firefox
-  # - gpg-suite
-  # - grandperspective
-  # - iterm2
-  # - lulu
+  - appcleaner
+  - azure-data-studio
+  - bartender
+  # - bettertouchtool
+  - bitwarden
+  - blockblock
+  - eloston-chromium
+  - firefox
+  - gpg-suite
+  - grandperspective
+  - iterm2
+  - lulu
   - mambaforge
-  # - microsoft-azure-storage-explorer
-  # # - microsoft-office
-  # - microsoft-remote-desktop
-  # - osxfuse
-  # - oversight
-  # - postman
-  # - r
+  - microsoft-azure-storage-explorer
+  # - microsoft-office
+  - microsoft-remote-desktop
+  - osxfuse
+  - oversight
+  - postman
+  - r
   - rectangle
-  # - rstudio
-  # - spotify
-  # # - sublime-text
-  # - the-unarchiver
-  # # - vagrant
-  # # - virtualbox
-  # # - virtualbox-extension-pack
-  # - visual-studio-code
-  # - vlc
+  - rstudio
+  - spotify
+  # - sublime-text
+  - the-unarchiver
+  # - vagrant
+  # - virtualbox
+  # - virtualbox-extension-pack
+  - visual-studio-code
+  - vlc
 
 homebrew_taps:
   - homebrew/cask
