@@ -68,3 +68,16 @@
     - defaults write com.apple.terminal 'Startup Window Settings' -string MaterialDarker
   changed_when: false
   when: "'MaterialDarker' not in terminal_theme.stdout"
+
+# only if running from remote
+# - name: Check if Terminal is Active.
+#   shell: ps aux | grep -F 'Terminal' | grep -v -F 'grep' | awk '{ print $2 }'
+#   register: terminal_pid
+#   changed_when: false
+
+# - name: Restart Terminal if it's running to activate the new profile.
+#   shell: |
+#     osascript -e 'quit app "Terminal"'
+#     open -a Terminal
+#   changed_when: false
+#   when: terminal_pid.stdout != ""

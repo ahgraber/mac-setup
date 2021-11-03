@@ -1,4 +1,4 @@
-dockitems_to_remove:
+dockitems_remove:
   - App Store
   - Calendar
   - Contacts
@@ -19,7 +19,7 @@ dockitems_to_remove:
   # - System Preferences
   - TV
 
-dockitems_to_persist:
+dockitems_persist:
   - name: iTerm
     path: "/Applications/iTerm.app"
   - name: Terminal
@@ -28,21 +28,3 @@ dockitems_to_persist:
     path: "/Applications/Utilities/Visual Studio Code.app"
   - name: Azure Data Studio
     path: "/Applications/Utilities/Azure Data Studio.app"
-#   - name: Google Chrome
-#     path: "/Applications/Google Chrome.app"
-#     pos: 1
-#   - name: PhpStorm
-#     path: /Applications/PhpStorm.app
-#     pos: 2
-#   - name: Slack
-#     path: /Applications/Slack.app
-#     pos: 3
-#   - name: Terminal
-#     path: /System/Applications/Utilities/Terminal.app
-#     pos: 4
-#   - name: Spotify
-#     path: /Applications/Spotify.app
-#     pos: 5
-#   - name: TablePlus
-#     path: /Applications/TablePlus.app
-#     pos: 6
