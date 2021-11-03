@@ -1,3 +1,4 @@
+debug: true
 configure_homebrew: true
 configure_dock: true
 configure_conda: true

@@ -1,8 +1,10 @@
 ---
 - shell: pwd
   register: shell_pwd
+  when: debug
 
 - debug: var=shell_pwd.stdout
+  when: debug
 
 - name: Copy VSCode configuration
   copy:
