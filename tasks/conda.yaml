@@ -43,7 +43,7 @@
 - name: "Check if default env exists"
   shell: |
     source ~/.bash_profile ~/.zshrc
-    [[ -d $HOME/mambaforge/env/default ]]
+    [[ -d $HOME/mambaforge/envs/default ]]
   register: default_env_exists
   ignore_errors: yes
 
