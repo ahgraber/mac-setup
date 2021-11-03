@@ -20,6 +20,7 @@ fi
 cd $HOME/mac-setup/
 
 read -p "Run install with default settings? (y/n)? [y] " install_select
+install_select=${install_select:-"y"}
 if [[ "$install_select" =~ $yesexpr ]]; then
   echo "Installing with default settings..."
 else
