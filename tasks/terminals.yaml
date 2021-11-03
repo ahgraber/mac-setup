@@ -1,14 +1,14 @@
 ---
   - name: Copy VSCode configuration
     copy:
-      src: files/vscode/settings.json
+      src: ../files/vscode/settings.json
       dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/settings.json
       owner: "{{ lookup('env', 'USER') }}"
       force: no
 
   - name: Copy VSCode keybinding
     copy:
-      src: files/vscode/vscode-keybindings.json
+      src: ../files/vscode/vscode-keybindings.json
       dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/keybindings.json
       owner: "{{ lookup('env', 'USER') }}"
       force: no
@@ -19,7 +19,7 @@
 
   - name: Copy iTerm profile
     copy:
-      src: files/iterm/Dynamic.json
+      src: ../files/iterm/Dynamic.json
       dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/iTerm2/DynamicProfiles/Profiles.json
       owner: "{{ lookup('env', 'USER') }}"
       force: no
@@ -32,7 +32,7 @@
     check_mode: false
 
   - name: Ensure custom Terminal profile is added.
-    command: open files/terminal/MaterialDarker.terminal
+    command: open ../files/terminal/MaterialDarker.terminal
     changed_when: false
     when: "'MaterialDarker' not in terminal_theme.stdout"
 
