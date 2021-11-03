@@ -52,8 +52,8 @@
     source ~/.zshrc
     conda create --name default -yq
     conda activate default
-    mamba env update -f ./files/conda/environment.yaml
-    pip install -r ./files/conda/requirement.txt
+    mamba env update -f files/conda/environment.yaml
+    pip install -r files/conda/requirement.txt
     conda deactivate
   args:
     executable: /bin/zsh
