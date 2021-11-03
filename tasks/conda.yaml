@@ -1,46 +1,58 @@
 ---
-  - name: "Check if conda installed"
-    shell: command -v conda >/dev/null 2>&1
-    register: conda_exists
-    ignore_errors: yes
+- name: "Check if conda installed"
+  shell: command -v conda >/dev/null 2>&1
+  register: conda_exists
+  ignore_errors: yes
 
-  # - name: "Install conda"
-  #   shell: |
-  #     curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
-  #     bash Mambaforge-$(uname)-$(uname -m).sh -f
-  #     rm Mambaforge-$(uname)-$(uname -m).sh
-  #   when: conda_exists.rc != 0
+- name: "Install conda"
+  shell: |
+    curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
+    bash Mambaforge-$(uname)-$(uname -m).sh -b -f -p $HOME/mambaforge
+    rm Mambaforge-$(uname)-$(uname -m).sh
+  args:
+    executable: /bin/bash
+  when: conda_exists.rc != 0
 
-  # - name: Copy default environment.yaml
-  #   copy:
-  #     src: ./files/conda/environment.yaml
-  #     dest: /Users/{{ lookup('env', 'USER') }}/environment.yaml
-  #     owner: "{{ lookup('env', 'USER') }}"
-  #     force: no
+# - name: Copy default environment.yaml
+#   copy:
+#     src: ./files/conda/environment.yaml
+#     dest: /Users/{{ lookup('env', 'USER') }}/environment.yaml
+#     owner: "{{ lookup('env', 'USER') }}"
+#     force: no
 
-  # - name: Copy supplemental requirements.txt
-  #   copy:
-  #     src: ./files/conda/requirements.txt
-  #     dest: /Users/{{ lookup('env', 'USER') }}/requirements.txt
-  #     owner: "{{ lookup('env', 'USER') }}"
-  #     force: no
+# - name: Copy supplemental requirements.txt
+#   copy:
+#     src: ./files/conda/requirements.txt
+#     dest: /Users/{{ lookup('env', 'USER') }}/requirements.txt
+#     owner: "{{ lookup('env', 'USER') }}"
+#     force: no
 
-  - name: "Initialize conda"
-    shell: |
-      conda init bash
-      conda init zsh
-    # when: conda_exists.rc != 0
+- name: "Initialize conda (bash)"
+  shell: |
+    conda init bash
+    conda init zsh
+  when: conda_exists.rc != 0
 
-  - name: "Check if default env exists"
-    shell: command -v $(conda env list | grep default) >/dev/null 2>&1
-    register: default_env_exists
-    ignore_errors: yes
+- name: "Check if default env exists"
+  shell: |
+    source ~/.bash_profile ~/.zshrc
+    command -v $(conda env list | grep default) >/dev/null 2>&1
+  register: default_env_exists
+  ignore_errors: yes
 
-  - name: "Install Default Python"
-    shell: |
-      conda create --name default
-      conda activate default
-      mamba env update -f ../files/conda/environment.yaml
-      pip install -r ../files/conda/requirement.txt
-      conda deactivate
-    when: default_env_exists.rc != 0
+- shell: pwd
+  register: shell_pwd
+
+- debug: var=shell_pwd.stdout
+
+- name: "Install Default Python"
+  shell: |
+    source ~/.zshrc
+    conda create --name default
+    conda activate default
+    mamba env update -f ../files/conda/environment.yaml
+    pip install -r ../files/conda/requirement.txt
+    conda deactivate
+  args:
+    executable: /bin/zsh
+  when: default_env_exists.rc != 0

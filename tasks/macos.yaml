@@ -1,4 +1,11 @@
 ---
+- shell: pwd
+  register: shell_pwd
+
+- debug: var=shell_pwd.stdout
+
 - name: Run macos configuration
-  command: "bash ../scripts/macos_settings.sh --no-restart"
+  script: "../scripts/macos_settings.sh --no-restart"
+  args:
+    executable: python3
   become: true
