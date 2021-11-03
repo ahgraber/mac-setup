@@ -6,6 +6,15 @@
 - debug: var=shell_pwd.stdout
   when: debug
 
+- name: Ensure VSCode User directory exists.
+  file:
+    path: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User"
+    owner: "{{ lookup('env', 'USER') }}"
+    # group: "{{ homebrew_group }}"
+    state: directory
+    mode: 0755
+  become: true
+
 - name: Copy VSCode configuration
   copy:
     src: files/vscode/settings.json

@@ -33,19 +33,19 @@
     conda init zsh
   when: conda_exists.rc != 0
 
-- name: "Check if default env exists"
-  shell: |
-    source ~/.bash_profile ~/.zshrc
-    [[ -d $HOME/mambaforge/env/default ]]
-  register: default_env_exists
-  ignore_errors: yes
-
 - shell: pwd
   register: shell_pwd
   when: debug
 
 - debug: var=shell_pwd.stdout
   when: debug
+
+- name: "Check if default env exists"
+  shell: |
+    source ~/.bash_profile ~/.zshrc
+    [[ -d $HOME/mambaforge/env/default ]]
+  register: default_env_exists
+  ignore_errors: yes
 
 - name: "Install Default Python"
   shell: |
