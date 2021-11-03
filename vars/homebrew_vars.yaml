@@ -1,58 +1,58 @@
 ---
 # homebrew_install_path: /usr/local/homebrew
-# homebrew_installed_packages:
-#   - autoconf
-#   - automake
-#   # - azdata-cli
-#   - azure-cli
-#   - bat
-#   - bat-extras
-#   - bfg
-#   - coreutils
-#   - curl
-#   - direnv
-#   - docker
-#   - exa
-#   # - fzf
-#   - gcc
-#   - git
-#   # - git-credential-manager-core
-#   - graphviz
-#   - gzip
-#   - htop
-#   - jq
-#   - kubernetes-cli
-#   - kubernetes-helm
-#   - libtool
-#   - libxslt
-#   - libyaml
-#   # - mambaforge
-#   - mas
-#   # - msodbcsql17
-#   # - mssql-tools
-#   - mysql
-#   - npm
-#   - openssl
-#   - packer
-#   - pkg-config
-#   # - postgresql
-#   # - rbenv
-#   - readline
-#   # - redis
-#   # - ruby-build
-#   - sqlite3
-#   - ssh-copy-id
-#   - terraform
-#   - tmux
-#   - unar
-#   - unixodbc
-#   - unzip
-#   - vim
-#   - wget
-#   - xz
-#   - yarn
-#   - zlib
-#   - zsh
+homebrew_installed_packages:
+  - autoconf
+  - automake
+  # - azdata-cli
+  - azure-cli
+  - bat
+  - bat-extras
+  - bfg
+  - coreutils
+  - curl
+  - direnv
+  - docker
+  - exa
+  # - fzf
+  - gcc
+  - git
+  # - git-credential-manager-core
+  - graphviz
+  - gzip
+  - htop
+  - jq
+  - kubernetes-cli
+  - kubernetes-helm
+  - libtool
+  - libxslt
+  - libyaml
+  # - mambaforge
+  - mas
+  # - msodbcsql17
+  # - mssql-tools
+  - mysql
+  - npm
+  - openssl
+  - packer
+  - pkg-config
+  # - postgresql
+  # - rbenv
+  - readline
+  # - redis
+  # - ruby-build
+  - sqlite3
+  - ssh-copy-id
+  - terraform
+  - tmux
+  - unar
+  - unixodbc
+  - unzip
+  - vim
+  - wget
+  - xz
+  - yarn
+  - zlib
+  - zsh
 
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications

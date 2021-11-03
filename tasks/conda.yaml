@@ -38,7 +38,7 @@
     shell: |
       conda create --name default
       conda activate default
-      mamba env update -f ./files/conda/environment.yaml
-      pip install -r ./files/conda/requirement.txt
+      mamba env update -f files/conda/environment.yaml
+      pip install -r files/conda/requirement.txt
       conda deactivate
     when: default_env_exists.rc != 0
