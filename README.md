@@ -174,5 +174,3 @@ Use `Vagrant` to manage images that are run in `VirtualBox`
    ```
 
 ## References
-
-* https://iterm2colorschemes.com/
