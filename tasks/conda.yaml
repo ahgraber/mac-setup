@@ -1,6 +1,9 @@
 ---
 - name: "Check if conda installed"
-  shell: command -v conda >/dev/null 2>&1
+  shell: |
+    [[ -f $HOME/mambaforge/bin/conda ]]
+  args:
+    executable: /bin/bash
   register: conda_exists
   ignore_errors: yes
 
@@ -29,8 +32,11 @@
 
 - name: "Initialize conda (bash)"
   shell: |
-    conda init bash
+    alias conda="$HOME/mambaforge/bin/conda"
     conda init zsh
+    conda init bash
+  args:
+    executable: /bin/zsh
   when: conda_exists.rc != 0
 
 - shell: pwd
@@ -42,8 +48,9 @@
 
 - name: "Check if default env exists"
   shell: |
-    source ~/.bash_profile ~/.zshrc
     [[ -d $HOME/mambaforge/envs/default ]]
+  args:
+    executable: /bin/bash
   register: default_env_exists
   ignore_errors: yes
 
@@ -52,8 +59,8 @@
     source ~/.zshrc
     conda create --name default -yq
     conda activate default
-    mamba env update -f files/conda/environment.yaml
-    pip install -r files/conda/requirement.txt
+    mamba env update -f ./files/conda/environment.yaml
+    pip install -r ./files/conda/requirement.txt
     conda deactivate
   args:
     executable: /bin/zsh

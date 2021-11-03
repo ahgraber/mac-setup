@@ -132,14 +132,14 @@ if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a lidwake 1; fi
 # Restart automatically on power loss
 if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a autorestart 1; fi
 
-# Sleep the display after 15 minutes
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a displaysleep 5; fi
+# Sleep the display after x minutes
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a displaysleep 15; fi
 
-# Disable machine sleep while charging
+# Set machine sleep while charging
 if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -c sleep 0; fi
 
-# Set machine sleep to 5 minutes on battery
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -b sleep 15; fi
+# Set machine sleep on battery
+if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -b sleep 30; fi
 
 # Set standby delay to 24 hours (default is 1 hour)
 if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a standbydelay 86400; fi

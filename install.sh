@@ -6,11 +6,14 @@ yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 if [[ -d "$HOME/mac-setup/.git" ]]; then
   read -p "Update from source? (y/n)? [y] " git_select
   git_select=${git_select:-"y"}
+
   if [[ "$git_select" =~ $yesexpr ]]; then
-    echo "Updating...  Will attempt to reapply any local changes after..."
+    echo "Updating...  Will attempt to reapply any local changes..."
     cd $HOME/mac-setup/
     git stash && git checkout main && git pull --rebase origin && git stash pop
   fi
+  unset git_select
+
 else
   echo "Cloning into $HOME/mac-setup"
   cd $HOME
@@ -21,12 +24,14 @@ cd $HOME/mac-setup/
 
 read -p "Run install with default settings? (y/n)? [y] " install_select
 install_select=${install_select:-"y"}
+
 if [[ "$install_select" =~ $yesexpr ]]; then
   echo "Installing with default settings..."
 else
   echo "Exiting installation."
   exit 0
 fi
+unset install_select
 
 # install prerequisites (rosetta2, python pip, ansible)
 echo "Installing prerequisites..."

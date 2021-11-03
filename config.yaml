@@ -1,6 +1,7 @@
+# must have true/false values
 debug: true
-configure_homebrew: true
-configure_dock: true
+configure_homebrew: false
+configure_dock: false
 configure_conda: true
 configure_terminals: true
 configure_zsh: true

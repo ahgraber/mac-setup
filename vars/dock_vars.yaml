@@ -25,6 +25,6 @@ dockitems_persist:
   - name: Terminal
     path: "/System/Applications/Utilities/Terminal.app"
   - name: Visual Studio Code
-    path: "/Applications/Utilities/Visual Studio Code.app"
+    path: "/Applications/Visual Studio Code.app"
   - name: Azure Data Studio
-    path: "/Applications/Utilities/Azure Data Studio.app"
+    path: "/Applications/Azure Data Studio.app"

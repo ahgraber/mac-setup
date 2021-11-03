@@ -4,6 +4,16 @@
 
 The following script will autoinstall the default configuration:
 
+* Rosetta2 (if Apple Silicon detected)
+* [Ansible](https://docs.ansible.com) via `pip`
+* [Homebrew](https://brew.sh)
+  * [packages and applications](./vars/homebrew_vars.yaml)
+* `conda` via [mambaforge](https://github.com/conda-forge/miniforge)
+* customized Terminal and iTerm2 profiels
+* customized zsh env via [zshconfig](https://www.github.com/ahgraber/zshconfig)
+
+## Prerequisites
+
 ```sh
 # Ensure Apple's command line tools are installed
 if [[ $(command -v cc) ]]; then
@@ -22,15 +32,6 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 # run install script
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
 ```
-
-## Prerequisites
-
-* `./scripts/prerequisites.sh` will install prereqs during boostrap:
-  * xcode cli
-  * rosetta2 (if Apple silicon)
-  * pip
-  * Ansible
-  * Homebrew
 
 ## Manual installation & configuration
 
@@ -58,14 +59,11 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
    # dock customization
    # vscode customization
    # zsh customization
-   ansible-playbook playbook.yml -i inventory --ask-sudo-pass -vvvv
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass # -v
 
    # home folder mgmt
    bash ./scripts/symlink_onedrive.sh
    bash ./scripts/git_dir.sh
-
-   # macOS customization
-   sudo bash ./scripts/macos_settings.sh
    ```
 
 ## Manual followup
@@ -84,6 +82,15 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
   # example -- back up existing .zshrc and hard link
   mv ~/.zshrc ~/.zshrc.$(date +%Y.%m.%d)
   ln -s ~/ansible-mac-setup/files/dotfiles/zshrc .zshrc
+  ```
+
+* [ ] Install any `homebrew` packages that require external taps
+
+  ```sh
+  HOMEBREW_NO_ENV_FILTERING=1 ACCEPT_EULA=Y brew install \
+    azdata-cli \
+    msodbcsql17 \
+    mssql-tools
   ```
 
 * [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
