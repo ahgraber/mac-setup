@@ -9,5 +9,5 @@
 - name: Run macos configuration
   script: "scripts/macos_settings.sh --no-restart"
   args:
-    executable: python3
+    executable: /bin/bash
   become: true
