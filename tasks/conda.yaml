@@ -8,6 +8,7 @@
   #   shell: |
   #     curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
   #     bash Mambaforge-$(uname)-$(uname -m).sh -f
+  #     rm Mambaforge-$(uname)-$(uname -m).sh
   #   when: conda_exists.rc != 0
 
   # - name: Copy default environment.yaml

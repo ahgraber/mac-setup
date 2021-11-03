@@ -11,6 +11,7 @@
     - role: elliotweiser.osx-command-line-tools
 
     - role: geerlingguy.mac.homebrew
+      when: configure_homebrew
       tags: ['env', 'homebrew']
 
     - role: geerlingguy.mac.dock
