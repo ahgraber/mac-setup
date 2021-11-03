@@ -19,6 +19,14 @@ fi
 
 cd $HOME/mac-setup/
 
+read -p "Run install with default settings? (y/n)? [y] " install_select
+if [[ "$install_select" =~ $yesexpr ]]; then
+  echo "Installing with default settings..."
+else
+  echo "Exiting installation."
+  exit 0
+fi
+
 # install prerequisites (rosetta2, python pip, ansible)
 echo "Installing prerequisites..."
 bash ./scripts/prerequisites.sh
