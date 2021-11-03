@@ -1,91 +1,92 @@
 ---
 # homebrew_install_path: /usr/local/homebrew
-homebrew_installed_packages:
-  - autoconf
-  - automake
-  # - azdata-cli
-  - azure-cli
-  - bat
-  - bat-extras
-  - bfg
-  - coreutils
-  - curl
-  - direnv
-  - docker
-  - exa
-  # - fzf
-  - gcc
-  - git
-  # - git-credential-manager-core
-  - graphviz
-  - gzip
-  - htop
-  - jq
-  - kubernetes-cli
-  - kubernetes-helm
-  - libtool
-  - libxslt
-  - libyaml
-  - mambaforge
-  - mas
-  # - msodbcsql17
-  # - mssql-tools
-  - mysql
-  - npm
-  - openssl
-  - packer
-  - pkg-config
-  # - postgresql
-  # - rbenv
-  - readline
-  # - redis
-  # - ruby-build
-  - sqlite3
-  - ssh-copy-id
-  - terraform
-  - tmux
-  - unar
-  - unixodbc
-  - unzip
-  - vim
-  - wget
-  - xz
-  - yarn
-  - zlib
-  - zsh
+# homebrew_installed_packages:
+#   - autoconf
+#   - automake
+#   # - azdata-cli
+#   - azure-cli
+#   - bat
+#   - bat-extras
+#   - bfg
+#   - coreutils
+#   - curl
+#   - direnv
+#   - docker
+#   - exa
+#   # - fzf
+#   - gcc
+#   - git
+#   # - git-credential-manager-core
+#   - graphviz
+#   - gzip
+#   - htop
+#   - jq
+#   - kubernetes-cli
+#   - kubernetes-helm
+#   - libtool
+#   - libxslt
+#   - libyaml
+#   # - mambaforge
+#   - mas
+#   # - msodbcsql17
+#   # - mssql-tools
+#   - mysql
+#   - npm
+#   - openssl
+#   - packer
+#   - pkg-config
+#   # - postgresql
+#   # - rbenv
+#   - readline
+#   # - redis
+#   # - ruby-build
+#   - sqlite3
+#   - ssh-copy-id
+#   - terraform
+#   - tmux
+#   - unar
+#   - unixodbc
+#   - unzip
+#   - vim
+#   - wget
+#   - xz
+#   - yarn
+#   - zlib
+#   - zsh
 
-# homebrew_cask_accept_external_apps: true
-# homebrew_cask_appdir: /Applications
-# homebrew_cask_apps:
-#   - appcleaner
-#   - azure-data-studio
-#   - bartender
-#   # - bettertouchtool
-#   - bitwarden
-#   - blockblock
-#   - eloston-chromium
-#   - firefox
-#   - gpg-suite
-#   - grandperspective
-#   - iterm2
-#   - lulu
-#   - microsoft-azure-storage-explorer
-#   # - microsoft-office
-#   - microsoft-remote-desktop
-#   - osxfuse
-#   - oversight
-#   - postman
-#   - r
-#   - rectangle
-#   - rstudio
-#   - spotify
-#   # - sublime-text
-#   - the-unarchiver
-#   # - vagrant
-#   # - virtualbox
-#   # - virtualbox-extension-pack
-#   - visual-studio-code
-#   - vlc
+homebrew_cask_accept_external_apps: true
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  # - appcleaner
+  # - azure-data-studio
+  # - bartender
+  # # - bettertouchtool
+  # - bitwarden
+  # - blockblock
+  # - eloston-chromium
+  # - firefox
+  # - gpg-suite
+  # - grandperspective
+  # - iterm2
+  # - lulu
+  - mambaforge
+  # - microsoft-azure-storage-explorer
+  # # - microsoft-office
+  # - microsoft-remote-desktop
+  # - osxfuse
+  # - oversight
+  # - postman
+  # - r
+  - rectangle
+  # - rstudio
+  # - spotify
+  # # - sublime-text
+  # - the-unarchiver
+  # # - vagrant
+  # # - virtualbox
+  # # - virtualbox-extension-pack
+  # - visual-studio-code
+  # - vlc
 
 homebrew_taps:
   - homebrew/cask
