@@ -24,7 +24,7 @@
 
 - name: Copy VSCode keybinding
   copy:
-    src: files/vscode/vscode-keybindings.json
+    src: files/vscode/keybindings.json
     dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/keybindings.json
     owner: "{{ lookup('env', 'USER') }}"
     force: no
