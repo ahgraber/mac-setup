@@ -36,7 +36,7 @@
 - name: "Check if default env exists"
   shell: |
     source ~/.bash_profile ~/.zshrc
-    command -v $(conda env list | grep default) >/dev/null 2>&1
+    [[ -d $HOME/mambaforge/env/default ]]
   register: default_env_exists
   ignore_errors: yes
 
@@ -50,10 +50,10 @@
 - name: "Install Default Python"
   shell: |
     source ~/.zshrc
-    conda create --name default
+    conda create --name default -yq
     conda activate default
-    mamba env update -f ../files/conda/environment.yaml
-    pip install -r ../files/conda/requirement.txt
+    mamba env update -f ./files/conda/environment.yaml
+    pip install -r ./files/conda/requirement.txt
     conda deactivate
   args:
     executable: /bin/zsh
