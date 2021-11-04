@@ -27,7 +27,7 @@ fi
 
 cd $HOME/mac-setup/
 
-echo -e "\n"
+echo ""
 read -p "Do you want to customize the install before continuing? (y/n)? [n] " install_select
 install_select=${install_select:-"n"}
 
