@@ -42,7 +42,7 @@
   file:
     src: "{{ homebrew_install_path }}/bin/brew"
     dest: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist"
-    owner: {{ lookup('env', 'USER') }}
+    owner: "{{ lookup('env', 'USER') }}"
     mode: 0600
   when: not iterm_plist.stat.exists
 
