@@ -6,25 +6,6 @@ if [[ "$(arch)" = "arm64" ]]; then
   softwareupdate --install-rosetta --agree-to-license
 fi
 
-# # Ensure Homebrew (mac package manager) is installed
-# if [[ $(command -v brew) ]]; then
-# echo "Homebrew already installed. Updating..."
-# brew update-reset
-# else
-#   echo "Installing Homebrew..."
-#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#   # add to path for session
-#   PATH="/usr/local/bin:/opt/homebrew:/usr/$PATH"
-#   # echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"' >> ${shell_profile}}
-# fi
-# brew analytics off
-# brew cleanup
-
-# Install/update python pip
-# echo "Installing pip to base python"
-# curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-# python3 get-pip.py --user
-# rm get-pip.py
 echo "Updating pip"
 python3 -m pip install --user --upgrade pip
 
@@ -40,5 +21,28 @@ fi
 
 echo "Installing/Updating Ansible requirements..."
 ansible-galaxy install -c -r requirements.yaml
+
+# Install fonts
+# install fonts
+mkdir -p "$HOME/Library/Fonts"
+
+# meslo nf
+echo "Installing Meslo NF to ~/Library/Fonts..."
+cp ./font/*.ttf "$HOME/Library/Fonts"
+
+# install hack nerd font
+echo "Installing Hack Nerd Font to ~/Library/Fonts..."
+curl -fsSL https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip > hackfont.zip
+unzip hackfont.zip -d hackfont
+cp hackfont/ttf/*.ttf "$HOME/Library/Fonts"
+rm -rf hackfont.zip hackfont
+
+# install awesome-terminal-fonts
+echo "Installing awesome-terminal-fonts to ~/Library/Fonts..."
+curl -fsSL https://github.com/gabrielelana/awesome-terminal-fonts/archive/refs/tags/v1.1.0.zip > termfont.zip
+unzip termfont.zip -d termfont/
+cp termfont/awesome-terminal-fonts-1.1.0/build/*.ttf "$HOME/Library/Fonts"
+mkdir -p "$HOME/.fonts"; cp termfont/awesome-terminal-fonts-1.1.0/build/*.sh "$HOME/.fonts"
+rm -rf termfont.zip termfont
 
 echo "Success! Prerequisites installed."

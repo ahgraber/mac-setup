@@ -1,5 +1,5 @@
 #!/bin/bash
-set -- $(locale LC_MESSAGES)
+set -- "$(locale LC_MESSAGES)"
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
 # if dest_dir already contains .git file, assume we've already installed there once
@@ -9,7 +9,7 @@ if [[ -d "$HOME/mac-setup/.git" ]]; then
 
   if [[ "$git_select" =~ $yesexpr ]]; then
     echo -e "\nUpdating (Will attempt to reapply any local changes)..."
-    cd $HOME/mac-setup/
+    cd "$HOME/mac-setup/" || exit
     echo -e "\nStashing local changes (stash)..."
     git stash
     echo -e "\nUpdating (pull --rebase)..."
@@ -21,18 +21,18 @@ if [[ -d "$HOME/mac-setup/.git" ]]; then
 
 else
   echo "Cloning into $HOME/mac-setup"
-  cd $HOME
+  cd "$HOME" || exit
   git clone https://github.com/ahgraber/mac-setup.git
 fi
 
-cd $HOME/mac-setup/
+cd "$HOME/mac-setup/" || exit
 
 echo ""
 read -p "Do you want to customize the install before continuing? (y/n)? [n] " install_select
 install_select=${install_select:-"n"}
 
 if [[ "$install_select" =~ $noexpr ]]; then
-  echo "Installing with default settings..."
+  echo "Installing..."
 else
   echo 'Exiting installer. Once customization is complete,'
   echo 'you can follow the instructions in the README for manual installation,'

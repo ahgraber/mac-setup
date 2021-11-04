@@ -57,7 +57,7 @@
         local notfound="No value at that key path or invalid key path"
 
         test="$(plutil -extract $findkey xml1 -o - $plist)"
-        if [[ "$test" =~ "$notfound" ]]; then
+        if [[ "$test" =~ $notfound ]]; then
             echo "insert"
         else
             echo "replace"
@@ -66,7 +66,7 @@
 
     # check for 'Custom Color Presets' as key
     action="$(insert_or_replace "Custom Color Presets")"
-    if [[ "$action" =~ "insert" ]]; then
+    if [[ "$action" == "insert" ]]; then
       plutil -$action "Custom Color Presets" -json '{}' ~/Library/Preferences/com.googlecode.iterm2.plist
     fi
 
@@ -505,13 +505,13 @@
 #     force: no
 
 # Custom Terminal theme.
-- name: Get current Terminal profile.
+- name: Get current Terminal profile
   command: defaults read com.apple.terminal 'Default Window Settings'
   register: terminal_theme
   changed_when: false
   check_mode: false
 
-- name: Ensure custom Terminal profile is added.
+- name: Ensure custom Terminal profile is added
   command: open files/terminal/MaterialDarker.terminal
   changed_when: false
   when: "'MaterialDarker' not in terminal_theme.stdout"
@@ -523,6 +523,14 @@
     - defaults write com.apple.terminal 'Startup Window Settings' -string MaterialDarker
   changed_when: false
   when: "'MaterialDarker' not in terminal_theme.stdout"
+
+- name: Apply default settings to Terminal profile
+  copy:
+    src: "files/terminal/com.apple.Terminal.plist"
+    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.apple.Terminal.plist"
+    owner: "{{ lookup('env', 'USER') }}"
+    mode: '0600'
+    force: yes
 
 # only if running from remote
 # - name: Check if Terminal is Active.

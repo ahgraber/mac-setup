@@ -13,38 +13,38 @@ homebrew_installed_packages:
   - direnv
   - docker
   - exa
-  # - fzf
-  - gcc
-  - git
-  # - git-credential-manager-core
-  - graphviz
-  - gzip
-  - htop
-  - jq
-  - kubernetes-cli
-  - kubernetes-helm
-  - libtool
-  - libxslt
-  - libyaml
-  - mas
-  # - msodbcsql17
-  # - mssql-tools
-  - mysql
-  - npm
-  - openssl
-  - packer
-  - pkg-config
-  # - postgresql
-  # - rbenv
-  - readline
-  # - redis
-  # - ruby-build
-  - sqlite3
-  - ssh-copy-id
-  - terraform
-  - tmux
-  - unar
-  - unixodbc
+  # # - fzf
+  # - gcc
+  # - git
+  # # - git-credential-manager-core
+  # - graphviz
+  # - gzip
+  # - htop
+  # - jq
+  # - kubernetes-cli
+  # - kubernetes-helm
+  # - libtool
+  # - libxslt
+  # - libyaml
+  # - mas
+  # # - msodbcsql17
+  # # - mssql-tools
+  # - mysql
+  # - npm
+  # - openssl
+  # - packer
+  # - pkg-config
+  # # - postgresql
+  # # - rbenv
+  # - readline
+  # # - redis
+  # # - ruby-build
+  # - sqlite3
+  # - ssh-copy-id
+  # - terraform
+  # - tmux
+  # - unar
+  # - unixodbc
   - unzip
   - vim
   - wget
@@ -56,34 +56,34 @@ homebrew_installed_packages:
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - appcleaner
-  - azure-data-studio
-  - bartender
-  # - bettertouchtool
-  - bitwarden
-  - blockblock
-  - eloston-chromium
-  - firefox
-  - gpg-suite
-  - grandperspective
+  # - appcleaner
+  # - azure-data-studio
+  # - bartender
+  # # - bettertouchtool
+  # - bitwarden
+  # - blockblock
+  # - eloston-chromium
+  # - firefox
+  # - gpg-suite
+  # - grandperspective
   - iterm2
-  - lulu
-  # - mambaforge  # install via `conda` task
-  - microsoft-azure-storage-explorer
-  # - microsoft-office
-  - microsoft-remote-desktop
-  - osxfuse
-  - oversight
-  - postman
-  - r
-  - rectangle
-  - rstudio
-  - spotify
-  # - sublime-text
-  - the-unarchiver
-  # - vagrant
-  # - virtualbox
-  # - virtualbox-extension-pack
+  # - lulu
+  # # - mambaforge  # install via `conda` task
+  # - microsoft-azure-storage-explorer
+  # # - microsoft-office
+  # - microsoft-remote-desktop
+  # - osxfuse
+  # - oversight
+  # - postman
+  # - r
+  # - rectangle
+  # - rstudio
+  # - spotify
+  # # - sublime-text
+  # - the-unarchiver
+  # # - vagrant
+  # # - virtualbox
+  # # - virtualbox-extension-pack
   - visual-studio-code
   - vlc
 
