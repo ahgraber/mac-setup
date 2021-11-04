@@ -32,7 +32,7 @@
 
 - name: "Initialize conda (bash)"
   shell: |
-    alias conda="$HOME/mambaforge/bin/conda"
+    export conda="$HOME/mambaforge/bin/conda"
     conda init zsh
     conda init bash
   args:
