@@ -96,3 +96,24 @@ homebrew_taps:
     url: 'https://github.com/microsoft/homebrew-git'
   - name: microsoft/mssql-release
     url: 'https://github.com/Microsoft/homebrew-mssql-release'
+
+# set homebrew dirs to manage
+homebrew_folders_base:
+  - Cellar
+  - Homebrew
+  - Frameworks
+  - Caskroom
+  - bin
+  - etc
+  - include
+  - lib
+  - opt
+  - sbin
+  - share
+  - share/info
+  - share/man
+  - share/man/man3
+  - share/man/man5
+  - share/zsh
+  - share/zsh/site-functions
+  - var
