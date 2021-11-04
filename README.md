@@ -76,6 +76,12 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
   # git config --global credential.helper osxkeychain
   ```
 
+* [ ] Check `conda` install. If `conda` not found, run
+
+  ```sh
+  $HOME/mambaforge/bin/conda init zsh
+  ```
+
 * [ ] Repair issues with dotfile hard links (if any exist)
 
   ```sh
