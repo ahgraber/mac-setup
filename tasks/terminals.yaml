@@ -33,6 +33,19 @@
   shell: code --install-extension {{ item }}
   with_items: "{{ vscode_extensions }}"
 
+- name: Check if iTerm plist exists.
+  stat: "path=/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist"
+  register: iterm_plist
+  check_mode: false
+
+- name: Make iTerm plist if it doesn't exist
+  file:
+    src: "{{ homebrew_install_path }}/bin/brew"
+    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist"
+    owner: {{ lookup('env', 'USER') }}
+    mode: 0600
+  when: not iterm_plist.stat.exists
+
 - name: Add MaterialDarker theme to iTerm
   shell: |
     insert_or_replace() {
@@ -471,7 +484,6 @@
     plutil -replace "New Bookmarks.0.Use Non-ASCII Font" -integer 1 ~/Library/Preferences/com.googlecode.iterm2.plist
     plutil -replace "New Bookmarks.0.Unlimited Scrollback" -integer 1 ~/Library/Preferences/com.googlecode.iterm2.plist
     plutil -replace "New Bookmarks.0.Working Directory" -string "~" ~/Library/Preferences/com.googlecode.iterm2.plist
-
 
 # - name: Ensure iTerm dynamicprofiles directory exists.
 #   file:

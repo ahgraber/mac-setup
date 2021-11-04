@@ -16,41 +16,6 @@
     executable: /bin/bash
   when: conda_exists.rc != 0
 
-# - name: Copy default environment.yaml
-#   copy:
-#     src: ./files/conda/environment.yaml
-#     dest: /Users/{{ lookup('env', 'USER') }}/environment.yaml
-#     owner: "{{ lookup('env', 'USER') }}"
-#     force: no
-
-# - name: Copy supplemental requirements.txt
-#   copy:
-#     src: ./files/conda/requirements.txt
-#     dest: /Users/{{ lookup('env', 'USER') }}/requirements.txt
-#     owner: "{{ lookup('env', 'USER') }}"
-#     force: no
-
-# Deprecated: don't care, we'll call the binary directly
-# And the .zshrc we're copying in will include the init
-# - name: "Initialize conda"
-#   shell: |
-#     export conda="$HOME/mambaforge/bin/conda"
-#     conda init zsh
-#     conda init bash
-#   args:
-#     executable: /bin/zsh
-#   when: conda_exists.rc != 0
-
-# # Instead, let's just provide shortcuts to the binaries
-# - name: "Initialize conda"
-#   shell: |
-#     cat > $HOME/.zshenv <<EOF
-#     export conda="$HOME/mambaforge/bin/conda"
-#     export mamba="$HOME/mambaforge/bin/mamba"
-#     EOF
-#   args:
-#     executable: /bin/zsh
-
 # get/test current working directory
 - shell: pwd
   register: shell_pwd
@@ -66,17 +31,6 @@
   register: default_env_exists
   ignore_errors: yes
 
-# - name: "Install Default Python"
-#   shell: |
-#     $HOME/mambaforge/bin/conda create --name default -yq
-#     $HOME/mambaforge/bin/conda activate default
-#     $HOME/mambaforge/bin/mamba env update -f ./files/conda/environment.yaml
-#     pip install -r ./files/conda/requirement.txt
-#     $HOME/mambaforge/bin/conda deactivate
-#   args:
-#     executable: /bin/zsh
-#   when: default_env_exists.rc != 0
-
 - name: "Install Default Python"
   shell: |
     conda() { "$HOME/mambaforge/bin/conda"; }
@@ -90,5 +44,3 @@
   args:
     executable: /bin/zsh
   when: default_env_exists.rc != 0
-    # export conda="$HOME/mambaforge/bin/conda"
-    # export mamba="$HOME/mambaforge/bin/mamba"

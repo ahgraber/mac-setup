@@ -1,43 +1,28 @@
 {
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Material Night Eighties",
-  "git.confirmSync": false,
-  "terminal.integrated.inheritEnv": false,
-  "terminal.integrated.fontFamily": "MesloLGS NF",
-  "terminal.integrated.fontSize": 13,
-  "jupyter.interactiveWindowMode": "perFile",
-  "kite.showWelcomeNotificationOnStartup": false,
-  "files.eol": "\n",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "python.languageServer": "Pylance",
-  "python.formatting.autopep8Args": [
-    "--max-line-length",
-    "120",
-    "--experimental"
-  ],
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["max-line-length = 119"],
-  "files.trimTrailingWhitespace": true,
-  "files.trimFinalNewlines": true,
-  "editor.rulers": [79, 119],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "autoDocstring.docstringFormat": "numpy",
   "diffEditor.ignoreTrimWhitespace": false,
-  "prettier.printWidth": 120,
-  "prettier.semi": false,
+  "diffEditor.renderSideBySide": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.minimap.enabled": false,
+  "editor.rulers": [
+    79,
+    119
+  ],
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 120,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
+  "git.suggestSmartCommit": false,
+  "jupyter.askForKernelRestart": false,
+  "jupyter.experiments.enabled": false,
+  "jupyter.interactiveWindowMode": "perFile",
   "jupyter.sendSelectionToInteractiveWindow": true,
-  "vs-kubernetes": {
-    "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
-    "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
-  },
-
-  // "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
+  "jupyter.alwaysTrustNotebooks": true,
+  "markdown.extension.math.enabled": true,
   "mssql.connections": [
     {
       "server": "{{put-server-name-here}}",
@@ -46,13 +31,68 @@
       "password": ""
     }
   ],
-  "redhat.telemetry.enabled": false,
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
-"editor.formatOnType": false,
-"prettier.configPath": ".prettierrc",
+  "prettier.configPath": ".prettierrc",
+  "prettier.printWidth": 120,
+  "prettier.semi": false,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.memory.keepLibraryAst": true,
+  "python.experiments.enabled": false,
+  "python.experiments.optInto": [
+
+  ],
+  "python.formatting.autopep8Args": [
+    "--max-line-length",
+    "120",
+    "--experimental"
+  ],
+  "python.formatting.blackArgs": [
+    "exclude = ''' /(     \\.git   | \\.hg   | \\.mypy_cache   | \\.tox   | \\.venv   | _build   | buck-out   | build   | dist )/ '''"
+  ],
+  "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.ignorePatterns": [
+    ".vscode/*"
+  ],
+  "python.linting.flake8Args": [
+    "ignore = E203, E265, E266, E501, W503, F403, F401, F541",
+    "select = B,C,E,F,N,W,T4,B9,C4",
+    "max-complexity = 18",
+    "max-line-length = 119"
+  ],
+  "python.showStartPage": false,
+  "python.testing.pytestEnabled": true,
+  "[python]": {
+
+    "gitlens.codeLens.symbolScopes": [
+      "!Module"
+    ],
+    "editor.wordBasedSuggestions": false
+  },
+  "redhat.telemetry.enabled": false,
+  "team.showWelcomeMessage": false,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontSize": 13,
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
+    "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl"
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Material Night Eighties",
+  "workbench.startupEditor": "newUntitledFile",
+  "security.workspace.trust.untrustedFiles": "open",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
