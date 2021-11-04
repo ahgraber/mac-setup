@@ -11,6 +11,26 @@
     - role: elliotweiser.osx-command-line-tools
 
     - role: geerlingguy.mac.homebrew
+      # override defaults & set homebrew dirs to manage
+      homebrew_folders_base:
+        - Cellar
+        - Homebrew
+        - Frameworks
+        - Caskroom
+        - bin
+        - etc
+        - include
+        - lib
+        - opt
+        - sbin
+        - share
+        - share/info
+        - share/man
+        - share/man/man3
+        - share/man/man5
+        - share/zsh
+        - share/zsh/site-functions
+        - var
       when: configure_homebrew
       tags: ['env', 'homebrew']
 
