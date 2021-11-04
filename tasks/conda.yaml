@@ -1,5 +1,5 @@
 ---
-- name: "Check if conda installed"
+- name: "Check if conda (mambaforge) installed"
   shell: |
     [[ -f $HOME/mambaforge/bin/conda ]]
   args:
@@ -7,7 +7,7 @@
   register: conda_exists
   ignore_errors: yes
 
-- name: "Install conda"
+- name: "Install conda (mambaforge"
   shell: |
     curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
     bash Mambaforge-$(uname)-$(uname -m).sh -b -f -p $HOME/mambaforge
