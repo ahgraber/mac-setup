@@ -56,7 +56,7 @@
         local plist=~/Library/Preferences/com.googlecode.iterm2.plist
         local notfound="No value at that key path or invalid key path"
 
-        test="$(plutil -extract $findkey xml1 -o - $plist)"
+        test="$(plutil -extract "$findkey" xml1 -o - $plist)"
         if [[ "$test" =~ $notfound ]]; then
             echo "insert"
         else
