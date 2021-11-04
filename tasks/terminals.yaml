@@ -35,14 +35,27 @@
 
 - name: Add MaterialDarker theme to iTerm
   shell: |
-    # check for `MaterialDarker` as key
-    test="$(plutil -extract 'Custom Color Presets.MaterialDarker' xml1 -o - ~/Library/Preferences/com.googlecode.iterm2.plist)"
-    match="No value at that key path or invalid key path"
-    if [[ "$test" =~ "$match" ]]; then
-      action="insert"
-    else
-      action="replace"
+    insert_or_replace() {
+        local findkey=${1}
+        local plist=~/Library/Preferences/com.googlecode.iterm2.plist
+        local notfound="No value at that key path or invalid key path"
+
+        test="$(plutil -extract $findkey xml1 -o - $plist)"
+        if [[ "$test" =~ "$notfound" ]]; then
+            echo "insert"
+        else
+            echo "replace"
+        fi
+    }
+
+    # check for 'Custom Color Presets' as key
+    action="$(insert_or_replace "Custom Color Presets")"
+    if [[ "$action" =~ "insert" ]]; then
+      plutil -$action "Custom Color Presets" -json '{}' ~/Library/Preferences/com.googlecode.iterm2.plist
     fi
+
+    # check for 'Custom Color Presets.MaterialDarker' as key
+    action="$(insert_or_replace "Custom Color Presets.MaterialDarker")"
     plutil -$action "Custom Color Presets.MaterialDarker" -json '{
       "Ansi 0 Color": {
         "Alpha Component": 1,
@@ -241,7 +254,6 @@
         "Red Component": 0.3489385843276978
       }
     }' ~/Library/Preferences/com.googlecode.iterm2.plist
-
 
 - name: Apply default settings to iTerm profile
   shell: |

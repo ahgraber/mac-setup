@@ -8,9 +8,9 @@ if [[ -d "$HOME/mac-setup/.git" ]]; then
   git_select=${git_select:-"y"}
 
   if [[ "$git_select" =~ $yesexpr ]]; then
-    echo -e "\nUpdating...  Will attempt to reapply any local changes..."
+    echo -e "\nUpdating (Will attempt to reapply any local changes)..."
     cd $HOME/mac-setup/
-    echo -e "\n Stashing local changes (stash)..."
+    echo -e "\nStashing local changes (stash)..."
     git stash
     echo -e "\nUpdating (pull --rebase)..."
     git checkout main && git pull --rebase origin
@@ -27,6 +27,7 @@ fi
 
 cd $HOME/mac-setup/
 
+echo -e "\n"
 read -p "Do you want to customize the install before continuing? (y/n)? [n] " install_select
 install_select=${install_select:-"n"}
 
