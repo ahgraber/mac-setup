@@ -79,8 +79,8 @@
 
 - name: "Install Default Python"
   shell: |
-    export conda="$HOME/mambaforge/bin/conda"
-    export mamba="$HOME/mambaforge/bin/mamba"
+    conda() { "$HOME/mambaforge/bin/conda"; }
+    mamba() { "$HOME/mambaforge/bin/mamba"; }
 
     conda create --name default -yq
     conda activate default
