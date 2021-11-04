@@ -14,7 +14,7 @@ The following script will autoinstall the default configuration:
 
 ## Prerequisites
 
-```sh
+```zsh
 # Ensure Apple's command line tools are installed
 if [[ $(command -v cc) ]]; then
   echo "Xcode already installed. Skipping."
