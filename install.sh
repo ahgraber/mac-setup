@@ -33,9 +33,9 @@ install_select=${install_select:-"n"}
 if [[ "$install_select" =~ $noexpr ]]; then
   echo "Installing with default settings..."
 else
-  echo "Exiting installer. Once customization is complete,"
-  echo "you can follow the instructions in the README for manual installation,"
-  echo "or run the install script (`bash $HOME/mac-setup/install.sh`)"
+  echo 'Exiting installer. Once customization is complete,'
+  echo 'you can follow the instructions in the README for manual installation,'
+  echo 'or run the install script (`bash $HOME/mac-setup/install.sh`)'
   exit 0
 fi
 unset install_select
