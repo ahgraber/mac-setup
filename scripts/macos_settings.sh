@@ -149,8 +149,8 @@ if [[ "$RUN_AS_ROOT" = true ]]; then sudo systemsetup -setcomputersleep Off > /d
 
 # # Hibernation mode
 # # 0: Disable hibernation (speeds up entering sleep mode)
-# # 3: Copy RAM to disk so the system state can still be restored in case of a
-# #    power failure.
+# # 3: (default) Copy RAM to disk so the system state can still be restored
+# #    in case of a power failure.
 # if [[ "$RUN_AS_ROOT" = true ]]; then sudo  pmset -a hibernatemode 0; fi
 
 # # Remove the sleep image file to save disk space

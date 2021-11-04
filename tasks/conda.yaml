@@ -32,7 +32,7 @@
 
 # Deprecated: don't care, we'll call the binary directly
 # And the .zshrc we're copying in will include the init
-# - name: "Initialize conda (bash)"
+# - name: "Initialize conda"
 #   shell: |
 #     export conda="$HOME/mambaforge/bin/conda"
 #     conda init zsh
@@ -41,10 +41,20 @@
 #     executable: /bin/zsh
 #   when: conda_exists.rc != 0
 
+# Instead, let's just provide shortcuts to the binaries
+- name: "Initialize conda"
+  shell: |
+    cat > $HOME/.zshenv <<EOF
+    export conda="$HOME/mambaforge/bin/conda"
+    export mamba="$HOME/mambaforge/bin/mamba"
+    EOF
+  args:
+    executable: /bin/zsh
+
+# get/test current working directory
 - shell: pwd
   register: shell_pwd
   when: debug
-
 - debug: var=shell_pwd.stdout
   when: debug
 
@@ -69,18 +79,12 @@
 
 - name: "Install Default Python"
   shell: |
-    cat > $HOME/.zshenv <<EOF
-    export conda="$HOME/mambaforge/bin/conda"
-    export mamba="$HOME/mambaforge/bin/mamba"
-    EOF
-
     source $HOME/.zshenv
     conda create --name default -yq
     conda activate default
     mamba env update -f ./files/conda/environment.yaml
     pip install -r ./files/conda/requirement.txt
     conda deactivate
-    rm $HOME/.zshenv
   args:
     executable: /bin/zsh
   when: default_env_exists.rc != 0
