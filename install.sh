@@ -8,13 +8,13 @@ if [[ -d "$HOME/mac-setup/.git" ]]; then
   git_select=${git_select:-"y"}
 
   if [[ "$git_select" =~ $yesexpr ]]; then
-    echo "Updating...  Will attempt to reapply any local changes..."
+    echo "\nUpdating...  Will attempt to reapply any local changes..."
     cd $HOME/mac-setup/
-    echo "Stashing local changes (stash)..."
+    echo "\nStashing local changes (stash)..."
     git stash
-    echo "Updating (pull --rebase)..."
+    echo "\nUpdating (pull --rebase)..."
     git checkout main && git pull --rebase origin
-    echo "Reverting local changes (stash pop)..."
+    echo "\nReverting local changes (stash pop)..."
     git stash pop
   fi
   unset git_select
