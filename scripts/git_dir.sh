@@ -14,5 +14,5 @@ elif [[ "$git_select" =~ $yesexpr ]]; then
   read -p "Please enter directory name for git repositories folder (to be located in $HOME): " git_dir
   git_dir=${git_dir:-"_GitProjects"}
   echo "Creating '$HOME/$git_dir' directory"
-  mkdir -p $HOME/$git_dir
+  mkdir -p "$HOME/$git_dir"
 fi

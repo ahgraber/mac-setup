@@ -9,7 +9,7 @@ if [[ -d "$HOME/$onedrive_dir" ]]; then
 fi
 
 if [[ "$user_select" =~ $yesexpr ]]; then
-  if [[ -d $HOME/Desktop.old ]] || [[ -d $HOME/Documents.old ]]; then
+  if [[ -d "$HOME/.Desktop.old" ]] || [[ -d "$HOME/.Documents.old" ]]; then
     echo "WARNING: '.old' directories already exist"
     read -p "Continue and overwrite (yes/no)? [n] " overwrite
   fi
@@ -17,14 +17,14 @@ if [[ "$user_select" =~ $yesexpr ]]; then
   overwrite=${overwrite:-"n"}
   if [[ "$overwrite" =~ $yesexpr ]]; then
     echo "Overwriting current '.old' directories..."
-    sudo mv -f $HOME/Desktop $HOME/.Desktop.old
-    sudo mv -f $HOME/Documents $HOME/.Documents.old
+    sudo mv -f "$HOME/Desktop" "$HOME/.Desktop.old"
+    sudo mv -f "$HOME/Documents" "$HOME/.Documents.old"
     echo "Symlinking OneDrive folders..."
-    sudo ln -fs "$onedrive_dir"/Desktop
-    sudo ln -fs "$onedrive_dir"/Documents
+    sudo ln -fs "$onedrive_dir/Desktop"
+    sudo ln -fs "$onedrive_dir/Documents"
     echo "If you are missing files or folders in Desktop or Documents after this, run:"
-    echo "`mv -rf $HOME/.Desktop.old/* $HOME/Desktop`"
-    echo "`mv -rf $HOME/.Documents.old/* $HOME/Documents`"
+    echo '`mv -rf $HOME/.Desktop.old/* $HOME/Desktop`'
+    echo '`mv -rf $HOME/.Documents.old/* $HOME/Documents`'
   fi
 else
   echo "Retaining separate folders for user home ($HOME) and OneDrive."

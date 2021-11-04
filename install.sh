@@ -1,5 +1,5 @@
 #!/bin/bash
-set -- "$(locale LC_MESSAGES)"
+set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
 # if dest_dir already contains .git file, assume we've already installed there once
