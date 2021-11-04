@@ -10,7 +10,12 @@ if [[ -d "$HOME/mac-setup/.git" ]]; then
   if [[ "$git_select" =~ $yesexpr ]]; then
     echo "Updating...  Will attempt to reapply any local changes..."
     cd $HOME/mac-setup/
-    git stash && git checkout main && git pull --rebase origin && git stash pop
+    echo "Stashing local changes (stash)..."
+    git stash
+    echo "Updating (pull --rebase)..."
+    git checkout main && git pull --rebase origin
+    echo "Reverting local changes (stash pop)..."
+    git stash pop
   fi
   unset git_select
 
@@ -22,13 +27,15 @@ fi
 
 cd $HOME/mac-setup/
 
-read -p "Run install with default settings? (y/n)? [y] " install_select
-install_select=${install_select:-"y"}
+read -p "Do you want to customize the install before continuing? (y/n)? [n] " install_select
+install_select=${install_select:-"n"}
 
-if [[ "$install_select" =~ $yesexpr ]]; then
+if [[ "$install_select" =~ $noexpr ]]; then
   echo "Installing with default settings..."
 else
-  echo "Exiting installation."
+  echo "Exiting installer. Once customization is complete,"
+  echo "you can follow the instructions in the README for manual installation,"
+  echo "or run the install script (`bash $HOME/mac-setup/install.sh`)"
   exit 0
 fi
 unset install_select
