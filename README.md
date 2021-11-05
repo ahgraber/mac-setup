@@ -87,7 +87,7 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
   ```sh
   # example -- back up existing .zshrc and hard link
   mv ~/.zshrc ~/.zshrc.$(date +%Y.%m.%d)
-  ln -s ~/ansible-mac-setup/files/dotfiles/zshrc .zshrc
+  ln -s ~/.zshconfig/zshrc .zshrc
   ```
 
 * [ ] Install any `homebrew` packages that require external taps
@@ -101,8 +101,8 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 
 * [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
 
-* [ ] Import & Update iTerm2 default profile or set Dynamic as default: _Preferences > Profiles_
-* [ ] Import & Update Terminal default profile
+* [ ] Update Terminal default profile
+* [ ] Update iTerm2 default profile
 
 ## Testing
 
