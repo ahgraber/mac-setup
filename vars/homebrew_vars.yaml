@@ -35,6 +35,7 @@ homebrew_installed_packages:
   - packer
   - pkg-config
   # - postgresql
+  - qemu
   # - rbenv
   - readline
   # - redis
