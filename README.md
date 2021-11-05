@@ -73,6 +73,9 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
   ```sh
   git config --global user.name "Your Name"
   git config --global user.email "youremail@yourdomain.com"
+  # https://leosiddle.com/posts/2020/07/git-config-pull-rebase-autostash/
+  git config --global pull.rebase true
+  git config --global rebase.autoStash true
   # git config --global credential.helper osxkeychain
   ```
 
