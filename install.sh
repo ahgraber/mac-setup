@@ -41,6 +41,9 @@ else
 fi
 unset install_select
 
+# add pythons to path
+PATH="$HOME/Library/Python/3.7/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.9/bin:$PATH"
+
 # install prerequisites (rosetta2, python pip, ansible)
 echo "Installing prerequisites..."
 bash ./scripts/prerequisites.sh
