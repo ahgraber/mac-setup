@@ -81,6 +81,7 @@ homebrew_cask_apps:
   - spotify
   # - sublime-text
   - the-unarchiver
+  - utm
   # - vagrant
   # - virtualbox
   # - virtualbox-extension-pack
