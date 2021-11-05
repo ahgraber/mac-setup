@@ -516,14 +516,6 @@
   changed_when: false
   when: "'MaterialDarker' not in terminal_theme.stdout"
 
-- name: Ensure custom Terminal profile is set as default.
-  command: "{{ item }}"
-  with_items:
-    - defaults write com.apple.terminal 'Default Window Settings' -string MaterialDarker
-    - defaults write com.apple.terminal 'Startup Window Settings' -string MaterialDarker
-  changed_when: false
-  when: "'MaterialDarker' not in terminal_theme.stdout"
-
 - name: Apply default settings to Terminal profile
   copy:
     src: "files/terminal/com.apple.Terminal.plist"
@@ -531,6 +523,14 @@
     owner: "{{ lookup('env', 'USER') }}"
     mode: '0600'
     force: yes
+
+- name: Ensure custom Terminal profile is set as default.
+  command: "{{ item }}"
+  with_items:
+    - defaults write com.apple.terminal 'Default Window Settings' -string MaterialDarker
+    - defaults write com.apple.terminal 'Startup Window Settings' -string MaterialDarker
+  changed_when: false
+  when: "'MaterialDarker' not in terminal_theme.stdout"
 
 # only if running from remote
 # - name: Check if Terminal is Active.
