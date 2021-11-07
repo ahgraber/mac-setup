@@ -68,6 +68,15 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 
 ## Manual followup
 
+* [ ] Modify keyboard shortcuts for Mission Control to not interfere with zsh keybinds:
+
+  | icon | keybind | description |
+  |:---:|:---:|:---|
+  | `⇧⌘↑` | `shift + cmd + up` | Mission Control |
+  | `⇧⌘↓` | `shift + cmd + down` | Application windows |
+  | `⇧⌘←` | `shift + cmd + left` | Move to Left Space |
+  | `⇧⌘→` | `shift + cmd + right` | Move to Right space|
+
 * [ ] Set git config
 
   ```sh

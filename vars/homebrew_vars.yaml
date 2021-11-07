@@ -7,7 +7,8 @@ homebrew_installed_packages:
   - azure-cli
   - bat
   - bat-extras
-  - bfg
+  # - bfg           # git filter branch
+  - bfs
   - coreutils
   - curl
   - direnv
