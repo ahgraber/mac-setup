@@ -35,12 +35,8 @@ homebrew_installed_packages:
   - openssl
   - packer
   - pkg-config
-  # - postgresql
   - qemu
-  # - rbenv
   - readline
-  # - redis
-  # - ruby-build
   - sqlite3
   - ssh-copy-id
   - terraform
@@ -61,15 +57,15 @@ homebrew_cask_apps:
   - appcleaner
   - azure-data-studio
   - bartender
-  # - bettertouchtool
   - bitwarden
-  - blockblock
+  # - blockblock
   - eloston-chromium
   - firefox
   - gpg-suite
   - grandperspective
   - iterm2
-  - lulu
+  # - knockknock
+  # - lulu
   # - mambaforge  # install via `conda` task
   - microsoft-azure-storage-explorer
   # - microsoft-office
