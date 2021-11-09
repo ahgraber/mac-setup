@@ -27,6 +27,7 @@ homebrew_installed_packages:
   - libtool
   - libxslt
   - libyaml
+  - lima
   - mas
   # - msodbcsql17
   # - mssql-tools
@@ -59,10 +60,12 @@ homebrew_cask_apps:
   - bartender
   - bitwarden
   # - blockblock
+  - dropzone
   - eloston-chromium
   - firefox
   - gpg-suite
   - grandperspective
+  - jupyter-notebook-viewer
   - iterm2
   # - knockknock
   # - lulu
@@ -70,9 +73,16 @@ homebrew_cask_apps:
   - microsoft-azure-storage-explorer
   # - microsoft-office
   - microsoft-remote-desktop
+  - obsidian
   - osxfuse
   - oversight
   - postman
+  - qlstephen
+  - qlmarkdown
+  - quicklook-json
+  - quicklook-csv
+  - qlimagesize
+  - qlvideo
   - r
   - rectangle
   - rstudio

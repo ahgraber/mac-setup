@@ -115,6 +115,8 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 
 * [ ] Update Terminal default profile
 * [ ] Update iTerm2 default profile
+* [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
+* [ ] Consider `dropzone` [plugins](https://aptonic.com/actions/b)
 
 ## Testing
 
