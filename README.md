@@ -72,10 +72,10 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 
   | icon | keybind | description |
   |:---:|:---:|:---|
-  | `⇧⌘↑` | `shift + cmd + up` | Mission Control |
-  | `⇧⌘↓` | `shift + cmd + down` | Application windows |
-  | `⇧⌘←` | `shift + cmd + left` | Move to Left Space |
-  | `⇧⌘→` | `shift + cmd + right` | Move to Right space|
+  | `⌃⌥⌘↑` | `ctrl + opt + cmd + up` | Mission Control |
+  | `⌃⌥⌘↓` | `ctrl + opt + cmd + down` | Application windows |
+  | `⌃⌥⌘←` | `ctrl + opt + cmd + left` | Move to Left Space |
+  | `⌃⌥⌘→` | `ctrl + opt + cmd + right` | Move to Right space|
 
 * [ ] Set git config
 
