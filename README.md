@@ -116,7 +116,17 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 * [ ] Update Terminal default profile
 * [ ] Update iTerm2 default profile
 * [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
-* [ ] Consider `dropzone` [plugins](https://aptonic.com/actions/b)
+* [ ] Consider `dropzone` [plugins](https://aptonic.com/actions)
+* [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))
+
+  ```sh
+  for ql_gen in *; do
+    xattr -cr "$HOME/Library/QuickLook/$ql_gen"
+  done
+  qlmanage -r
+  qlmanage -r cache
+  # relaunch finder (opt + leftclick)
+  ```
 
 ## Testing
 

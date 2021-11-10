@@ -260,6 +260,19 @@ chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 # # Show the /Volumes folder
 # if [[ "$RUN_AS_ROOT" = true ]]; then sudo chflags nohidden /Volumes; fi
 
+# Allow text selection in QuickLook
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# Set folders-on-top in Finder
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Allow any added quicklook plugins
+for quicklook in *; do
+  xattr -cr "$HOME/Library/QuickLook/$quicklook"
+done
+qlmanage -r
+qlmanage -r cache
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
