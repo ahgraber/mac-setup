@@ -27,6 +27,7 @@ homebrew_installed_packages:
   - libtool
   - libxslt
   - libyaml
+  - lima
   - mas
   # - msodbcsql17
   # - mssql-tools
@@ -35,12 +36,8 @@ homebrew_installed_packages:
   - openssl
   - packer
   - pkg-config
-  # - postgresql
   - qemu
-  # - rbenv
   - readline
-  # - redis
-  # - ruby-build
   - sqlite3
   - ssh-copy-id
   - terraform
@@ -61,22 +58,31 @@ homebrew_cask_apps:
   - appcleaner
   - azure-data-studio
   - bartender
-  # - bettertouchtool
   - bitwarden
-  - blockblock
+  # - blockblock
+  - dropzone
   - eloston-chromium
   - firefox
   - gpg-suite
   - grandperspective
+  - jupyter-notebook-viewer
   - iterm2
-  - lulu
+  # - knockknock
+  # - lulu
   # - mambaforge  # install via `conda` task
   - microsoft-azure-storage-explorer
   # - microsoft-office
   - microsoft-remote-desktop
+  - obsidian
   - osxfuse
   - oversight
   - postman
+  - qlstephen
+  - qlmarkdown
+  - quicklook-json
+  - quicklook-csv
+  - qlimagesize
+  - qlvideo
   - r
   - rectangle
   - rstudio

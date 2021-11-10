@@ -62,3 +62,5 @@ bash ./scripts/git_dir.sh
 
 # echo "Fixing macOS default settings..."
 # sudo bash ./scripts/macos_settings.sh
+
+echo "Setup complete. You may delete this project (~/mac-setup) if you wish."
