@@ -75,19 +75,19 @@ ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "homebrew" 
 # add homebrew to path
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
-# ansible + homebrew
+# ansible + dock
 echo "Dock tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "dock" # -v
 
-# ansible + homebrew
+# ansible + conda
 echo "Conda tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "conda" # -v
 
-# ansible + homebrew
+# ansible + zsh customization
 echo "Zsh tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "zsh" # -v
 
-# ansible + homebrew
+# ansible + mac customization
 echo "MacOS tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
 

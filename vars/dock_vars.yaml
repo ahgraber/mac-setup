@@ -20,6 +20,16 @@ dockitems_remove:
   - TV
 
 dockitems_persist:
+  - name: Firefox
+    path: "/Applications/Firefox.app"
+  - name: Chromium
+    path: "/Applications/Chromium.app"
+  - name: Stickies
+    path: "/Applications/Stickies.app"
+  - name: Activity Monitor
+    path: "/System/Applications/Utilities/Activity Monitor.app"
+  - name: TextEdit
+    path: "/Applications/TextEdit.app"
   - name: iTerm
     path: "/Applications/iTerm.app"
   - name: Terminal

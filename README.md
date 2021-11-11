@@ -15,19 +15,19 @@ The following script will autoinstall the default configuration:
 ## Prerequisites
 
 ```zsh
-# Ensure Apple's command line tools are installed
-xcode-select --install > /dev/null 2>&1
-if [[ $? == 0 ]]; then
-  echo "Installing xcode ..."
-  xcode-select --install
-else
-  echo "Xcode already installed. Skipping."
-fi
+# # Ensure Apple's command line tools are installed
+# xcode-select --install > /dev/null 2>&1
+# if [[ $? == 0 ]]; then
+#   echo "Installing xcode ..."
+#   xcode-select --install
+# else
+#   echo "Xcode already installed. Skipping."
+# fi
 
-# update path
-typeset -U path
-pythons=($HOME/Library/Python/3.7/bin $HOME/Library/Python/3.8/bin $HOME/Library/Python/3.9/bin)
-export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
+# # update path
+# typeset -U path
+# pythons=($HOME/Library/Python/3.7/bin $HOME/Library/Python/3.8/bin $HOME/Library/Python/3.9/bin)
+# export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 
 # run install script
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
@@ -49,18 +49,32 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
      - `Packages` are binaries (generally called via command line) and are kept updated with Homebrew
    - [vscode_vars](./vars/vscode_env.yaml) lists plugins to install into VSCode
 
-3. Run:
+3. Tasks can be run individually:
 
    ```sh
+   # assuming xcode command line tools & rosetta are intalled
+
    # install prerequisites
    bash ./scripts/prerequisites.sh
 
-   # install with ansible
-   # homebrew applications & packages
-   # dock customization
-   # vscode customization
-   # zsh customization
-   ansible-playbook playbook.yaml -i inventory --ask-become-pass # -v
+   # ansible + homebrew
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "homebrew" # -v
+
+   # add homebrew to path
+   export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+   # ansible + dock
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "dock" # -v
+
+   # ansible + conda
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "conda" # -v
+
+   # ansible + zsh customization
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "zsh" # -v
+
+   # ansible + macos customization
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
+
 
    # home folder mgmt
    bash ./scripts/symlink_onedrive.sh
