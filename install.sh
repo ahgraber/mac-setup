@@ -14,7 +14,7 @@ else
 fi
 
 # Ensure x86 compatibility layer is installed
-if [[ "$(arch)" == "arm64" ]] && [[ ! -f /Library/Apple/usr/share/ropsetta/rosetta ]]; then
+if [[ "$(arch)" == "arm64" ]] && [[ ! -f /Library/Apple/usr/share/rosetta/rosetta ]]; then
   echo "Installing Rosetta2 combatibility layer"
   softwareupdate --install-rosetta --agree-to-license
   while [[ ! "$(pkgutil --pkgs | grep Rosetta)" == "com.apple.pkg.RosettaUpdateAuto" ]]; do sleep 10; done;
