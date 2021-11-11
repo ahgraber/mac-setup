@@ -3,10 +3,12 @@ set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
 # Ensure Apple's command line tools are installed
-xcode-select --install > /dev/null 2>&1
-if [[ $? == 0 ]]; then
+check_xcode() { xcode-select -p 2>&1; }
+err_msg="xcode-select: error:"
+if [[ $(check_xcode) == *"$err_msg"* ]]; then
   echo "Installing xcode ..."
   xcode-select --install
+  while [[ $(check_xcode) == *"$err_msg"* ]]; do sleep 10; done
 else
   echo "Xcode already installed. Skipping."
 fi
