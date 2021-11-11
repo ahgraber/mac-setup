@@ -531,7 +531,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
 # Install the Material Darker theme for iTerm
-open "$curr_dir/files/iterm/materialdarker.itermcolors"
+open "$(pwd)/files/iterm/materialdarker.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false

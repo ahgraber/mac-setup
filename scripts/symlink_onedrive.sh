@@ -2,7 +2,7 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
-onedrive_dir="$(/bin/ls $HOME | grep OneDrive)"
+onedrive_dir="$(/bin/ls "$HOME" | grep OneDrive)"
 if [[ -d "$HOME/$onedrive_dir" ]]; then
   read -p "Symlink OneDrive folders (yes/no)? [n] " user_select
   user_select=${user_select:-"n"}
