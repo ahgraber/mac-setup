@@ -1,5 +1,5 @@
 dockitems_remove:
-  - App Store
+  - 'App Store'
   - Calendar
   - Contacts
   - FaceTime
@@ -16,15 +16,15 @@ dockitems_remove:
   - Podcasts
   - Reminders
   # - Safari
-  # - System Preferences
+  # - 'System Preferences'
   - TV
 
 dockitems_persist:
   - name: iTerm
-    path: '/Applications/iTerm.app'
+    path: "/Applications/iTerm.app"
   - name: Terminal
-    path: '/System/Applications/Utilities/Terminal.app'
+    path: "/System/Applications/Utilities/Terminal.app"
   - name: Visual Studio Code
-    path: '/Applications/Visual Studio Code.app'
-  - name: Azure Data Studio
-    path: '/Applications/Azure Data Studio.app'
+    path: "/Applications/Visual Studio Code.app"
+  # - name: Azure Data Studio
+  #   path: "/Applications/Azure Data Studio.app"
