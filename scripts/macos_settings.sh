@@ -308,6 +308,9 @@ defaults write com.apple.dock autohide -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
+# Disable Recent Applications
+default write com.apple.dock show-recents -bool false
+
 # Add a Applications, Documents, Downloads folders to dock
 # dockutil --remove 'Downloads'
 # dockutil --add '/Applications' --display stack --view auto --sort name --before 'Trash'
