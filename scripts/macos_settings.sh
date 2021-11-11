@@ -267,7 +267,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Allow any added quicklook plugins
-for quicklook in "$HOME/Library/QuickLook/*"; do
+for quicklook in "$(ls -1 $HOME/Library/QuickLook/)"; do
   xattr -cr "$HOME/Library/QuickLook/$quicklook"
 done
 qlmanage -r
@@ -309,7 +309,7 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock showhidden -bool true
 
 # Disable Recent Applications
-default write com.apple.dock show-recents -bool false
+defaults write com.apple.dock show-recents -bool false
 
 # Add a Applications, Documents, Downloads folders to dock
 # dockutil --remove 'Downloads'
@@ -548,7 +548,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+hash tmutil &> /dev/null && sudo tmutil disable local
 
 ###############################################################################
 # Activity Monitor                                                            #
