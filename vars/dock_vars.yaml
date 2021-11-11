@@ -25,11 +25,11 @@ dockitems_persist:
   - name: Chromium
     path: "/Applications/Chromium.app"
   - name: Stickies
-    path: "/Applications/Stickies.app"
+    path: "/System/Applications/Stickies.app"
   - name: Activity Monitor
     path: "/System/Applications/Utilities/Activity Monitor.app"
   - name: TextEdit
-    path: "/Applications/TextEdit.app"
+    path: "/System/Applications/TextEdit.app"
   - name: iTerm
     path: "/Applications/iTerm.app"
   - name: Terminal
