@@ -81,7 +81,7 @@ homebrew_cask_apps:
   - microsoft-remote-desktop
   - mullvadvpn
   - obsidian
-  - osxfuse
+  # - osxfuse  # ARM incompatible
   - oversight
   - postman
   - qlstephen
@@ -99,8 +99,8 @@ homebrew_cask_apps:
   - the-unarchiver
   - utm
   - vagrant
-  - virtualbox
-  - virtualbox-extension-pack
+  # - virtualbox  # ARM incompatible
+  # - virtualbox-extension-pack  # ARM incompatible
   - visual-studio-code
   - vlc
 
