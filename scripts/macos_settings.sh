@@ -267,7 +267,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Allow any added quicklook plugins
-for quicklook in *; do
+for quicklook in "$HOME/Library/QuickLook/*"; do
   xattr -cr "$HOME/Library/QuickLook/$quicklook"
 done
 qlmanage -r
