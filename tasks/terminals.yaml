@@ -33,7 +33,7 @@
 
 - name: Install VSCode extensions
   shell: code --install-extension {{ item }}
-  with_items: "{{ vscode_extensions }}"
+  with_items: '{{ vscode_extensions }}'
 
 - name: Check if iTerm plist exists.
   stat: "path=/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist"
@@ -42,7 +42,7 @@
 
 - name: Make iTerm plist if it doesn't exist
   copy:
-    src: "files/iterm/com.googlecode.iterm2.plist"
+    src: 'files/iterm/com.googlecode.iterm2.plist'
     dest: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ lookup('env', 'USER') }}"
     mode: '0600'
@@ -518,20 +518,19 @@
 
 - name: Apply default settings to Terminal profile
   copy:
-    src: "files/terminal/com.apple.Terminal.plist"
+    src: 'files/terminal/com.apple.Terminal.plist'
     dest: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.apple.Terminal.plist"
     owner: "{{ lookup('env', 'USER') }}"
     mode: '0600'
     force: yes
 
 - name: Ensure custom Terminal profile is set as default.
-  command: "{{ item }}"
+  command: '{{ item }}'
   with_items:
     - defaults write com.apple.terminal 'Default Window Settings' -string MaterialDarker
     - defaults write com.apple.terminal 'Startup Window Settings' -string MaterialDarker
   changed_when: false
   when: "'MaterialDarker' not in terminal_theme.stdout"
-
 # only if running from remote
 # - name: Check if Terminal is Active.
 #   shell: ps aux | grep -F 'Terminal' | grep -v -F 'grep' | awk '{ print $2 }'

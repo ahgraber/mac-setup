@@ -4,10 +4,10 @@ tabWidth: 2
 useTabs: false
 semi: false
 singleQuote: true
-quoteProps: "consistent"
-trailingComma: "es5"
+quoteProps: 'consistent'
+trailingComma: 'es5'
 bracketSpacing: true
 # requirePragma: false
 # insertPragma: false
-proseWrap: "preserve"
-endOfLine: "lf"
+proseWrap: 'preserve'
+endOfLine: 'lf'

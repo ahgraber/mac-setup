@@ -1,4 +1,4 @@
 ---
-- name: "Quickstart ahgraber/zshconfig"
+- name: 'Quickstart ahgraber/zshconfig'
   shell: |
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/zshconfig/HEAD/install.sh)"

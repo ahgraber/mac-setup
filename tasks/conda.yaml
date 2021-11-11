@@ -1,5 +1,5 @@
 ---
-- name: "Check if conda (mambaforge) installed"
+- name: 'Check if conda (mambaforge) installed'
   shell: |
     [[ -f $HOME/mambaforge/bin/conda ]]
   args:
@@ -7,7 +7,7 @@
   register: conda_exists
   ignore_errors: yes
 
-- name: "Install conda (mambaforge"
+- name: 'Install conda (mambaforge'
   shell: |
     curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh
     bash Mambaforge-$(uname)-$(uname -m).sh -b -f -p $HOME/mambaforge
@@ -23,7 +23,7 @@
 - debug: var=shell_pwd.stdout
   when: debug
 
-- name: "Check if default env exists"
+- name: 'Check if default env exists'
   shell: |
     [[ -d $HOME/mambaforge/envs/default ]]
   args:
@@ -31,7 +31,7 @@
   register: default_env_exists
   ignore_errors: yes
 
-- name: "Install Default Python"
+- name: 'Install Default Python'
   shell: |
     conda() { "$HOME/mambaforge/bin/conda"; }
     mamba() { "$HOME/mambaforge/bin/mamba"; }

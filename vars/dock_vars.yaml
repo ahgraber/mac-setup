@@ -21,10 +21,10 @@ dockitems_remove:
 
 dockitems_persist:
   - name: iTerm
-    path: "/Applications/iTerm.app"
+    path: '/Applications/iTerm.app'
   - name: Terminal
-    path: "/System/Applications/Utilities/Terminal.app"
+    path: '/System/Applications/Utilities/Terminal.app'
   - name: Visual Studio Code
-    path: "/Applications/Visual Studio Code.app"
+    path: '/Applications/Visual Studio Code.app'
   - name: Azure Data Studio
-    path: "/Applications/Azure Data Studio.app"
+    path: '/Applications/Azure Data Studio.app'
