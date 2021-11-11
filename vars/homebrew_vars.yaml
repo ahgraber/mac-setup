@@ -14,10 +14,12 @@ homebrew_installed_packages:
   - direnv
   - docker
   - exa
+  - fluxctl
   - fzf
   - gcc
   - git
   # - git-credential-manager-core
+  - gnupg
   - graphviz
   - gzip
   - htop
@@ -36,8 +38,11 @@ homebrew_installed_packages:
   - openssl
   - packer
   - pkg-config
+  - pre-commit
+  - prettier
   - qemu
   - readline
+  - sops
   - sqlite3
   - ssh-copy-id
   - terraform
@@ -45,6 +50,7 @@ homebrew_installed_packages:
   - unar
   - unixodbc
   - unzip
+  - velero
   - vim
   - wget
   - xz
@@ -59,7 +65,7 @@ homebrew_cask_apps:
   - azure-data-studio
   - bartender
   - bitwarden
-  # - blockblock
+  - blockblock
   - dropzone
   - eloston-chromium
   - firefox
@@ -67,12 +73,13 @@ homebrew_cask_apps:
   - grandperspective
   - jupyter-notebook-viewer
   - iterm2
-  # - knockknock
-  # - lulu
+  - knockknock
+  - lulu
   # - mambaforge  # install via `conda` task
   - microsoft-azure-storage-explorer
-  # - microsoft-office
+  - microsoft-office
   - microsoft-remote-desktop
+  - mullvadvpn
   - obsidian
   - osxfuse
   - oversight
@@ -87,12 +94,13 @@ homebrew_cask_apps:
   - rectangle
   - rstudio
   - spotify
-  # - sublime-text
+  - sublime-merge
+  - sublime-text
   - the-unarchiver
   - utm
-  # - vagrant
-  # - virtualbox
-  # - virtualbox-extension-pack
+  - vagrant
+  - virtualbox
+  - virtualbox-extension-pack
   - visual-studio-code
   - vlc
 

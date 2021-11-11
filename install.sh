@@ -2,6 +2,15 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
+# Ensure Apple's command line tools are installed
+xcode-select --install > /dev/null 2>&1
+if [[ $? == 0 ]]; then
+  echo "Installing xcode ..."
+  xcode-select --install
+else
+  echo "Xcode already installed. Skipping."
+fi
+
 # if dest_dir already contains .git file, assume we've already installed there once
 if [[ -d "$HOME/mac-setup/.git" ]]; then
   read -p "Update from source? (y/n)? [y] " git_select

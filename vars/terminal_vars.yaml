@@ -1,5 +1,6 @@
 configure_terminals: true
 vscode_extensions:
+  ## find with `code --list-extensions`
   - bencoleman.armview
   - DavidAnson.vscode-markdownlint
   - eamodio.gitlens
@@ -15,6 +16,7 @@ vscode_extensions:
   - ms-azuretools.vscode-cosmosdb
   - ms-azuretools.vscode-docker
   - ms-dotnettools.vscode-dotnet-runtime
+  - ms-mssql.data-workspace-vscode
   - ms-mssql.mssql
   - ms-python.python
   - ms-python.vscode-pylance
@@ -31,4 +33,7 @@ vscode_extensions:
   - msazurermtools.azurerm-vscode-tools
   - njpwerner.autodocstring
   - PKief.material-icon-theme
+  - redhat.vscode-yaml
+  # - REditorSupport.r-lsp
+  - timonwong.shellcheck
   - yzhang.markdown-all-in-one
