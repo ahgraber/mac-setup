@@ -8,7 +8,7 @@ homebrew_installed_packages:
   - bat
   - bat-extras
   # - bfg           # git filter branch
-  - tavaniator/tap/bfs
+  - bfs
   - coreutils
   - curl
   - direnv
@@ -108,7 +108,7 @@ homebrew_cask_apps:
 homebrew_taps:
   - homebrew/cask
   - homebrew/cask-versions
-  # - tavaniator/tap
+  - tavianator/tap
   - qmk/qmk
   - name: microsoft/azdata-cli-release
     url: 'https://github.com/microsoft/homebrew-azdata-cli-release'
