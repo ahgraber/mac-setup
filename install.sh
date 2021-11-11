@@ -72,7 +72,8 @@ bash ./scripts/prerequisites.sh
 echo "Executing Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass # -v
 
-# cleanup
+# brew cleanup
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 brew analytics off
 brew cleanup
 
