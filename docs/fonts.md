@@ -15,16 +15,17 @@ If you are using a different terminal, proceed with manual font installation.
 ## Manual font installation
 
 1. Download these four ttf files:
-   * [MesloLGS NF Regular.ttf](../font/MesloLGS%20NF%20Regular.ttf)
-   * [MesloLGS NF Bold.ttf](../font/MesloLGS%20NF%20Bold.ttf)
-   * [MesloLGS NF Italic.ttf](../font/MesloLGS%20NF%20Italic.ttf)
-   * [MesloLGS NF Bold Italic.ttf](../font/MesloLGS%20NF%20Bold%20Italic.ttf)
+
+   - [MesloLGS NF Regular.ttf](../font/MesloLGS%20NF%20Regular.ttf)
+   - [MesloLGS NF Bold.ttf](../font/MesloLGS%20NF%20Bold.ttf)
+   - [MesloLGS NF Italic.ttf](../font/MesloLGS%20NF%20Italic.ttf)
+   - [MesloLGS NF Bold Italic.ttf](../font/MesloLGS%20NF%20Bold%20Italic.ttf)
 
 2. Double-click on each file and click "Install". This will make `MesloLGS NF` font available to all applications on your system.
 
-   * **Apple Terminal**: Open *Terminal → Preferences → Profiles → Text*, click *Change* under *Font*
+   - **Apple Terminal**: Open _Terminal → Preferences → Profiles → Text_, click _Change_ under _Font_
      and select `MesloLGS NF` family.
-   * **iTerm2**: Open *iTerm2 → Preferences → Profiles → Text* and set *Font* to
+   - **iTerm2**: Open _iTerm2 → Preferences → Profiles → Text_ and set _Font_ to
      `MesloLGS NF`.
-   * **Visual Studio Code**: Open *Code → Preferences → Settings* (Mac), enter `terminal.integrated.fontFamily` in the search box at
-     the top of *Settings* tab and set the value below to `MesloLGS NF`.
+   - **Visual Studio Code**: Open _Code → Preferences → Settings_ (Mac), enter `terminal.integrated.fontFamily` in the search box at
+     the top of _Settings_ tab and set the value below to `MesloLGS NF`.

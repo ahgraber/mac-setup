@@ -4,13 +4,13 @@
 
 The following script will autoinstall the default configuration:
 
-* Rosetta2 (if Apple Silicon detected)
-* [Ansible](https://docs.ansible.com) via `pip`
-* [Homebrew](https://brew.sh)
-  * [packages and applications](./vars/homebrew_vars.yaml)
-* `conda` via [mambaforge](https://github.com/conda-forge/miniforge)
-* customized Terminal and iTerm2 profiels
-* customized zsh env via [zshconfig](https://www.github.com/ahgraber/zshconfig)
+- Rosetta2 (if Apple Silicon detected)
+- [Ansible](https://docs.ansible.com) via `pip`
+- [Homebrew](https://brew.sh)
+  - [packages and applications](./vars/homebrew_vars.yaml)
+- `conda` via [mambaforge](https://github.com/conda-forge/miniforge)
+- customized Terminal and iTerm2 profiels
+- customized zsh env via [zshconfig](https://www.github.com/ahgraber/zshconfig)
 
 ## Prerequisites
 
@@ -42,11 +42,12 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
    ```
 
 2. Customize configuration:
-   * [dock_vars](./vars/dock_vars.yaml) removes / retains / sets position for Dock applications
-   * [homebrew_vars](./vars/homebrew_vars.yaml) installs applications & packages
-     * `Casks` are applications and are updated through the application
-     * `Packages` are binaries (generally called via command line) and are kept updated with Homebrew
-   * [vscode_vars](./vars/vscode_env.yaml) lists plugins to install into VSCode
+
+   - [dock_vars](./vars/dock_vars.yaml) removes / retains / sets position for Dock applications
+   - [homebrew_vars](./vars/homebrew_vars.yaml) installs applications & packages
+     - `Casks` are applications and are updated through the application
+     - `Packages` are binaries (generally called via command line) and are kept updated with Homebrew
+   - [vscode_vars](./vars/vscode_env.yaml) lists plugins to install into VSCode
 
 3. Run:
 
@@ -68,16 +69,16 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 
 ## Manual followup
 
-* [ ] Modify keyboard shortcuts for Mission Control to not interfere with zsh keybinds:
+- [ ] Modify keyboard shortcuts for Mission Control to not interfere with zsh keybinds:
 
-  | icon | keybind | description |
-  |:---:|:---:|:---|
-  | `⌃⌥⌘↑` | `ctrl + opt + cmd + up` | Mission Control |
-  | `⌃⌥⌘↓` | `ctrl + opt + cmd + down` | Application windows |
-  | `⌃⌥⌘←` | `ctrl + opt + cmd + left` | Move to Left Space |
-  | `⌃⌥⌘→` | `ctrl + opt + cmd + right` | Move to Right space|
+  |  icon  |          keybind           | description         |
+  | :----: | :------------------------: | :------------------ |
+  | `⌃⌥⌘↑` |  `ctrl + opt + cmd + up`   | Mission Control     |
+  | `⌃⌥⌘↓` | `ctrl + opt + cmd + down`  | Application windows |
+  | `⌃⌥⌘←` | `ctrl + opt + cmd + left`  | Move to Left Space  |
+  | `⌃⌥⌘→` | `ctrl + opt + cmd + right` | Move to Right space |
 
-* [ ] Set git config
+- [ ] Set git config
 
   ```sh
   git config --global user.name "Your Name"
@@ -88,13 +89,13 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
   # git config --global credential.helper osxkeychain
   ```
 
-* [ ] Check `conda` install. If `conda` not found, run
+- [ ] Check `conda` install. If `conda` not found, run
 
   ```sh
   $HOME/mambaforge/bin/conda init zsh
   ```
 
-* [ ] Repair issues with dotfile hard links (if any exist)
+- [ ] Repair issues with dotfile hard links (if any exist)
 
   ```sh
   # example -- back up existing .zshrc and hard link
@@ -102,7 +103,7 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
   ln -s ~/.zshconfig/zshrc .zshrc
   ```
 
-* [ ] Install any `homebrew` packages that require external taps
+- [ ] Install any `homebrew` packages that require external taps
 
   ```sh
   HOMEBREW_NO_ENV_FILTERING=1 ACCEPT_EULA=Y brew install \
@@ -111,13 +112,13 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
     mssql-tools
   ```
 
-* [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
+- [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
 
-* [ ] Update Terminal default profile
-* [ ] Update iTerm2 default profile
-* [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
-* [ ] Consider `dropzone` [plugins](https://aptonic.com/actions)
-* [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))
+- [ ] Update Terminal default profile
+- [ ] Update iTerm2 default profile
+- [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
+- [ ] Consider `dropzone` [plugins](https://aptonic.com/actions)
+- [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))
 
   ```sh
   for ql_gen in *; do
@@ -135,8 +136,9 @@ export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
 Use `Vagrant` to manage images that are run in `VirtualBox`
 
 <!-- * [vagrant image](https://github.com/ramsey/macos-vagrant-box) -->
-* [vagrant image](https://app.vagrantup.com/nick-invision/boxes/macos-bigsur-base)
-* [macinbox](https://github.com/bacongravy/macinbox)
+
+- [vagrant image](https://app.vagrantup.com/nick-invision/boxes/macos-bigsur-base)
+- [macinbox](https://github.com/bacongravy/macinbox)
 
 1. Install prerequisites
 
