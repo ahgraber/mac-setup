@@ -311,7 +311,7 @@ defaults write com.apple.dock showhidden -bool true
 # Disable Recent Applications
 defaults write com.apple.dock show-recents -bool false
 
-# Add a Applications, Documents, Downloads folders to dock
+# # Add a Applications, Documents, Downloads folders to dock
 # dockutil --remove 'Downloads'
 # dockutil --add '/Applications' --display stack --view auto --sort name --before 'Trash'
 # dockutil --add '~/Documents' --display stack --view auto --sort name --before 'Trash'
@@ -354,6 +354,8 @@ defaults write com.apple.spaces spans-displays -bool false
 # # Bottom right screen corner → no-op
 # defaults write com.apple.dock wvous-br-corner -int 0
 # defaults write com.apple.dock wvous-br-modifier -int 0
+
+killall Dock
 
 ###############################################################################
 # Safari & WebKit                                                             #
