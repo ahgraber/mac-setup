@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# install x86 compatibility layer
-if [[ "$(arch)" = "arm64" ]]; then
-  echo "Installing Rosetta2 combatibility layer"
-  softwareupdate --install-rosetta --agree-to-license
-fi
-
 echo "Updating pip"
 python3 -m pip install --user --upgrade pip
 

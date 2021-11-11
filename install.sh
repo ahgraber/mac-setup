@@ -8,9 +8,18 @@ err_msg="xcode-select: error:"
 if [[ $(check_xcode) == *"$err_msg"* ]]; then
   echo "Installing xcode ..."
   xcode-select --install
-  while [[ $(check_xcode) == *"$err_msg"* ]]; do sleep 10; done
+  while [[ $(check_xcode) == *"$err_msg"* ]]; do sleep 10; done;
 else
   echo "Xcode already installed. Skipping."
+fi
+
+# Ensure x86 compatibility layer is installed
+if [[ "$(arch)" == "arm64" ]] && [[ ! -f /Library/Apple/usr/share/ropsetta/rosetta ]]; then
+  echo "Installing Rosetta2 combatibility layer"
+  softwareupdate --install-rosetta --agree-to-license
+  while [[ ! "$(pkgutil --pkgs | grep Rosetta)" == "com.apple.pkg.RosettaUpdateAuto" ]]; do sleep 10; done;
+else
+  echo "Rosetta2 already installed. Skipping."
 fi
 
 # if dest_dir already contains .git file, assume we've already installed there once
