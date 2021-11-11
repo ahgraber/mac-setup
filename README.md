@@ -16,7 +16,8 @@ The following script will autoinstall the default configuration:
 
 ```zsh
 # Ensure Apple's command line tools are installed
-if [[ $(xcode-select install > /dev/null 2>&1) == 0 ]]; then
+xcode-select install > /dev/null 2>&1
+if [[ $? == 0 ]]; then
   echo "Installing xcode ..."
   xcode-select --install
 else
