@@ -38,3 +38,11 @@ dockitems_persist:
     path: "/Applications/Visual Studio Code.app"
   # - name: Azure Data Studio
   #   path: "/Applications/Azure Data Studio.app"
+
+  ### folders
+  - name: Applications
+    path: "/Applications"
+  - name: Documents
+    path: "~/Documents"
+  - name: Downloads
+    path: "~/Downloads"

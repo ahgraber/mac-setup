@@ -89,7 +89,8 @@ ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "terminals"
 
 # ansible + mac customization
 echo "Running MacOS tasks via Ansible playbook..."
-ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
+# ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
+sudo bash ./scripts/macos_settings.sh --no-restart
 
 # zsh configuration
 echo "Configuring zsh from ahgraber/zshconfig..."
@@ -106,4 +107,6 @@ bash ./scripts/git_dir.sh
 # echo "Fixing macOS default settings..."
 # sudo bash ./scripts/macos_settings.sh
 
-echo "Setup complete. You may delete this project (~/mac-setup) if you wish."
+echo "Setup complete."
+echo "Some settings may not take effect until you log out or restart."
+echo "You may delete this project (~/mac-setup) if you wish."

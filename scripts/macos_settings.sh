@@ -309,10 +309,10 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock showhidden -bool true
 
 # Add a Applications, Documents, Downloads folders to dock
-dockutil --remove 'Downloads'
-dockutil --add '/Applications' --display stack --view auto --sort name --before 'Trash'
-dockutil --add '~/Documents' --display stack --view auto --sort name --before 'Trash'
-dockutil --add '~/Downloads' --display stack --view fan --sort dateadded --before 'Trash'
+# dockutil --remove 'Downloads'
+# dockutil --add '/Applications' --display stack --view auto --sort name --before 'Trash'
+# dockutil --add '~/Documents' --display stack --view auto --sort name --before 'Trash'
+# dockutil --add '~/Downloads' --display stack --view fan --sort dateadded --before 'Trash'
 
 # Disable automatic rearrange of Spaces
 defaults write com.apple.dock mru-spaces -bool false
@@ -531,8 +531,8 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 # Disable the annoying line marks
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
-# Install the Material Darker theme for iTerm
-open "$(pwd)/files/iterm/materialdarker.itermcolors"
+# # Install the Material Darker theme for iTerm
+# open "$(pwd)/files/iterm/materialdarker.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
