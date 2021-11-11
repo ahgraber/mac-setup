@@ -10,12 +10,14 @@ homebrew_installed_packages:
   # - bfg           # git filter branch
   - bfs
   - colordiff
+  # - hashicorp/tap/consul
   - coreutils
   - curl
   - direnv
   - docker
+  - dockutil
   - exa
-  - fluxctl
+  - fluxcd/tap/flux
   - fzf
   - gcc
   - git
@@ -35,10 +37,11 @@ homebrew_installed_packages:
   # - msodbcsql17
   # - mssql-tools
   - mysql
+  # - hashicorp/tap/nomad
   - npm
   - openssh
   - openssl
-  - packer
+  - hashicorp/tap/packer
   - pkg-config
   - pre-commit
   - prettier
@@ -48,12 +51,13 @@ homebrew_installed_packages:
   - sops
   - sqlite3
   - ssh-copy-id
-  - terraform
+  - hashicorp/tap/terraform
   - tldr
   - tmux
   - unar
   - unixodbc
   - unzip
+  # - hashicorp/tap/vault
   - velero
   - vim
   - wget
@@ -79,6 +83,7 @@ homebrew_cask_apps:
   - jupyter-notebook-viewer
   - iterm2
   - knockknock
+  - kopia
   - lulu
   # - mambaforge  # install via `conda` task
   - microsoft-azure-storage-explorer
@@ -113,6 +118,9 @@ homebrew_cask_apps:
 homebrew_taps:
   - homebrew/cask
   - homebrew/cask-versions
+  - fluxcd/tap
+  - hashicorp/tap
+  - kopia/kopia
   - tavianator/tap
   - qmk/qmk
   - name: microsoft/azdata-cli-release

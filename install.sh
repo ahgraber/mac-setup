@@ -69,27 +69,31 @@ echo "Installing prerequisites..."
 bash ./scripts/prerequisites.sh
 
 # ansible + homebrew
-echo "Homebrew tasks via Ansible playbook..."
+echo "Running Homebrew tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "homebrew" # -v
 
 # add homebrew to path
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 # ansible + dock
-echo "Dock tasks via Ansible playbook..."
+echo "Running Dock tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "dock" # -v
 
 # ansible + conda
-echo "Conda tasks via Ansible playbook..."
+echo "Running Conda tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "conda" # -v
 
-# ansible + zsh customization
-echo "Zsh tasks via Ansible playbook..."
-ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "zsh" # -v
+# ansible + terminals customization
+echo "Running Terminal tasks via Ansible playbook..."
+ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "terminals" # -v
 
 # ansible + mac customization
-echo "MacOS tasks via Ansible playbook..."
+echo "Running MacOS tasks via Ansible playbook..."
 ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
+
+# zsh configuration
+echo "Configuring zsh from ahgraber/zshconfig..."
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/zshconfig/HEAD/install.sh)"
 
 # brew cleanup
 brew analytics off

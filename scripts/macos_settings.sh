@@ -309,9 +309,10 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock showhidden -bool true
 
 # Add a Applications, Documents, Downloads folders to dock
-defaults write com.apple.dock persistent-others -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Applications/'; '_CFURLStringType' = 15;}; 'file-label' = Applications; tile-type='directory-tile';}"
-defaults write com.apple.dock persistent-others -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Documents/'; '_CFURLStringType' = 15;}; 'file-label' = Documents; tile-type='directory-tile';}"
-defaults write com.apple.dock persistent-others -array-add "{tile-data={}; 'file-data' = {'_CFURLString' = 'file:///Users/$(whoami)/Downloads/'; '_CFURLStringType' = 15;}; 'file-label' = Downloads; tile-type='directory-tile';}"
+dockutil --remove 'Downloads'
+dockutil --add '/Applications' --display stack --view auto --sort name --before 'Trash'
+dockutil --add '~/Documents' --display stack --view auto --sort name --before 'Trash'
+dockutil --add '~/Downloads' --display stack --view fan --sort dateadded --before 'Trash'
 
 # Disable automatic rearrange of Spaces
 defaults write com.apple.dock mru-spaces -bool false

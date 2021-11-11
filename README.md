@@ -69,12 +69,14 @@ The following script will autoinstall the default configuration:
    # ansible + conda
    ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "conda" # -v
 
-   # ansible + zsh customization
-   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "zsh" # -v
+   # ansible + terminal customization
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "terminals" # -v
 
    # ansible + macos customization
    ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
 
+   # zsh configuration
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/zshconfig/HEAD/install.sh)"
 
    # home folder mgmt
    bash ./scripts/symlink_onedrive.sh
