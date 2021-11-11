@@ -134,7 +134,7 @@ The following script will autoinstall the default configuration:
 - [ ] Update iTerm2 default profile
 - [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
 - [ ] Consider `dropzone` [plugins](https://aptonic.com/actions)
-- [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))
+- [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))) and/or in System Preferences
 
   ```sh
   for ql_gen in *; do
