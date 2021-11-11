@@ -41,6 +41,7 @@ homebrew_installed_packages:
   - pre-commit
   - prettier
   - qemu
+  - qmk
   - readline
   - sops
   - sqlite3
@@ -107,6 +108,8 @@ homebrew_cask_apps:
 homebrew_taps:
   - homebrew/cask
   - homebrew/cask-versions
+  - tavaniator/tap
+  - qmk/qmk
   - name: microsoft/azdata-cli-release
     url: 'https://github.com/microsoft/homebrew-azdata-cli-release'
   - name: microsoft/git
