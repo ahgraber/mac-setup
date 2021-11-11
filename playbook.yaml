@@ -45,7 +45,7 @@
 
     - import_tasks: tasks/terminals.yaml
       when: configure_terminals
-      tags: ['env', 'conda']
+      tags: ['env', 'terminals']
 
     - import_tasks: tasks/zsh.yaml
       when: configure_zsh

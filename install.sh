@@ -62,18 +62,36 @@ fi
 unset install_select
 
 # add pythons to path
-PATH="$HOME/Library/Python/3.7/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.9/bin:$PATH"
+export PATH="$HOME/Library/Python/3.7/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.9/bin:$PATH"
 
 # install prerequisites (rosetta2, python pip, ansible)
 echo "Installing prerequisites..."
 bash ./scripts/prerequisites.sh
 
-# install with ansible
-echo "Executing Ansible playbook..."
-ansible-playbook playbook.yaml -i inventory --ask-become-pass # -v
+# ansible + homebrew
+echo "Homebrew tasks via Ansible playbook..."
+ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "homebrew" # -v
+
+# add homebrew to path
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+# ansible + homebrew
+echo "Dock tasks via Ansible playbook..."
+ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "dock" # -v
+
+# ansible + homebrew
+echo "Conda tasks via Ansible playbook..."
+ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "conda" # -v
+
+# ansible + homebrew
+echo "Zsh tasks via Ansible playbook..."
+ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "zsh" # -v
+
+# ansible + homebrew
+echo "MacOS tasks via Ansible playbook..."
+ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
 
 # brew cleanup
-PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 brew analytics off
 brew cleanup
 
