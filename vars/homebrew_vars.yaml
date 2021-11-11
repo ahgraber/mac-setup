@@ -9,6 +9,7 @@ homebrew_installed_packages:
   - bat-extras
   # - bfg           # git filter branch
   - bfs
+  - colordiff
   - coreutils
   - curl
   - direnv
@@ -35,6 +36,7 @@ homebrew_installed_packages:
   # - mssql-tools
   - mysql
   - npm
+  - openssh
   - openssl
   - packer
   - pkg-config
@@ -47,6 +49,7 @@ homebrew_installed_packages:
   - sqlite3
   - ssh-copy-id
   - terraform
+  - tldr
   - tmux
   - unar
   - unixodbc
@@ -67,6 +70,7 @@ homebrew_cask_apps:
   - bartender
   - bitwarden
   - blockblock
+  - chromedriver
   - dropzone
   - eloston-chromium
   - firefox
@@ -82,7 +86,7 @@ homebrew_cask_apps:
   - microsoft-remote-desktop
   - mullvadvpn
   - obsidian
-  # - osxfuse  # ARM incompatible
+  # - osxfuse                     # ARM incompatible
   - oversight
   - postman
   - qlstephen
@@ -94,14 +98,15 @@ homebrew_cask_apps:
   - r
   - rectangle
   - rstudio
+  - shellcheck
   - spotify
   - sublime-merge
   - sublime-text
   - the-unarchiver
   - utm
   - vagrant
-  # - virtualbox  # ARM incompatible
-  # - virtualbox-extension-pack  # ARM incompatible
+  # - virtualbox                  # ARM incompatible
+  # - virtualbox-extension-pack   # ARM incompatible
   - visual-studio-code
   - vlc
 
