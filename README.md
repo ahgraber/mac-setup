@@ -106,6 +106,16 @@ The following script will autoinstall the default configuration:
   # git config --global credential.helper osxkeychain
   ```
 
+- [ ] Sign in to git identity
+  - [add new ssh key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+  - use a Personal Access Token
+
+    ```sh
+    git remote remove origin
+    git remote add origin https://<GITHUB_USERNAME>:<GITHUB_TOKEN>@github.com/<user>/<repo>.git
+    git push --set-upstream origin main # (or whatever appropriate branch
+    ```
+
 - [ ] Check `conda` install. If `conda` not found, run
 
   ```sh
