@@ -73,7 +73,8 @@ The following script will autoinstall the default configuration:
    ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "terminals" # -v
 
    # ansible + macos customization
-   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
+   bash ./scripts/macos_user_settings.sh --no-restart
+   sudo bash ./scripts/macos_system_settings.sh --no-restart
 
    # zsh configuration
    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/zshconfig/HEAD/install.sh)"

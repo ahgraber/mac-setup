@@ -90,7 +90,8 @@ ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "terminals"
 # ansible + mac customization
 echo "Running MacOS tasks via Ansible playbook..."
 # ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "macos" # -v
-sudo bash ./scripts/macos_settings.sh --no-restart
+bash ./scripts/macos_user_settings.sh --no-restart
+sudo bash ./scripts/macos_system_settings.sh --no-restart
 
 # zsh configuration
 echo "Configuring zsh from ahgraber/zshconfig..."

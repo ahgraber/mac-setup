@@ -60,6 +60,7 @@ homebrew_installed_packages:
   # - hashicorp/tap/vault
   - velero
   - vim
+  - vivid
   - wget
   - xz
   - yarn

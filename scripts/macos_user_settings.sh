@@ -2,20 +2,15 @@
 
 # ref: https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
-echo "Applying macOS settings..."
+echo "Applying macOS user settings..."
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
 # Warn that some commands will not be run if the script is not run as root.
-if [[ $EUID -ne 0 ]]; then
-  RUN_AS_ROOT=false
-  printf "Certain commands will not be run without sudo privileges. To run as root, run the same command prepended with 'sudo', for example: $ sudo $0\n\n" | fold -s -w 80
-else
-  RUN_AS_ROOT=true
-  # Update existing `sudo` timestamp until `.osx` has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+if [[ $EUID -eq 0 ]]; then
+  printf "Running as root may prevent certain customization from apply to your user profile\n" | fold -s -w 120
 fi
 
 
@@ -126,40 +121,6 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
-# Enable lid wakeup
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a lidwake 1; fi
-
-# Restart automatically on power loss
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a autorestart 1; fi
-
-# Sleep the display after x minutes
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a displaysleep 15; fi
-
-# Set machine sleep while charging
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -c sleep 0; fi
-
-# Set machine sleep on battery
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -b sleep 30; fi
-
-# Set standby delay to 24 hours (default is 1 hour)
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo pmset -a standbydelay 86400; fi
-
-# Never go into computer sleep mode
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo systemsetup -setcomputersleep Off > /dev/null; fi
-
-# # Hibernation mode
-# # 0: Disable hibernation (speeds up entering sleep mode)
-# # 3: (default) Copy RAM to disk so the system state can still be restored
-# #    in case of a power failure.
-# if [[ "$RUN_AS_ROOT" = true ]]; then sudo  pmset -a hibernatemode 0; fi
-
-# # Remove the sleep image file to save disk space
-# if [[ "$RUN_AS_ROOT" = true ]]; then sudo rm /private/var/vm/sleepimage; fi
-# # Create a zero-byte file instead…
-# if [[ "$RUN_AS_ROOT" = true ]]; then sudo touch /private/var/vm/sleepimage; fi
-# # …and make sure it can’t be rewritten
-# if [[ "$RUN_AS_ROOT" = true ]]; then sudo chflags uchg /private/var/vm/sleepimage; fi
-
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -180,9 +141,6 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # Enable subpixel font rendering on non-Apple LCDs
 # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
 defaults write NSGlobalDomain AppleFontSmoothing -int 1
-
-# Enable HiDPI display modes (requires restart)
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true; fi
 
 ###############################################################################
 # Finder                                                                      #
@@ -311,7 +269,7 @@ defaults write com.apple.dock showhidden -bool true
 # Disable Recent Applications
 defaults write com.apple.dock show-recents -bool false
 
-# # Add a Applications, Documents, Downloads folders to dock
+# Add a Applications, Documents, Downloads folders to dock
 # dockutil --remove 'Downloads'
 # dockutil --add '/Applications' --display stack --view auto --sort name --before 'Trash'
 # dockutil --add '~/Documents' --display stack --view auto --sort name --before 'Trash'
@@ -354,8 +312,6 @@ defaults write com.apple.spaces spans-displays -bool false
 # # Bottom right screen corner → no-op
 # defaults write com.apple.dock wvous-br-corner -int 0
 # defaults write com.apple.dock wvous-br-modifier -int 0
-
-killall Dock
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -465,10 +421,6 @@ defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
 # Load new settings before rebuilding the index
 killall mds > /dev/null 2>&1
-# Make sure indexing is enabled for the main volume
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo mdutil -i on / > /dev/null; fi
-# Rebuild the index from scratch
-if [[ "$RUN_AS_ROOT" = true ]]; then sudo mdutil -E / > /dev/null; fi
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -487,7 +439,7 @@ if [[ "$RUN_AS_ROOT" = true ]]; then sudo mdutil -E / > /dev/null; fi
 #   local allOpenedWindows
 #   local initialOpenedWindows
 #   local windowID
-#   set themeName to "materialdarker"
+#   set themeName to "MaterialDarker"
 
 #   (* Store the IDs of all the open terminal windows. *)
 #   set initialOpenedWindows to id of every window
