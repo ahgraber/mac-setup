@@ -51,8 +51,13 @@ The following script will autoinstall the default configuration:
 
 3. Tasks can be run individually:
 
+   > Note: Ansible is installed to system python and will likely not be found unless you add system pythons to PATH
+
    ```sh
-   # assuming xcode command line tools & rosetta are intalled
+   ### assumes xcode command line tools & rosetta are intalled
+
+   # add system pythons to path
+   export PATH="$HOME/Library/Python/3.7/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.9/bin:$PATH"
 
    # install prerequisites
    bash ./scripts/prerequisites.sh
@@ -130,7 +135,7 @@ The following script will autoinstall the default configuration:
   ln -s ~/.zshconfig/zshrc .zshrc
   ```
 
-- [ ] Install any `homebrew` packages that require external taps
+- [ ] Manually install `homebrew` packages that require EULA acknowledgements
 
   ```sh
   HOMEBREW_NO_ENV_FILTERING=1 ACCEPT_EULA=Y brew install \

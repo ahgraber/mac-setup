@@ -3,14 +3,14 @@
 homebrew_installed_packages:
   - autoconf
   - automake
-  # - azdata-cli
+  # - azdata-cli  # requires manual license acceptance
   - azure-cli
   - bat
   - bat-extras
-  # - bfg           # git filter branch
+  - bfg           # git filter branch
   - bfs
   - colordiff
-  # - hashicorp/tap/consul
+  - hashicorp/tap/consul
   - coreutils
   - curl
   - direnv
@@ -21,12 +21,13 @@ homebrew_installed_packages:
   - fzf
   - gcc
   - git
-  # - git-credential-manager-core
+  - git-credential-manager-core
   - gnupg
   - graphviz
   - gzip
   - htop
   - jq
+  - kopia
   - kubernetes-cli
   - kubernetes-helm
   - libtool
@@ -34,10 +35,10 @@ homebrew_installed_packages:
   - libyaml
   - lima
   - mas
-  # - msodbcsql17
-  # - mssql-tools
+  # - msodbcsql17  # requires manual license acceptance
+  # - mssql-tools  # requires manual license acceptance
   - mysql
-  # - hashicorp/tap/nomad
+  - hashicorp/tap/nomad
   - npm
   - openssh
   - openssl
@@ -48,6 +49,7 @@ homebrew_installed_packages:
   - qemu
   - qmk
   - readline
+  - shellcheck
   - sops
   - sqlite3
   - ssh-copy-id
@@ -57,7 +59,7 @@ homebrew_installed_packages:
   - unar
   - unixodbc
   - unzip
-  # - hashicorp/tap/vault
+  - hashicorp/tap/vault
   - velero
   - vim
   - vivid
@@ -84,7 +86,6 @@ homebrew_cask_apps:
   - jupyter-notebook-viewer
   - iterm2
   - knockknock
-  - kopia
   - lulu
   # - mambaforge  # install via `conda` task
   - microsoft-azure-storage-explorer
@@ -104,7 +105,6 @@ homebrew_cask_apps:
   - r
   - rectangle
   - rstudio
-  - shellcheck
   - spotify
   - sublime-merge
   - sublime-text
@@ -122,11 +122,14 @@ homebrew_taps:
   - fluxcd/tap
   - hashicorp/tap
   - kopia/kopia
+  - microsoft/azdata-cli-release
+  - microsoft/git
+  - microsoft/mssql-release
   - tavianator/tap
   - qmk/qmk
-  - name: microsoft/azdata-cli-release
-    url: 'https://github.com/microsoft/homebrew-azdata-cli-release'
-  - name: microsoft/git
-    url: 'https://github.com/microsoft/homebrew-git'
-  - name: microsoft/mssql-release
-    url: 'https://github.com/Microsoft/homebrew-mssql-release'
+  # - name: 'microsoft/azdata-cli-release'
+  #   url: 'https://github.com/Microsoft/homebrew-azdata-cli-release'
+  # - name: 'microsoft/git'
+  #   url: 'https://github.com/Microsoft/homebrew-git'
+  # - name: 'microsoft/mssql-release'
+  #   url: 'https://github.com/Microsoft/homebrew-mssql-release'
