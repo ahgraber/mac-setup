@@ -14,24 +14,13 @@ The following script will autoinstall the default configuration:
 
 ## Prerequisites
 
-```zsh
-# # Ensure Apple's command line tools are installed
-# xcode-select --install > /dev/null 2>&1
-# if [[ $? == 0 ]]; then
-#   echo "Installing xcode ..."
-#   xcode-select --install
-# else
-#   echo "Xcode already installed. Skipping."
-# fi
+1. Give `Terminal.app` Full Disk Access privileges in System Preferences
+2. Run:
 
-# # update path
-# typeset -U path
-# pythons=($HOME/Library/Python/3.7/bin $HOME/Library/Python/3.8/bin $HOME/Library/Python/3.9/bin)
-# export path=($pythons /usr/local/bin /usr/bin /bin /usr/sbin /sbin $path)
-
-# run install script
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
-```
+   ```zsh
+   # run install script
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
+   ```
 
 ## Manual installation & configuration
 
