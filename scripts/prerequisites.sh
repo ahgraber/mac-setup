@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Updating pip"
-python3 -m pip install --user --upgrade pip
+python3 -m pip install --upgrade pip
 
 # Install Ansible
 echo "Installing Ansible"
