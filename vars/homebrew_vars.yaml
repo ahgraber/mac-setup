@@ -106,6 +106,7 @@ homebrew_cask_apps:
   - rectangle
   - rstudio
   - spotify
+  - steam
   # - sublime-merge
   # - sublime-text
   - the-unarchiver
