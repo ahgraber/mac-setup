@@ -81,6 +81,10 @@
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 13,
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.persistentSessionScrollback": 10000,
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.sendKeybindingsToShell": true,
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
     "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl"

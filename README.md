@@ -106,7 +106,8 @@ The following script will autoinstall the default configuration:
     ```sh
     git remote remove origin
     git remote add origin https://<GITHUB_USERNAME>:<GITHUB_TOKEN>@github.com/<user>/<repo>.git
-    git push --set-upstream origin main # (or whatever appropriate branch
+    git pull origin main --rebase         # or whatever appropriate branch
+    git push --set-upstream origin main   # or whatever appropriate branch
     ```
 
 - [ ] Check `conda` install. If `conda` not found, run
