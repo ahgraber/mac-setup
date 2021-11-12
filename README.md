@@ -18,7 +18,6 @@ The following script will autoinstall the default configuration:
 2. Run:
 
    ```zsh
-   # run install script
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
    ```
 
