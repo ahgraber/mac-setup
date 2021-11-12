@@ -46,11 +46,3 @@
     - import_tasks: tasks/terminals.yaml
       when: configure_terminals
       tags: ['env', 'terminals']
-
-    - import_tasks: tasks/zsh.yaml
-      when: configure_zsh
-      tags: ['env', 'zsh']
-
-    - import_tasks: tasks/macos.yaml
-      when: configure_macos
-      tags: ['macos']
