@@ -21,7 +21,6 @@ homebrew_installed_packages:
   - fzf
   - gcc
   - git
-  - git-credential-manager-core
   - gnupg
   - graphviz
   - gzip
@@ -81,6 +80,7 @@ homebrew_cask_apps:
   - dropzone
   - eloston-chromium
   - firefox
+  - git-credential-manager-core
   - gpg-suite
   - grandperspective
   - jupyter-notebook-viewer
