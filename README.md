@@ -77,16 +77,15 @@ The following script will autoinstall the default configuration:
    bash ./scripts/git_dir.sh
    ```
 
-## Manual followup
+## Secondary (manual) Configuration
 
-- [ ] Modify keyboard shortcuts for Mission Control to not interfere with zsh keybinds:
+- [ ] Sign into App Store and install App Store apps:
 
-  |  icon  |          keybind           | description         |
-  | :----: | :------------------------: | :------------------ |
-  | `⌃⌥⌘↑` |  `ctrl + opt + cmd + up`   | Mission Control     |
-  | `⌃⌥⌘↓` | `ctrl + opt + cmd + down`  | Application windows |
-  | `⌃⌥⌘←` | `ctrl + opt + cmd + left`  | Move to Left Space  |
-  | `⌃⌥⌘→` | `ctrl + opt + cmd + right` | Move to Right space |
+  ```sh
+  # add system pythons to path (required for Ansible)
+  export PATH="$HOME/Library/Python/3.7/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.9/bin:$PATH"
+  ansible-playbook playbook-appstore.yaml -i inventory --ask-become-pass # -v
+  ```
 
 - [ ] Set git config
 
@@ -101,6 +100,7 @@ The following script will autoinstall the default configuration:
 
 - [ ] Sign in to git identity
   - [add new ssh key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
   - use a Personal Access Token
 
     ```sh
@@ -110,24 +110,33 @@ The following script will autoinstall the default configuration:
     git push --set-upstream origin main   # or whatever appropriate branch
     ```
 
+- [ ] Modify keyboard shortcuts for Mission Control to not interfere with zsh keybinds (examples):
+
+  |  icon  |          keybind           | description         |
+  | :----: | :------------------------: | :------------------ |
+  | `⌃⌥⌘↑` |  `ctrl + opt + cmd + up`   | Mission Control     |
+  | `⌃⌥⌘↓` | `ctrl + opt + cmd + down`  | Application windows |
+  | `⌃⌥⌘←` | `ctrl + opt + cmd + left`  | Move to Left Space  |
+  | `⌃⌥⌘→` | `ctrl + opt + cmd + right` | Move to Right space |
+
 - [ ] Check `conda` install. If `conda` not found, run
 
   ```sh
-  $HOME/mambaforge/bin/conda init zsh
+  "$HOME"/mambaforge/bin/conda init zsh
   ```
 
 - [ ] Repair issues with dotfile hard links (if any exist)
 
   ```sh
   # example -- back up existing .zshrc and hard link
-  mv ~/.zshrc ~/.zshrc.$(date +%Y.%m.%d)
-  ln -s ~/.zshconfig/zshrc .zshrc
+  mv ~/.zshrc ~/.zshrc.$(date +%Y%m%d)
+  ln -s ~/.zshconfig/z4hrc .zshrc
   ```
 
-- [ ] Manually install `homebrew` packages that require EULA acknowledgements
+- [ ] Manually install `homebrew` packages that require manual intervention (like EULA acceptance)
 
   ```sh
-  HOMEBREW_NO_ENV_FILTERING=1 ACCEPT_EULA=Y brew install \
+  brew install \
     azdata-cli \
     msodbcsql17 \
     mssql-tools
@@ -135,10 +144,10 @@ The following script will autoinstall the default configuration:
 
 - [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
 
-- [ ] Update Terminal default profile
-- [ ] Update iTerm2 default profile
 - [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
+
 - [ ] Consider `dropzone` [plugins](https://aptonic.com/actions)
+
 - [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))) and/or in System Preferences
 
   ```sh

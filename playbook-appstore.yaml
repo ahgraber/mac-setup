@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+
+  vars_files:
+    - vars/appstore_vars.yaml
+
+  roles:
+    - role: geerlingguy.mac.mas
+      tags: ['mas','appstore']

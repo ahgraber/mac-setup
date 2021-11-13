@@ -1,0 +1,15 @@
+---
+# which brew to use
+homebrew_install_path: /opt/homebrew
+
+# force sign in via App Store GUI
+mas_signin_dialog: false
+
+# find with `mas search <app_name>
+mas_installed_apps:
+  - { id: 417375580, name: "BetterSnapTool" }
+  - { id: 1352778147, name: "Bitwarden" }
+  - { id: 1247292524, name: "InstaCal - Menu Bar Calendar" }
+  - { id: 1246969117, name: "Steam Link" }
+  - { id: 1230249825, name: "VMware Remote Console" }
+  - { id: 1451685025, name: "WireGuard" }
