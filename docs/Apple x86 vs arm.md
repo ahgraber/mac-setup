@@ -30,26 +30,40 @@ The `x86_64/i386` package will be installed  in `/usr/local/` (install with the 
 We can set the zsh environment to auto-detect architecture by adding the following to `.zshrc`
 
 ```sh
-archcheck () {
-   if [ "$(uname -p)" = "i386" ]; then
-     echo "Running in i386 mode (Rosetta)"
-     eval "$(/usr/local/homebrew/bin/brew shellenv)"
-     alias brew='/usr/local/homebrew/bin/brew'
-   elif
-     echo "Running in ARM mode (M1)"
-     eval "$(/opt/homebrew/bin/brew shellenv)"
-     alias brew='/opt/homebrew/bin/brew'
-   else
-     echo "Unknown architecture detected: $(uname -p) // $(arch)"
-   fi
-}
-alias native="arch -arm64 zsh && archcheck"
-alias rosetta="arch -x86_64 zsh && archcheck"
+### Autodetect architecture (and set `brew` path)
+if [[ "$(sysctl -a | grep machdep.cpu.brand_string)" == *Apple* ]]; then
+  archcheck=$(/usr/bin/arch)
+  typeset -g archcheck
+  case $archcheck in
+    arm64)
+      archcheck+=' (Native)'
+      if [[ -f /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+        alias brew='/opt/homebrew/bin/brew'
+      fi
+    ;;
+    i386|x86_64)
+      archcheck+=' (Rosetta)'
+      if [[ -f /usr/local/homebrew/bin/brew ]]; then
+        eval "$(/usr/local/homebrew/bin/brew shellenv)"
+        alias brew='/usr/local/homebrew/bin/brew'
+      fi
+    ;;
+    *)
+      archcheck+=' (Unknown)'
+    ;;
+  esac
+
+  # add arch to p10k
+  function prompt_my_arch() {
+    p10k segment -f 250 -i '💻' -t "${archcheck//\%/%%}"
+  }
+
+  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_arch  # to specify location, modify ~/.p10k.zsh
+fi
 ```
 
-> Note: the `rosetta` alias is kind of buggy; recommend using only the emulated terminal
-
-Alternatively, using the `arch` command, we can specify the architecture under which to run a single process:
+Alternatively, using the `arch` command, we can specify the architecture under which to run a single process; however, I have found it more consistent to simply use native vs "rosetta" terminal.
 
 ```sh
 /usr/bin/arch -x86_64 /path/to/exe     # 64-bit x86
