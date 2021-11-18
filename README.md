@@ -138,8 +138,11 @@ The following script will autoinstall the default configuration:
   ```sh
   brew install \
     azdata-cli \
+    azure-cli \
+    azure-functions-core-tools@4 \
     msodbcsql17 \
-    mssql-tools
+    mssql-tools \
+  && az extension add -n ml -y
   ```
 
 - [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`

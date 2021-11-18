@@ -5,6 +5,7 @@ homebrew_installed_packages:
   - automake
   # - azdata-cli  # requires manual license acceptance
   # - azure-cli
+  # - azure-functions-core-tools@4
   - bat
   - bat-extras
   - bfg           # git filter branch
@@ -17,7 +18,7 @@ homebrew_installed_packages:
   - docker
   - dockutil
   - exa
-  - fluxcd/tap/flux
+  # - fluxcd/tap/flux
   - fzf
   - gcc
   - git
@@ -26,7 +27,7 @@ homebrew_installed_packages:
   - gzip
   - htop
   - jq
-  - kopia
+  # - kopia
   - kubernetes-cli
   - kubernetes-helm
   - libtool
@@ -41,25 +42,25 @@ homebrew_installed_packages:
   - npm
   - openssh
   - openssl
-  - hashicorp/tap/packer
+  # - hashicorp/tap/packer
   - pkg-config
   - pre-commit
   - prettier
   - qemu
-  - qmk
+  # - qmk
   - readline
   - shellcheck
   - sops
   - sqlite3
   - ssh-copy-id
-  - hashicorp/tap/terraform
+  # - hashicorp/tap/terraform
   - tldr
   - tmux
   - unar
   - unixodbc
   - unzip
   # - hashicorp/tap/vault
-  - velero
+  # - velero
   - vim
   - vivid
   - wget
@@ -75,7 +76,7 @@ homebrew_cask_apps:
   # - azure-data-studio
   - bartender
 # - bitwarden                     # prefer App Store version
-  - blockblock
+  # - blockblock
   - chromedriver
   - discord
   - dropzone
@@ -86,13 +87,13 @@ homebrew_cask_apps:
   - grandperspective
   - jupyter-notebook-viewer
   - iterm2
-  - knockknock
-  - lulu
+  # - knockknock
+  # - lulu
   # - mambaforge  # install via `conda` task
   # - microsoft-azure-storage-explorer
   - microsoft-office
   - microsoft-remote-desktop
-  - mullvadvpn
+  # - mullvadvpn
   - obsidian
   # - osxfuse                     # ARM incompatible
   - oversight
@@ -107,12 +108,12 @@ homebrew_cask_apps:
   # - rectangle                   # prefer BetterSnapTool from App Store
   - rstudio
   - spotify
-  - steam
+  # - steam
   # - sublime-merge
   # - sublime-text
   - the-unarchiver
   - utm
-  - vagrant
+  # - vagrant
   # - virtualbox                  # ARM incompatible
   # - virtualbox-extension-pack   # ARM incompatible
   - visual-studio-code
@@ -124,6 +125,7 @@ homebrew_taps:
   - fluxcd/tap
   - hashicorp/tap
   - kopia/kopia
+  - azure/functions
   - microsoft/azdata-cli-release
   - microsoft/git
   - microsoft/mssql-release
