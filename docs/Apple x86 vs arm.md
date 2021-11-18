@@ -85,7 +85,9 @@ env_name="changeme"
 # set arch for new environment
 CONDA_SUBDIR=osx-arm64 conda create -n "$env_name"
 # ensure subsequent installs respect arch
-conda env --name "$env_name" config vars set CONDA_SUBDIR=osx-arm64
+conda env config vars set CONDA_SUBDIR=osx-arm64 --name "$env_name"
+conda deactivate "$env_name"
+conda activate "$env_name"
 unset env_name
 
 # conda activate <env_name>
