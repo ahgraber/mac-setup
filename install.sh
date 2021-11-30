@@ -105,9 +105,6 @@ brew cleanup
 bash ./scripts/symlink_onedrive.sh
 bash ./scripts/git_dir.sh
 
-# echo "Fixing macOS default settings..."
-# sudo bash ./scripts/macos_settings.sh
-
 echo "Setup complete."
 echo "Some settings may not take effect until you log out or restart."
 echo "You may delete this project (~/mac-setup) if you wish."

@@ -24,6 +24,7 @@ Homebrew can be installed in parallel on Apple Silicon macs.
 The `arm64` package will be installed in `/opt/homebrew/`
 The `x86_64/i386` package will be installed  in `/usr/local/` (install with the emulated Terminal)
 [Reference](https://www.notion.so/Run-x86-Apps-including-homebrew-in-the-Terminal-on-Apple-Silicon-8350b43d97de4ce690f283277e958602)
+[Reference](https://www.wisdomgeek.com/development/installing-intel-based-packages-using-homebrew-on-the-m1-mac/)
 
 > It appears that homebrew is smart enough to autodetect architecture and adjust HOMEBREW_PREFIX accordingly 👍
 

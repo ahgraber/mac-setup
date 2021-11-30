@@ -67,7 +67,7 @@ homebrew_installed_packages:
   - xz
   - yarn
   - zlib
-  - zsh
+  # - zsh
 
 homebrew_cask_accept_external_apps: true
 homebrew_cask_appdir: /Applications
