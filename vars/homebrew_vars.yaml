@@ -43,6 +43,7 @@ homebrew_installed_packages:
   - openssh
   - openssl
   # - hashicorp/tap/packer
+  - pandoc
   - pkg-config
   - pre-commit
   - prettier
