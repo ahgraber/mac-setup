@@ -3,7 +3,8 @@ vscode_extensions:
   ## find with `code --list-extensions`
   - bencoleman.armview
   - DavidAnson.vscode-markdownlint
-  - eamodio.gitlens
+  # - eamodio.gitlens
+  - editorconfig.editorconfig
   - esbenp.prettier-vscode
   - goessner.mdmath
   - ms-azure-devops.azure-pipelines
