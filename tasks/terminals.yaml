@@ -32,7 +32,7 @@
     force: no
 
 - name: Install VSCode extensions
-  shell: code --install-extension {{ item }}
+  shell: /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension {{ item }}
   with_items: '{{ vscode_extensions }}'
 
 - name: Ensure custom color profile is added
