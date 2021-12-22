@@ -77,7 +77,8 @@ Alternatively, using the `arch` command, we can specify the architecture under w
 
 [`mambaforge`](https://github.com/conda-forge/miniforge#mambaforge) has support for native arm64 architecture and comes with `mamba` preinstalled
 
-Conda envs can be restricted to specific architectures:
+Conda envs can be restricted to specific architectures: Allowed CONDA_SUBDIR architectures include: linux-64, linux-aarch64, linux-ppc64le, osx-64, osx-arm64, win-32, win-64
+see also [stackoverflow](https://stackoverflow.com/questions/33709391/using-multiple-python-engines-32bit-64bit-and-2-7-3-5/58014896#58014896) and [github gist](https://gist.github.com/ahgraber/47fc18c9eb857c8afa9b4786de8a43b1)
 
 Create an environment with a specific architecture requirement:
 
