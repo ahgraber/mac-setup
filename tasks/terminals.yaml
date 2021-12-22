@@ -41,6 +41,12 @@
 - name: Close iterm2
   command: pkill iTerm
 
+- name: Ensure /Users/**/Library/Preferences folder exists
+  file:
+    path: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences"
+    state: directory
+    mode: '0700'
+
 - name: Apply default settings to iTerm profile
   copy:
     src: 'files/iterm/com.googlecode.iterm2.plist'
