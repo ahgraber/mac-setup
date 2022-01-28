@@ -80,6 +80,12 @@
   "terminal.integrated.persistentSessionScrollback": 10000,
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.profiles.osx": {
+    "x86 zsh": {
+      "path": "/usr/bin/arch",
+      "args": ["-arch", "x86_64", "/bin/zsh"]
+    }
+  },  
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
     "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl"
