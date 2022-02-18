@@ -17,6 +17,7 @@ homebrew_installed_packages:
   - direnv
   - docker
   - dockutil
+  - dotnet
   - exa
   # - fluxcd/tap/flux
   - fzf
