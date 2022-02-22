@@ -10,6 +10,7 @@
     79,
     119
   ],
+  "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "files.insertFinalNewline": true,
@@ -48,10 +49,12 @@
     "120",
     "--experimental"
   ],
-  "python.formatting.blackArgs": [
-    "exclude = ''' /(     \\.git   | \\.hg   | \\.mypy_cache   | \\.tox   | \\.venv   | _build   | buck-out   | build   | dist )/ '''"
-  ],
   "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+      "line-length = 100",
+      "include = '\\.pyi?$|\\.ipynb$'",
+      "extend-exclude = '''/( \\.git | \\.hg | \\.ipynb_checkpoints$ | \\.mypy_cache | \\.tox | \\.venv | _build | buck-out | build | dist )/'''"
+  ],
   "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
