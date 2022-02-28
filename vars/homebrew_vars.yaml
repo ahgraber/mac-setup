@@ -78,7 +78,7 @@ homebrew_cask_apps:
   - appcleaner
   # - azure-data-studio
   - bartender
-# - bitwarden                     # prefer App Store version
+  # - bitwarden # prefer App Store version
   # - blockblock
   - chromedriver
   - discord
@@ -87,17 +87,18 @@ homebrew_cask_apps:
   - git-credential-manager-core
   - gpg-suite
   - grandperspective
+  - hiddenbar # alternative to bartender
   - jupyter-notebook-viewer
   - iterm2
   # - knockknock
   # - lulu
-  # - mambaforge  # install via `conda` task
+  # - mambaforge # install via `conda` task
   # - microsoft-azure-storage-explorer
   - microsoft-office
   - microsoft-remote-desktop
   # - mullvadvpn
   - obsidian
-  # - osxfuse                     # ARM incompatible
+  # - osxfuse # ARM incompatible
   - oversight
   - postman
   - qlstephen
@@ -107,7 +108,7 @@ homebrew_cask_apps:
   - qlimagesize
   - qlvideo
   - r
-  # - rectangle                   # prefer BetterSnapTool from App Store
+  # - rectangle # prefer BetterSnapTool from App Store
   - rstudio
   - spotify
   # - steam
