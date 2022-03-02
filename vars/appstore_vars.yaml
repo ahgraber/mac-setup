@@ -11,6 +11,6 @@ mas_installed_apps:
   - { id: 1352778147, name: "Bitwarden" }
   - { id: 1470584107, name: "Dato" }
   - { id: 1355679052, name: "Dropover - Easier Drag & Drop" }
-  - { id: 1246969117, name: "Steam Link" }
-  - { id: 1230249825, name: "VMware Remote Console" }
+  # - { id: 1246969117, name: "Steam Link" }
+  # - { id: 1230249825, name: "VMware Remote Console" }
   - { id: 1451685025, name: "WireGuard" }
