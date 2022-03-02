@@ -87,7 +87,7 @@ The following script will autoinstall the default configuration:
   ansible-playbook playbook-appstore.yaml -i inventory --ask-become-pass # -v
   ```
 
-- [ ] Set git config
+- [ ] Set git config (~/.gitconfig)
 
   ```sh
   git config --global user.name "Your Name"
@@ -149,13 +149,11 @@ The following script will autoinstall the default configuration:
 
 - [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
 
-- [ ] Consider `dropzone` [plugins](https://aptonic.com/actions)
-
 - [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))) and/or in System Preferences
 
   ```sh
-  for ql_gen in *; do
-    xattr -cr "$HOME/Library/QuickLook/$ql_gen"
+  for ql_gen in "$HOME/Library/QuickLook/*"; do
+    xattr -cr "$ql_gen"
   done
   qlmanage -r
   qlmanage -r cache
