@@ -1,5 +1,6 @@
 ---
-# homebrew_install_path: /usr/local/homebrew
+# homebrew_install_path: /usr/local/homebrew # rosetta
+# homebrew_install_path: /opt/homebrew # M1 native
 homebrew_installed_packages:
   - autoconf
   - automake
@@ -15,7 +16,7 @@ homebrew_installed_packages:
   - coreutils
   - curl
   - direnv
-  - docker
+  # - docker  # install via cask
   - dockutil
   - dotnet
   - exa
@@ -81,7 +82,8 @@ homebrew_cask_apps:
   # - bitwarden # prefer App Store version
   # - blockblock
   - chromedriver
-  - discord
+  # - discord
+  - docker
   - eloston-chromium
   - firefox
   - git-credential-manager-core
