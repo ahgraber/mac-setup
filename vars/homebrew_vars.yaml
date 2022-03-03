@@ -1,6 +1,26 @@
 ---
 # homebrew_install_path: /usr/local/homebrew # rosetta
 # homebrew_install_path: /opt/homebrew # M1 native
+homebrew_folders_base:
+  - Cellar
+  - Homebrew
+  - Frameworks
+  - Caskroom
+  - bin
+  - etc
+  - include
+  - lib
+  - opt
+  - sbin
+  - share
+  - share/info
+  - share/man
+  - share/man/man3
+  - share/man/man5
+  - share/zsh
+  - share/zsh/site-functions
+  - var
+
 homebrew_installed_packages:
   - autoconf
   - automake
@@ -12,11 +32,9 @@ homebrew_installed_packages:
   - bfg           # git filter branch
   - bfs
   - colordiff
-  # - hashicorp/tap/consul
   - coreutils
   - curl
   - direnv
-  # - docker  # install via cask
   - dockutil
   - dotnet
   - exa
@@ -29,7 +47,6 @@ homebrew_installed_packages:
   - gzip
   - htop
   - jq
-  # - kopia
   - kubernetes-cli
   - kubernetes-helm
   - libtool
@@ -40,30 +57,25 @@ homebrew_installed_packages:
   # - msodbcsql17  # requires manual license acceptance
   # - mssql-tools  # requires manual license acceptance
   - mysql
-  # - hashicorp/tap/nomad
   - npm
   - openssh
   - openssl
-  # - hashicorp/tap/packer
+  - hashicorp/tap/packer
   - pandoc
   - pkg-config
   - pre-commit
   - prettier
   - qemu
-  # - qmk
   - readline
   - shellcheck
   - sops
   - sqlite3
   - ssh-copy-id
-  # - hashicorp/tap/terraform
   - tldr
   - tmux
   - unar
-  - unixodbc
+  # - unixodbc
   - unzip
-  # - hashicorp/tap/vault
-  # - velero
   - vim
   - vivid
   - wget
@@ -87,28 +99,28 @@ homebrew_cask_apps:
   - eloston-chromium
   - firefox
   - git-credential-manager-core
-  - gpg-suite
+  # - gpg-suite
   - grandperspective
-  - hiddenbar # alternative to bartender
+  # - hiddenbar # alternative to bartender
   - jupyter-notebook-viewer
   - iterm2
   # - knockknock
   # - lulu
   # - mambaforge # install via `conda` task
   # - microsoft-azure-storage-explorer
-  - microsoft-office
-  - microsoft-remote-desktop
+  # - microsoft-office
+  # - microsoft-remote-desktop
   # - mullvadvpn
   - obsidian
   # - osxfuse # ARM incompatible
   - oversight
   - postman
-  - qlstephen
-  - qlmarkdown
-  - quicklook-json
-  - quicklook-csv
-  - qlimagesize
-  - qlvideo
+  # - qlstephen
+  # - qlmarkdown
+  # - quicklook-json
+  # - quicklook-csv
+  # - qlimagesize
+  # - qlvideo
   - r
   # - rectangle # prefer BetterSnapTool from App Store
   - rstudio
@@ -129,7 +141,6 @@ homebrew_taps:
   - homebrew/cask-versions
   - fluxcd/tap
   - hashicorp/tap
-  - kopia/kopia
   - azure/functions
   - microsoft/azdata-cli-release
   - microsoft/git
