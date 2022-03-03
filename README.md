@@ -1,43 +1,69 @@
 # README
 
+- [README](#readme)
+  - [Highlights](#highlights)
+  - [Quickstart](#quickstart)
+  - [Prerequisites](#prerequisites)
+  - [Manual installation & configuration](#manual-installation--configuration)
+  - [Secondary (manual) Configuration](#secondary-manual-configuration)
+  - [Testing](#testing)
+    - [macOS via VirtualBox](#macos-via-virtualbox)
+  - [References](#references)
+
+## Highlights
+
+- Installs a variety of [command line tools](vars/homebrew_vars.yaml), notably:
+  - [`bat`](https://github.com/sharkdp/bat) - Clone of cat(1) with syntax highlighting and Git integration
+  - [`exa`](https://the.exa.website/) - Modern replacement for 'ls'
+  - [`direnv`](https://direnv.net/) - Load/unload environment variables based on $PWD
+  - developer tools like `gcc`, `git`, `jq`, etc
+- Installs applications via [brew](vars/homebrew_vars.yaml) and [App Store](vars/appstore_vars.yaml), notably:
+  - Window position manager [BetterSnapTool](https://www.folivora.ai/bettersnaptool/)
+  - Menu bar managers [Bartender](https://www.macbartender.com/) or [Hidden Bar](https://apps.apple.com/us/app/hidden-bar/id1452453066?mt=12)
+  - Menu bar calendar [Dato](https://apps.apple.com/us/app/dato/id1470584107?mt=12)
+  - Webcam/mic security [OverSight](https://objective-see.com/products/oversight.html)
+  - Easier drag-and-drop with [DropOver](https://dropoverapp.com/)
+  - Application uninstaller [AppCleaner](https://freemacsoft.net/appcleaner/)
+  - Terminal alternative [iTerm2](https://iterm2.com/)
+  - Markdown notes/wiki manager [Obsidian](https://obsidian.md/)
+  - Visual Studio Code
+- Installs [mambaforge](https://mamba.readthedocs.io/en/latest/installation.html) `conda`
+- Applies (opinionated!) configuration to terminal applications and zsh defaults
+  - customized Terminal and iTerm2 profiles
+  - customized zsh env via [zshconfig](https://www.github.com/ahgraber/zshconfig)
+
 ## Quickstart
-
-The following script will autoinstall the default configuration:
-
-- Rosetta2 (if Apple Silicon detected)
-- [Ansible](https://docs.ansible.com) via `pip`
-- [Homebrew](https://brew.sh)
-  - [packages and applications](./vars/homebrew_vars.yaml)
-- `conda` via [mambaforge](https://github.com/conda-forge/miniforge)
-- customized Terminal and iTerm2 profiels
-- customized zsh env via [zshconfig](https://www.github.com/ahgraber/zshconfig)
 
 ## Prerequisites
 
 1. Give `Terminal.app` Full Disk Access privileges in System Preferences
-2. Run:
+2. [optional, but preferable] [Uninstall prior versions of homebrew](https://github.com/homebrew/install#uninstall-homebrew)
+3. [optional] Log in to OneDrive
+4. Run:
 
-   ```zsh
+   ```sh
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
    ```
 
 ## Manual installation & configuration
 
-1. Clone repo:
+1. Follow prerequisite steps (above)
+2. Clone repo:
 
    ```sh
    git clone https://github.com/ahgraber/mac-setup.git
    ```
 
-2. Customize configuration:
+3. Customize configuration:
 
-   - [dock_vars](./vars/dock_vars.yaml) removes / retains / sets position for Dock applications
    - [homebrew_vars](./vars/homebrew_vars.yaml) installs applications & packages
      - `Casks` are applications and are updated through the application
      - `Packages` are binaries (generally called via command line) and are kept updated with Homebrew
+   - [dock_vars](./vars/dock_vars.yaml) removes / retains / sets position for Dock applications
    - [vscode_vars](./vars/vscode_env.yaml) lists plugins to install into VSCode
+   - [appstore_vars](./vars/appstore_vars.yaml) lists applications to install via Mac App Store
 
-3. Tasks can be run individually:
+4. Tasks can be run individually:
 
    > Note: Ansible is installed to system python and will likely not be found unless you add system pythons to PATH
 
@@ -79,12 +105,6 @@ The following script will autoinstall the default configuration:
 
 ## Secondary (manual) Configuration
 
-- [ ] Clean up bootstrap python
-
-  ```sh
-  rm -rf $HOME/Library/Python
-  ```
-
 - [ ] Sign into App Store and install App Store apps:
 
   ```sh
@@ -104,18 +124,6 @@ The following script will autoinstall the default configuration:
   # git config --global credential.helper osxkeychain
   ```
 
-- [ ] Sign in to git identity
-  - [add new ssh key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-  - use a Personal Access Token
-
-    ```sh
-    git remote remove origin
-    git remote add origin https://<GITHUB_USERNAME>:<GITHUB_TOKEN>@github.com/<user>/<repo>.git
-    git pull origin main --rebase         # or whatever appropriate branch
-    git push --set-upstream origin main   # or whatever appropriate branch
-    ```
-
 - [ ] Modify keyboard shortcuts for Mission Control to not interfere with zsh keybinds (examples):
 
   |  icon  |          keybind           | description         |
@@ -124,6 +132,8 @@ The following script will autoinstall the default configuration:
   | `⌃⌥⌘↓` | `ctrl + opt + cmd + down`  | Application windows |
   | `⌃⌥⌘←` | `ctrl + opt + cmd + left`  | Move to Left Space  |
   | `⌃⌥⌘→` | `ctrl + opt + cmd + right` | Move to Right space |
+
+- [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
 
 - [ ] Check `conda` install. If `conda` not found, run
 
@@ -151,11 +161,10 @@ The following script will autoinstall the default configuration:
   && az extension add -n ml -y
   ```
 
-- [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
-
 - [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium
 
-- [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine))) and/or in System Preferences
+- [ ] Permit quick look plugins (~/Library/QuickLook ([ref](https://github.com/whomwah/qlstephen#permissions-quarantine)))
+      and/or in System Preferences
 
   ```sh
   for ql_gen in "$HOME/Library/QuickLook/*"; do
@@ -164,6 +173,25 @@ The following script will autoinstall the default configuration:
   qlmanage -r
   qlmanage -r cache
   # relaunch finder (opt + leftclick)
+  ```
+
+- [ ] Sign in to git identity
+
+  - [add new ssh key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+  - use a Personal Access Token
+
+    ```sh
+    git remote remove origin
+    git remote add origin https://<GITHUB_USERNAME>:<GITHUB_TOKEN>@github.com/<user>/<repo>.git
+    git pull origin main --rebase         # or whatever appropriate branch
+    git push --set-upstream origin main   # or whatever appropriate branch
+    ```
+
+- [ ] Clean up bootstrap python (note this will remove the python where Ansible is installed)
+
+  ```sh
+  rm -rf $HOME/Library/Python
   ```
 
 ## Testing

@@ -2,6 +2,14 @@
 set -- $(locale LC_MESSAGES)
 yesexpr="$1"; noexpr="$2"; yesword="$3"; noword="$4"
 
+echo "############################################################"
+echo "###   Configuring OneDrive integration...                ###"
+echo "############################################################"
+echo ""
+echo "This will back up your current ~/Desktop and ~/Documents folders"
+echo "and replace with links to OneDrive locations"
+echo "NOTE: This implies you have already signed into OneDrive!"
+
 onedrive_dir="$(/bin/ls "$HOME" | grep OneDrive)"
 if [[ -d "$HOME/$onedrive_dir" ]]; then
   read -p "Symlink OneDrive folders (yes/no)? [n] " user_select
@@ -23,8 +31,8 @@ if [[ "$user_select" =~ $yesexpr ]]; then
     sudo ln -Ffs "$HOME/$onedrive_dir/Desktop" "$HOME"
     sudo ln -Ffs "$HOME/$onedrive_dir/Documents" "$HOME"
     echo "If you are missing files or folders in Desktop or Documents after this, run:"
-    echo '`mv -rf $HOME/.Desktop.old/* $HOME/Desktop`'
-    echo '`mv -rf $HOME/.Documents.old/* $HOME/Documents`'
+    echo "'mv -rf $HOME/.Desktop.old/* $HOME/Desktop'"
+    echo "'mv -rf $HOME/.Documents.old/* $HOME/Documents'"
   fi
 else
   echo "Retaining separate folders for user home ($HOME) and OneDrive."

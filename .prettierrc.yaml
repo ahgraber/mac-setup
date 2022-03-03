@@ -1,13 +1,8 @@
-# .prettierrc
-printWidth: 100
+---
+trailingComma: "es5"
 tabWidth: 2
-useTabs: false
 semi: false
-singleQuote: true
-quoteProps: 'consistent'
-trailingComma: 'es5'
-bracketSpacing: true
-# requirePragma: false
-# insertPragma: false
-proseWrap: 'preserve'
-endOfLine: 'lf'
+singleQuote: false
+quoteProps: "consistent"
+printWidth: 100
+proseWrap: "always"

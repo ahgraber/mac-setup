@@ -217,12 +217,7 @@
   "Horizontal Spacing": 1,
   "Idle Code": 0,
   "Initial Text": "",
-  "Jobs to Ignore": [
-    "rlogin",
-    "ssh",
-    "slogin",
-    "telnet"
-  ],
+  "Jobs to Ignore": ["rlogin", "ssh", "slogin", "telnet"],
   "Minimum Contrast": 0,
   "Mouse Reporting": 1,
   "Name": "Default",

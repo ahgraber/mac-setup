@@ -1,4 +1,15 @@
-.pytest_cache/
-.vscode/
+# prettier should ignore
+# .azureml
+# .eggs
+# .ipynb_checkpoints
+# .obsidian
+# .pytest_cache
+# .tox
+# .vscode
+.**/
+dist/
+
 collections/
 roles/
+
+*.md

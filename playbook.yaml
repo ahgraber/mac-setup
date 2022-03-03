@@ -14,19 +14,19 @@
       ### override defaults & set homebrew dirs to manage
       homebrew_prefix: "/opt/homebrew"
       # homebrew_installed_packages: []  # uncomment to disable default packages
-      homebrew_cask_apps: []  # uncomment to disable default apps
+      homebrew_cask_apps: [] # uncomment to disable default apps
       when: configure_homebrew
-      tags: ['env', 'homebrew']
+      tags: ["env", "homebrew"]
 
     - role: geerlingguy.mac.dock
       when: configure_dock
-      tags: ['dock']
+      tags: ["dock"]
 
   tasks:
     - import_tasks: tasks/conda.yaml
       when: configure_conda
-      tags: ['env', 'conda']
+      tags: ["env", "conda"]
 
     - import_tasks: tasks/terminals.yaml
       when: configure_terminals
-      tags: ['env', 'terminals']
+      tags: ["env", "terminals"]

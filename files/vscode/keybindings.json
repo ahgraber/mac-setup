@@ -1,8 +1,8 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "shift+enter",
-        "command": "workbench.action.terminal.runSelectedText",
-        "when": "editorTextFocus && editorHasSelection && !findInputFocussed && !replaceInputFocussed && editorLangId != 'python'"
-    }
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.runSelectedText",
+    "when": "editorTextFocus && editorHasSelection && !findInputFocussed && !replaceInputFocussed && editorLangId != 'python'"
+  }
 ]

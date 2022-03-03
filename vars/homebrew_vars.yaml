@@ -29,7 +29,7 @@ homebrew_installed_packages:
   # - azure-functions-core-tools@4
   - bat
   - bat-extras
-  - bfg           # git filter branch
+  - bfg # git filter branch
   - bfs
   - colordiff
   - coreutils
@@ -115,12 +115,12 @@ homebrew_cask_apps:
   # - osxfuse # ARM incompatible
   - oversight
   - postman
-  # - qlstephen
-  # - qlmarkdown
-  # - quicklook-json
-  # - quicklook-csv
-  # - qlimagesize
-  # - qlvideo
+  - qlstephen
+  - qlmarkdown
+  - quicklook-json
+  - quicklook-csv
+  - qlimagesize
+  - qlvideo
   - r
   # - rectangle # prefer BetterSnapTool from App Store
   - rstudio

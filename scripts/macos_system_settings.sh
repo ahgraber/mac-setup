@@ -5,7 +5,7 @@
 echo "Applying macOS system settings..."
 
 # Close any open System Preferences panes, to prevent them from overriding
-# settings we’re about to change
+# settings we're about to change
 osascript -e 'tell application "System Preferences" to quit'
 
 # Warn that some commands will not be run if the script is not run as root.
@@ -57,7 +57,7 @@ if [[ "$RUN_AS_ROOT" = true ]]; then sudo systemsetup -setcomputersleep Off > /d
 # if [[ "$RUN_AS_ROOT" = true ]]; then sudo rm /private/var/vm/sleepimage; fi
 # # Create a zero-byte file instead…
 # if [[ "$RUN_AS_ROOT" = true ]]; then sudo touch /private/var/vm/sleepimage; fi
-# # …and make sure it can’t be rewritten
+# # …and make sure it can't be rewritten
 # if [[ "$RUN_AS_ROOT" = true ]]; then sudo chflags uchg /private/var/vm/sleepimage; fi
 
 ###############################################################################

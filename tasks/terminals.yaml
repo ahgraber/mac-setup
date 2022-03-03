@@ -12,7 +12,7 @@
     owner: "{{ lookup('env', 'USER') }}"
     # group: "{{ homebrew_group }}"
     state: directory
-    mode: '0755'
+    mode: "0755"
   become: true
 
 - name: Copy VSCode configuration
@@ -20,7 +20,7 @@
     src: files/vscode/settings.json
     dest: "${HOME}/Library/Application Support/Code/User/settings.json"
     owner: "{{ lookup('env', 'USER') }}"
-    mode: '0755'
+    mode: "0755"
     force: no
 
 - name: Copy VSCode keybinding
@@ -28,12 +28,14 @@
     src: files/vscode/keybindings.json
     dest: "${HOME}/Library/Application Support/Code/User/keybindings.json"
     owner: "{{ lookup('env', 'USER') }}"
-    mode: '0600'
+    mode: "0600"
     force: no
 
 - name: Install VSCode extensions
-  shell: /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension {{ item }}
-  with_items: '{{ vscode_extensions }}'
+  shell:
+    /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension {{
+    item }}
+  with_items: "{{ vscode_extensions }}"
 
 - name: Ensure custom color profile is added
   command: open files/iterm/MaterialDarker.itermcolors
@@ -45,14 +47,14 @@
   file:
     path: "${HOME}/Library/Preferences"
     state: directory
-    mode: '0700'
+    mode: "0700"
 
 - name: Apply default settings to iTerm profile
   copy:
-    src: 'files/iterm/com.googlecode.iterm2.plist'
+    src: "files/iterm/com.googlecode.iterm2.plist"
     dest: "${HOME}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ lookup('env', 'USER') }}"
-    mode: '0600'
+    mode: "0600"
     force: yes
 
 # Custom Terminal theme.
@@ -69,14 +71,14 @@
 
 - name: Apply default settings to Terminal profile
   copy:
-    src: 'files/terminal/com.apple.Terminal.plist'
+    src: "files/terminal/com.apple.Terminal.plist"
     dest: "${HOME}/Library/Preferences/com.apple.Terminal.plist"
     owner: "{{ lookup('env', 'USER') }}"
-    mode: '0600'
+    mode: "0600"
     force: yes
 
 - name: Ensure custom Terminal profile is set as default.
-  command: '{{ item }}'
+  command: "{{ item }}"
   with_items:
     - defaults write com.apple.terminal 'Default Window Settings' -string MaterialDarker
     - defaults write com.apple.terminal 'Startup Window Settings' -string MaterialDarker

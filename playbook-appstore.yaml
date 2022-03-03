@@ -6,4 +6,4 @@
 
   roles:
     - role: geerlingguy.mac.mas
-      tags: ['mas','appstore']
+      tags: ["mas", "appstore"]

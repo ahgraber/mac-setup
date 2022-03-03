@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "############################################################"
+echo "###   Installing prerequisites...                        ###"
+echo "############################################################"
+echo ""
 echo "Updating pip"
 python3 -m pip install --upgrade pip
 
