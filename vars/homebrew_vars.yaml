@@ -73,6 +73,7 @@ homebrew_installed_packages:
   - ssh-copy-id
   - tldr
   - tmux
+  - typescript
   - unar
   # - unixodbc
   - unzip
