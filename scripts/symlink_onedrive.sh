@@ -20,8 +20,8 @@ if [[ "$user_select" =~ $yesexpr ]]; then
     sudo mv -f "$HOME/Desktop" "$HOME/.Desktop.old"
     sudo mv -f "$HOME/Documents" "$HOME/.Documents.old"
     echo "Symlinking OneDrive folders..."
-    sudo ln -fs "$onedrive_dir/Desktop"
-    sudo ln -fs "$onedrive_dir/Documents"
+    sudo ln -Ffs "$HOME/$onedrive_dir/Desktop" "$HOME"
+    sudo ln -Ffs "$HOME/$onedrive_dir/Documents" "$HOME"
     echo "If you are missing files or folders in Desktop or Documents after this, run:"
     echo '`mv -rf $HOME/.Desktop.old/* $HOME/Desktop`'
     echo '`mv -rf $HOME/.Documents.old/* $HOME/Documents`'
