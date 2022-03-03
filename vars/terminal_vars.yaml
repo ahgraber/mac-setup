@@ -32,6 +32,7 @@ vscode_extensions:
   - ms-vscode.Theme-MaterialKit
   - ms-vscode.vscode-node-azure-pack
   - msazurermtools.azurerm-vscode-tools
+  - mutantdino.resourcemonitor
   - njpwerner.autodocstring
   - PKief.material-icon-theme
   - redhat.vscode-yaml
