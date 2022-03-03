@@ -87,7 +87,7 @@ The following script will autoinstall the default configuration:
   ansible-playbook playbook-appstore.yaml -i inventory --ask-become-pass # -v
   ```
 
-- [ ] Set git config (~/.gitconfig)
+- [ ] Set git config (~/.gitconfig) by running the following in terminal:
 
   ```sh
   git config --global user.name "Your Name"
