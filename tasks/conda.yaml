@@ -23,24 +23,31 @@
 - debug: var=shell_pwd.stdout
   when: debug
 
-- name: 'Check if default env exists'
-  shell: |
-    [[ -d $HOME/mambaforge/envs/default ]]
-  args:
-    executable: /bin/bash
-  register: default_env_exists
-  ignore_errors: yes
+# - name: 'Conda init'
+#   shell: |
+#     "$HOME/mambaforge/bin/conda" init zsh
+#   args:
+#     executable: /bin/zsh
 
-- name: 'Install Default Python'
-  shell: |
-    conda() { "$HOME/mambaforge/bin/conda"; }
-    mamba() { "$HOME/mambaforge/bin/mamba"; }
+# - name: 'Check if default env exists'
+#   shell: |
+#     [[ -d $HOME/mambaforge/envs/default ]]
+#   args:
+#     executable: /bin/bash
+#   register: default_env_exists
+#   ignore_errors: yes
 
-    conda create --name default -yq
-    conda activate default
-    mamba env update -f ./files/conda/environment.yaml
-    pip install -r ./files/conda/requirement.txt
-    conda deactivate
-  args:
-    executable: /bin/zsh
-  when: default_env_exists.rc != 0
+# - name: 'Install Default Python'
+#   shell: |
+#     # conda() { "$HOME/mambaforge/bin/conda"; }
+#     # mamba() { "$HOME/mambaforge/bin/mamba"; }
+#     export PATH="$HOME/mambaforge/bin":$PATH
+
+#     conda create --name default -yq
+#     conda activate default
+#     mamba env -n default update --file ./files/conda/environment.yaml \
+#       && pip install -r ./files/conda/requirements.txt
+#     conda deactivate
+#   args:
+#     executable: /bin/zsh
+#   when: default_env_exists.rc != 0

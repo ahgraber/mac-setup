@@ -101,7 +101,7 @@ homebrew_cask_apps:
   - git-credential-manager-core
   # - gpg-suite
   - grandperspective
-  # - hiddenbar # alternative to bartender
+  - hiddenbar # alternative to bartender
   - jupyter-notebook-viewer
   - iterm2
   # - knockknock

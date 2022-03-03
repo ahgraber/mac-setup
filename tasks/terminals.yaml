@@ -8,7 +8,7 @@
 
 - name: Ensure VSCode User directory exists.
   file:
-    path: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User"
+    path: "${HOME}/Library/Application Support/Code/User"
     owner: "{{ lookup('env', 'USER') }}"
     # group: "{{ homebrew_group }}"
     state: directory
@@ -18,7 +18,7 @@
 - name: Copy VSCode configuration
   copy:
     src: files/vscode/settings.json
-    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/settings.json"
+    dest: "${HOME}/Library/Application Support/Code/User/settings.json"
     owner: "{{ lookup('env', 'USER') }}"
     mode: '0755'
     force: no
@@ -26,7 +26,7 @@
 - name: Copy VSCode keybinding
   copy:
     src: files/vscode/keybindings.json
-    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/keybindings.json"
+    dest: "${HOME}/Library/Application Support/Code/User/keybindings.json"
     owner: "{{ lookup('env', 'USER') }}"
     mode: '0600'
     force: no
@@ -43,14 +43,14 @@
 
 - name: Ensure /Users/**/Library/Preferences folder exists
   file:
-    path: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences"
+    path: "${HOME}/Library/Preferences"
     state: directory
     mode: '0700'
 
 - name: Apply default settings to iTerm profile
   copy:
     src: 'files/iterm/com.googlecode.iterm2.plist'
-    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist"
+    dest: "${HOME}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ lookup('env', 'USER') }}"
     mode: '0600'
     force: yes
@@ -70,7 +70,7 @@
 - name: Apply default settings to Terminal profile
   copy:
     src: 'files/terminal/com.apple.Terminal.plist'
-    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.apple.Terminal.plist"
+    dest: "${HOME}/Library/Preferences/com.apple.Terminal.plist"
     owner: "{{ lookup('env', 'USER') }}"
     mode: '0600'
     force: yes

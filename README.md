@@ -79,6 +79,12 @@ The following script will autoinstall the default configuration:
 
 ## Secondary (manual) Configuration
 
+- [ ] Clean up bootstrap python
+
+  ```sh
+  rm -rf $HOME/Library/Python
+  ```
+
 - [ ] Sign into App Store and install App Store apps:
 
   ```sh

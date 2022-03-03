@@ -32,7 +32,7 @@ dependencies:
   - jenkspy
   - lightgbm
   - missingno
-  - numpy==1.20
+  - numpy==1.21
   - openpyxl
   - pandas
   # - pandas-datareader
