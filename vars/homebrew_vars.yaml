@@ -35,6 +35,7 @@ homebrew_installed_packages:
   - coreutils
   - curl
   - direnv
+  - docker
   - dockutil
   - dotnet
   - exa
@@ -82,6 +83,7 @@ homebrew_installed_packages:
   - wget
   - xz
   - yarn
+  - yq
   - zlib
   # - zsh
 
