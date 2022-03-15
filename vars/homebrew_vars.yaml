@@ -59,6 +59,7 @@ homebrew_installed_packages:
   # - mssql-tools  # requires manual license acceptance
   - mysql
   - npm
+  - openblas
   - openssh
   - openssl
   - hashicorp/tap/packer
