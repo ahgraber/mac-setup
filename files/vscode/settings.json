@@ -17,6 +17,10 @@
   "git.suggestSmartCommit": false,
   "jupyter.askForKernelRestart": false,
   "jupyter.experiments.enabled": false,
+  "jupyter.jupyterCommandLineArguments": [
+      "--port=9999",
+      "--ip=127.0.0.1"
+  ],
   "jupyter.interactiveWindowMode": "perFile",
   "jupyter.sendSelectionToInteractiveWindow": true,
   "jupyter.alwaysTrustNotebooks": true,
