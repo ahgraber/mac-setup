@@ -46,9 +46,9 @@ if [[ "$(sysctl -a | grep machdep.cpu.brand_string)" == *Apple* ]]; then
     ;;
     i386|x86_64)
       archcheck+=' (Rosetta)'
-      if [[ -f /usr/local/homebrew/bin/brew ]]; then
-        eval "$(/usr/local/homebrew/bin/brew shellenv)"
-        alias brew='/usr/local/homebrew/bin/brew'
+      if [[ -f /usr/local/bin/brew ]]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+        alias brew='/usr/local/bin/brew'
       fi
     ;;
     *)
@@ -99,13 +99,13 @@ Create an environment with a specific architecture requirement:
 ```sh
 env_name="changeme"
 # set arch for new environment
-CONDA_SUBDIR=osx-arm64 conda create -n "$env_name"
+# this is only required for Rosetta (x86) envs
+CONDA_SUBDIR=osx-64 conda create -n "$env_name"
 # ensure subsequent installs respect arch
-conda env config vars set CONDA_SUBDIR=osx-arm64 --name "$env_name"
-conda deactivate "$env_name"
-conda activate "$env_name"
-unset env_name
+conda env config vars set CONDA_SUBDIR=osx-64 --name "$env_name"
+conda deactivate "$env_name" && conda activate "$env_name"
 
-# conda activate <env_name>
-# conda install -n <env_name> ...
+conda install -n "$env_name" ...
+conda env update -n "$env_name" -f /path/to/environment.yaml
+unset env_name
 ```

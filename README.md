@@ -133,7 +133,7 @@
   | `⌃⌥⌘←` | `ctrl + opt + cmd + left`  | Move to Left Space  |
   | `⌃⌥⌘→` | `ctrl + opt + cmd + right` | Move to Right space |
 
-- [ ] Install VSCode in path: cmd+shift+P --> `Install 'code' command in PATH`
+- [ ] Install VSCode in path: in VSCode, `cmd` + `shift` + `P` --> `Install 'code' command in PATH`
 
 - [ ] Check `conda` install. If `conda` not found, run
 
@@ -159,6 +159,15 @@
     msodbcsql17 \
     mssql-tools \
   && az extension add -n ml -y
+  ```
+
+- [ ] Install brew using `Rosetta` terminal and install packages for use on the `Rosetta` side
+
+  ```sh
+  /usr/bin/arch -x86_64 /bin/zsh
+  /usr/bin/arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /usr/bin/arch -x86_64 /usr/local/bin/brew install \
+    ...
   ```
 
 - [ ] Install [`chrome web store`](https://github.com/NeverDecaf/chromium-web-store) extension for UnGoogled Chromium

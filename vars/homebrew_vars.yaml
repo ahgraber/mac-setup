@@ -1,5 +1,5 @@
 ---
-# homebrew_install_path: /usr/local/homebrew # rosetta
+# homebrew_install_path: /usr/local # rosetta
 # homebrew_install_path: /opt/homebrew # M1 native
 homebrew_folders_base:
   - Cellar
@@ -44,6 +44,7 @@ homebrew_installed_packages:
   - gcc
   - git
   - gnupg
+  - go-task
   - graphviz
   - gzip
   - htop
@@ -143,6 +144,7 @@ homebrew_cask_apps:
 homebrew_taps:
   - homebrew/cask
   - homebrew/cask-versions
+  - go-task/tap
   - fluxcd/tap
   - hashicorp/tap
   - azure/functions
