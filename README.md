@@ -37,8 +37,9 @@
 ### Prerequisites
 
 1. Give `Terminal.app` Full Disk Access privileges in System Preferences
-2. [optional, but preferable] [Uninstall prior versions of homebrew](https://github.com/homebrew/install#uninstall-homebrew)
-3. [optional] Log in to OneDrive
+2. If `conda` is installed, ensure it is deactivated (or uninstalled!) before running: `conda deactivate`
+3. [optional, but preferable] [Uninstall prior versions of homebrew](https://github.com/homebrew/install#uninstall-homebrew)
+4. [optional] Log in to OneDrive
 
 ### Install
 
