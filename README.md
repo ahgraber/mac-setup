@@ -34,16 +34,17 @@
 
 ## Quickstart
 
-## Prerequisites
+### Prerequisites
 
 1. Give `Terminal.app` Full Disk Access privileges in System Preferences
 2. [optional, but preferable] [Uninstall prior versions of homebrew](https://github.com/homebrew/install#uninstall-homebrew)
 3. [optional] Log in to OneDrive
-4. Run:
 
-   ```sh
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
-   ```
+### Install
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahgraber/mac-setup/HEAD/install.sh)"
+```
 
 ## Manual installation & configuration
 
