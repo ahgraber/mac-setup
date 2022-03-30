@@ -13,7 +13,7 @@
     - role: geerlingguy.mac.homebrew
       ### override defaults & set homebrew dirs to manage
       homebrew_prefix: "/opt/homebrew"
-      # homebrew_installed_packages: []  # uncomment to disable default packages
+      homebrew_installed_packages: []  # uncomment to disable default packages
       homebrew_cask_apps: [] # uncomment to disable default apps
       when: configure_homebrew
       tags: ["env", "homebrew"]
