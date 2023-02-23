@@ -7,7 +7,7 @@ mas_signin_dialog: false
 
 # find with `mas search <app_name>
 mas_installed_apps:
-  - { id: 417375580, name: "BetterSnapTool" }
+  # - { id: 417375580, name: "BetterSnapTool" }
   - { id: 1352778147, name: "Bitwarden" }
   - { id: 1470584107, name: "Dato" }
   - { id: 1355679052, name: "Dropover - Easier Drag & Drop" }
