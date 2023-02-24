@@ -2,15 +2,23 @@ configure_terminals: true
 vscode_extensions:
   ## find with `code --list-extensions`
   - bencoleman.armview
+  - charliermarsh.ruff
   - DavidAnson.vscode-markdownlint
   # - eamodio.gitlens
-  - editorconfig.editorconfig
+  - EditorConfig.EditorConfig
   - esbenp.prettier-vscode
   - goessner.mdmath
+  - inferrinizzard.prettier-sql-vscode
+  - koszti.snowflake-driver-for-sqltools
+  - mechatroner.rainbow-csv
+  - medo64.render-crlf
+  - mkhl.direnv
   - ms-azure-devops.azure-pipelines
+  - ms-azuretools.azure-dev
   - ms-azuretools.vscode-azureappservice
   - ms-azuretools.vscode-azurefunctions
   - ms-azuretools.vscode-azureresourcegroups
+  - ms-azuretools.vscode-azurestaticwebapps
   - ms-azuretools.vscode-azurestorage
   - ms-azuretools.vscode-azurevirtualmachines
   - ms-azuretools.vscode-bicep
@@ -19,6 +27,7 @@ vscode_extensions:
   - ms-dotnettools.vscode-dotnet-runtime
   - ms-mssql.data-workspace-vscode
   - ms-mssql.mssql
+  - ms-mssql.sql-database-projects-vscode
   - ms-python.python
   - ms-python.vscode-pylance
   - ms-toolsai.jupyter
@@ -26,16 +35,21 @@ vscode_extensions:
   - ms-toolsai.jupyter-renderers
   - ms-toolsai.vscode-ai
   - ms-toolsai.vscode-ai-remote
+  - ms-toolsai.vscode-jupyter-cell-tags
+  - ms-toolsai.vscode-jupyter-slideshow
   - ms-vscode-remote.remote-containers
   - ms-vscode.azure-account
   - ms-vscode.azurecli
+  - ms-vscode.powershell
   - ms-vscode.Theme-MaterialKit
   - ms-vscode.vscode-node-azure-pack
   - msazurermtools.azurerm-vscode-tools
+  - mtxr.sqltools
   - mutantdino.resourcemonitor
   - njpwerner.autodocstring
   - PKief.material-icon-theme
   - redhat.vscode-yaml
+  - SonarSource.sonarlint-vscode
   # - REditorSupport.r-lsp
   - timonwong.shellcheck
   - yzhang.markdown-all-in-one
