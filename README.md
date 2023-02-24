@@ -167,7 +167,7 @@
 
   ```sh
   /usr/bin/arch -x86_64 /bin/zsh
-  /usr/bin/arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /usr/bin/arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   /usr/bin/arch -x86_64 /usr/local/bin/brew install \
     ...
   ```
