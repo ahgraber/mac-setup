@@ -79,19 +79,19 @@
    bash ./scripts/prerequisites.sh
 
    # ansible + homebrew
-   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "homebrew" # -v
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "homebrew"
 
    # add homebrew to path
    export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
    # ansible + dock
-   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "dock" # -v
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "dock"
 
    # ansible + conda
-   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "conda" # -v
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "conda"
 
    # ansible + terminal customization
-   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "terminals" # -v
+   ansible-playbook playbook.yaml -i inventory --ask-become-pass --tags "terminals"
 
    # ansible + macos customization
    bash ./scripts/macos_user_settings.sh --no-restart
