@@ -1,8 +1,69 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "shift+enter",
-    "command": "workbench.action.terminal.runSelectedText",
-    "when": "editorTextFocus && editorHasSelection && !findInputFocussed && !replaceInputFocussed && editorLangId != 'python'"
+      "key": "shift+enter",
+      "command": "workbench.action.terminal.runSelectedText",
+      "when": "editorTextFocus && editorHasSelection && !findInputFocussed && !replaceInputFocussed && editorLangId != 'python'"
+  },
+  {
+      "key": "shift+cmd+u",
+      "command": "editor.action.transformToUppercase",
+      "when": "editorTextFocus"
+  },
+  {
+      "key": "shift+cmd+l",
+      "command": "editor.action.transformToLowercase",
+      "when": "editorTextFocus"
+  },
+
+  {
+      "key": "cmd+k",
+      "command": "workbench.action.terminal.clear",
+      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+
+  {
+      // pass cmd+backspace as ctrl+u
+      "key": "cmd+backspace",
+      "command": "workbench.action.terminal.sendSequence",
+      "when": "terminalFocus && terminalHasBeenCreated",
+      "args": {"text":"\u0015"}
+  },
+  {
+      "key": "ctrl+backspace",
+      "command": "workbench.action.terminal.sendSequence",
+      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+      "args": {"text":"\u0015"}
+  },
+  {
+      "key": "shift+ctrl+backspace",
+      "command": "workbench.action.terminal.sendSequence",
+      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+      "args": {"text":"\u000b"}
+  },
+  {
+      "key": "ctrl+delete",
+      "command": "workbench.action.terminal.sendSequence",
+      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+      "args": {"text":"\u000b"}
+  },
+  {
+      "key": "alt+backspace",
+      "command": "workbench.action.terminal.sendSequence",
+      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+      "args": {"text":"\u0017"}
+  },
+  {
+      "key": "shift+alt+backspace",
+      "command": "workbench.action.terminal.sendSequence",
+      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+      "args": {"text":"\u001bd"}
+  },
+  {
+      "key": "alt+delete",
+      "command": "workbench.action.terminal.sendSequence",
+      "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+      "args": {"text":"\u001bd"}
   }
+
 ]

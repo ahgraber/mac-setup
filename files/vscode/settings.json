@@ -1,101 +1,148 @@
 {
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "files.trimTrailingWhitespace": false
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      // "source.fixAll.ruff": ture,
+      "source.organizeImports.ruff": true
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.wordBasedSuggestions": false
+  },
   "autoDocstring.docstringFormat": "numpy",
+  "black-formatter.args": ["--config", "${workspaceFolder}/pyproject.toml"],
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.formatOnType": false,
   "editor.minimap.enabled": false,
-  "editor.rulers": [79, 119],
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    79,
+    119
+  ],
+  "editor.smoothScrolling": true,
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
+  "git.autoStash": true,
   "git.confirmSync": false,
   "git.suggestSmartCommit": false,
+  "interactiveWindow.alwaysScrollOnNewCell": true,
+  "html.format.indentInnerHtml": true,
   "jupyter.askForKernelRestart": false,
+  "jupyter.excludeUserSitePackages": true,
   "jupyter.experiments.enabled": false,
-  "jupyter.jupyterCommandLineArguments": [
-      "--port=9999",
-      "--ip=127.0.0.1"
-  ],
-  "jupyter.interactiveWindowMode": "perFile",
-  "jupyter.sendSelectionToInteractiveWindow": true,
-  "jupyter.alwaysTrustNotebooks": true,
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  "jupyter.jupyterCommandLineArguments": ["--port=9999", "--ip=127.0.0.1"],
+  "jupyter.runStartupCommands": ["$load_ext autoreload", "%autoreload 2"],
   "markdown.extension.list.indentationSize": "adaptive",
   "markdown.extension.math.enabled": true,
   "mssql.connections": [
     {
-      "server": "{{put-server-name-here}}",
       "database": "{{put-database-name-here}}",
-      "user": "{{put-username-here}}",
-      "password": ""
+      "password": "",
+      "server": "{{put-server-name-here}}",
+      "user": "{{put-username-here}}"
     }
   ],
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
   },
+  "notebook.output.textLineLimit": 42,
+  "output.smartScroll.enabled": false,
   "prettier.configPath": ".prettierrc",
   "prettier.printWidth": 120,
   "prettier.semi": false,
+  "python.analysis.autoSearchPaths": true,
   "python.analysis.completeFunctionParens": true,
-  "python.analysis.memory.keepLibraryAst": true,
+  "python.analysis.extraPaths": ["${workspaceFolder"],
+  "python.defaultInterpreterPath": "/Users/mithras/mambaforge/envs/jupyterlab/bin/python",
   "python.experiments.enabled": false,
   "python.experiments.optInto": [],
-  "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
-  "python.formatting.provider": "black",
+  "python.formatting.autopep8Args": [
+    "--max-line-length",
+    "120",
+    "--experimental"
+  ],
   "python.formatting.blackArgs": [
     "line-length = 100",
     "include = '\\.pyi?$|\\.ipynb$'",
     "extend-exclude = '''/( \\.git | \\.hg | \\.ipynb_checkpoints$ | \\.mypy_cache | \\.tox | \\.venv | _build | buck-out | build | dist )/'''"
   ],
+  "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.ignorePatterns": [".vscode/*"],
-  "python.linting.flake8Args": [
-    "ignore = E203, E265, E266, E501, W503, F403, F401, F541",
-    "select = B,C,E,F,N,W,T4,B9,C4",
-    "max-complexity = 18",
-    "max-line-length = 119"
+  "python.linting.ignorePatterns": [
+    ".vscode/*"
   ],
-  "python.showStartPage": false,
+  "python.linting.pylintEnabled": false,
+  "python.pythonPath": "/Users/mithras/mambaforge/bin/python",
   "python.testing.pytestEnabled": true,
-  "[python]": {
-    "editor.wordBasedSuggestions": false
-  },
   "redhat.telemetry.enabled": false,
-  "team.showWelcomeMessage": false,
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
-  "terminal.integrated.inheritEnv": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "shellcheck.executablePath": "/opt/homebrew/bin/shellcheck",
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src",
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src",
+  },
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${env:PYTHONPATH};${workspaceFolder}/src",
+  },
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 13,
-  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.inheritEnv": false,
   "terminal.integrated.persistentSessionScrollback": 10000,
-  "terminal.integrated.scrollback": 10000,
-  "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.profiles.osx": {
     "x86 zsh": {
-      "path": "/usr/bin/arch",
-      "args": ["-arch", "x86_64", "/bin/zsh"]
+      "args": [
+        "-arch",
+        "x86_64",
+        "/bin/zsh"
+      ],
+      "path": "/usr/bin/arch"
     }
   },
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.terminal.sendSequence"
+  ],
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.sendKeybindingsToShell": false, // false for keybindings
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.shellIntegration.enabled": true,
   "vs-kubernetes": {
-    "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
-    "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl"
+    "vs-kubernetes.crd-code-completion": "disabled",
+    "vs-kubernetes.knownKubeconfigs": [
+      "/Users/mithras/_Git/homelab-gitops-k3s/kubeconfig"
+    ],
+    "vs-kubernetes.kubeconfig": "/Users/mithras/_Git/homelab-gitops-k3s/kubeconfig",
+    "vscode-kubernetes.helm-path.mac": "/opt/homebrew/bin/helm",
+    "vscode-kubernetes.kubectl-path.mac": "/opt/homebrew/bin/kubectl"
   },
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
-  "workbench.iconTheme": "material-icon-theme",
+  "vscode-kubernetes.helm-path": "/opt/homebrew/bin/helm",
+  "vscode-kubernetes.helm-path.mac": "/opt/homebrew/bin/helm",
+  "vscode-kubernetes.kubectl-path": "/opt/homebrew/bin/kubectl",
+  "vscode-kubernetes.kubectl-path.mac": "/opt/homebrew/bin/kubectl",
   "workbench.colorTheme": "Material Night Eighties",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.enableExperiments": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
-  "security.workspace.trust.untrustedFiles": "open",
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  }
 }
