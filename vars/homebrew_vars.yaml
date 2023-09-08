@@ -38,7 +38,7 @@ homebrew_installed_packages:
   - docker
   - dockutil
   - dotnet
-  - exa
+  - eza
   # - fluxcd/tap/flux
   - fzf
   - gcc

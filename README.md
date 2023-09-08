@@ -14,7 +14,7 @@
 
 - Installs a variety of [command line tools](vars/homebrew_vars.yaml), notably:
   - [`bat`](https://github.com/sharkdp/bat) - Clone of cat(1) with syntax highlighting and Git integration
-  - [`exa`](https://the.exa.website/) - Modern replacement for 'ls'
+  - [`eza`](https://the.eza.website/) - Modern replacement for 'ls'
   - [`direnv`](https://direnv.net/) - Load/unload environment variables based on $PWD
   - developer tools like `gcc`, `git`, `jq`, etc
 - Installs applications via [brew](vars/homebrew_vars.yaml) and [App Store](vars/appstore_vars.yaml), notably:
